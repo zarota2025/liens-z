@@ -22,9 +22,16 @@ header{
 }
 
 .logo{
-    font-size:28px;
-    font-weight:bold;
-    color:#ff7300;
+    display:flex;
+    align-items:center;
+}
+
+.logo img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    display:block;
+}
 }
 
 nav a{
