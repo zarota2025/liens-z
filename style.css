@@ -271,3 +271,20 @@ nav a{
     font-size:20px;
     padding:10px 15px 0;
 }
+.search-section{
+    width:100%;
+    padding:25px;
+    background:#ffffff;
+    text-align:center;
+}
+
+.search-section input{
+    width:90%;
+    max-width:700px;
+    padding:16px 20px;
+    border:none;
+    outline:none;
+    border-radius:40px;
+    box-shadow:0 5px 18px rgba(0,0,0,.15);
+    font-size:18px;
+}
