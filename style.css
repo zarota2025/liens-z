@@ -251,3 +251,23 @@ nav a{
     border-radius:8px;
     font-weight:bold;
 }
+.price{
+    font-size:26px;
+    font-weight:bold;
+    color:#ff7300;
+    padding:0 15px;
+    margin-top:10px;
+}
+
+.price span{
+    color:#999;
+    text-decoration:line-through;
+    font-size:18px;
+    margin-left:10px;
+}
+
+.stars{
+    color:#FFD700;
+    font-size:20px;
+    padding:10px 15px 0;
+}
