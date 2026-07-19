@@ -12,13 +12,12 @@ body{
 
 header{
     background:#0b2a66;
-    color:white;
-    padding:18px 8%;
+    color:#fff;
+    padding:15px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    position:sticky;
-    top:0;
+    flex-wrap:wrap;
 }
 
 .logo{
@@ -30,19 +29,20 @@ header{
 .logo img{
     width:70px;
     height:70px;
-    object-fit:contain;
+    border-radius:10px;
 }
 
 .logo span{
     color:#fff;
-    font-size:32px;
-    font-weight:bold;
+    font-size:38px;
+    font-weight:700;
+    white-space:nowrap;
 }
-
 
 nav{
     display:flex;
-    gap:25px;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
 nav a{
