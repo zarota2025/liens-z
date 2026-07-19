@@ -346,3 +346,23 @@ font-size:18px;
 background:#ff5c00;
 
 }
+@media (max-width:768px){
+
+    .header{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .search-box{
+        width:100%;
+    }
+
+    .search-box input{
+        width:100%;
+    }
+
+    nav{
+        gap:20px;
+    }
+
+}
