@@ -50,7 +50,11 @@ body{
 
 nav{
     display:flex;
-    gap:30px;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:20px;
 }
 
 nav a{
@@ -60,6 +64,7 @@ nav a{
     font-weight:600;
     transition:.3s;
     position:relative;
+    padding:5px 0;
 }
 
 nav a::after{
