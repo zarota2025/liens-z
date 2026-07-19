@@ -138,18 +138,21 @@ nav a{
 }
 
 .slide img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter: brightness(55%);
 }
 
 .slide-content{
     position: absolute;
     top: 50%;
-    left: 8%;
+    left: 40px;
     transform: translateY(-50%);
-    color: #fff;
-    max-width: 500px;
+    color: white;
+    max-width: 450px;
+    z-index: 2;
+    text-shadow: 0 3px 10px rgba(0,0,0,.8);
 }
 
 .slide-content h1{
