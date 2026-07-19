@@ -204,3 +204,50 @@ nav a{
     font-weight:bold;
     letter-spacing:1px;
 }
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 12px 30px rgba(0,0,0,.18);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:15px 15px 5px;
+    color:#0b2a66;
+}
+
+.card p{
+    padding:0 15px;
+    color:#666;
+}
+
+.buy-btn{
+    display:block;
+    margin:20px 15px;
+    padding:12px;
+    background:#ff7300;
+    color:white;
+    text-align:center;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
