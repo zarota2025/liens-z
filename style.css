@@ -10,14 +10,21 @@ body{
     color:#222;
 }
 
-header{
-    background:#0b2a66;
-    color:#fff;
-    padding:15px 20px;
+/* ===== HEADER ===== */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
-    flex-wrap:wrap;
+
+    padding:16px 40px;
+
+    background:#0b2a66;
+    box-shadow:0 6px 20px rgba(0,0,0,.18);
 }
 
 .logo{
@@ -27,35 +34,78 @@ header{
 }
 
 .logo img{
-    width:70px;
-    height:70px;
-    border-radius:10px;
+    width:65px;
+    height:65px;
+    border-radius:12px;
+    object-fit:cover;
 }
 
 .logo span{
     color:#fff;
-    font-size:38px;
-    font-weight:700;
+    font-size:32px;
+    font-weight:800;
+    letter-spacing:2px;
     white-space:nowrap;
 }
 
 nav{
     display:flex;
-    gap:20px;
-    flex-wrap:wrap;
+    gap:30px;
 }
 
 nav a{
     color:#fff;
     text-decoration:none;
     font-size:18px;
-    font-weight:bold;
+    font-weight:600;
+    transition:.3s;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0%;
+    height:3px;
+    background:#ff7300;
+    transition:.3s;
 }
 
 nav a:hover{
     color:#ff7300;
 }
 
+nav a:hover::after{
+    width:100%;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+.header{
+    flex-direction:column;
+    gap:18px;
+    padding:15px;
+}
+
+.logo span{
+    font-size:28px;
+}
+
+nav{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+}
+
+nav a{
+    font-size:17px;
+}
+
+}
 
 .hero{
     text-align:center;
