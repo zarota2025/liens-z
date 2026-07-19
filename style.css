@@ -24,33 +24,38 @@ header{
 .logo{
     display:flex;
     align-items:center;
+    gap:15px;
 }
 
 .logo img{
     width:70px;
     height:70px;
     object-fit:contain;
-    display:block;
 }
+
+.logo span{
+    color:#fff;
+    font-size:32px;
+    font-weight:bold;
+}
+
+
+nav{
+    display:flex;
+    gap:25px;
 }
 
 nav a{
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0 12px;
-    transition: 0.3s;
+    color:#fff;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
 }
 
 nav a:hover{
-    color: #ff7300;
+    color:#ff7300;
 }
 
-nav a:visited{
-    color: #ffffff;
-}
-}
 
 .hero{
     text-align:center;
