@@ -59,6 +59,8 @@ cartItems.innerHTML += `
 
 <div class="cart-item">
 
+<img src="${product.image}" alt="${product.name}">
+
 <div class="cart-info">
 
 <h3>${product.name}</h3>
@@ -66,9 +68,7 @@ cartItems.innerHTML += `
 <p>$${product.price}</p>
 
 <button onclick="removeItem(${index})" class="buy-btn">
-
-Remove
-
+🗑 Remove
 </button>
 
 </div>
