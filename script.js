@@ -59,13 +59,14 @@ favorites.forEach(favorite => {
         favoriteCounter.textContent = "❤️ " + favoriteCount;
 
     });
-
-});
 // ===== Shopping Cart =====
 
-let cartCount = 0;
-
 const cartCounter = document.getElementById("cart-count");
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cartCounter.textContent = "🛒 " + cart.length;
+
 const buyButtons = document.querySelectorAll(".buy-btn");
 
 buyButtons.forEach(button => {
@@ -74,11 +75,18 @@ buyButtons.forEach(button => {
 
         e.preventDefault();
 
-        cartCount++;
+        const product = {
+            name: button.dataset.name,
+            price: button.dataset.price
+        };
 
-        cartCounter.textContent = "🛒 " + cartCount;
+        cart.push(product);
 
-        alert("✅ Product added to cart!");
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        cartCounter.textContent = "🛒 " + cart.length;
+
+        alert(product.name + " added to cart ✅");
 
     });
 
