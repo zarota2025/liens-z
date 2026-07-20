@@ -622,3 +622,29 @@ background:#ff5c00;
 .buy-btn:hover{
     background:#e66100;
 }
+.favorite{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    transition:0.3s;
+    user-select:none;
+}
+
+.favorite:hover{
+    transform:scale(1.15);
+}
+
+.favorite.active{
+    background:#ff4d6d;
+    color:white;
+}
