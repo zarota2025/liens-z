@@ -61,3 +61,25 @@ favorites.forEach(favorite => {
     });
 
 });
+// ===== Shopping Cart =====
+
+let cartCount = 0;
+
+const cartCounter = document.getElementById("cart-count");
+const buyButtons = document.querySelectorAll(".buy-btn");
+
+buyButtons.forEach(button => {
+
+    button.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        cartCount++;
+
+        cartCounter.textContent = "🛒 " + cartCount;
+
+        alert("✅ Product added to cart!");
+
+    });
+
+});
