@@ -12,7 +12,9 @@ function renderCart() {
     let totalPrice = 0;
 
     cart.forEach((product, index) => {
-
+if (!product.quantity) {
+    product.quantity = 1;
+}
         totalPrice += product.price * product.quantity;
 
         cartItems.innerHTML += `
