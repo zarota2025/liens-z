@@ -40,11 +40,23 @@ showSlide(index);
 
 const favorites = document.querySelectorAll(".favorite");
 
+let favoriteCount = 0;
+
+const favoriteCounter = document.getElementById("favorite-count");
+
 favorites.forEach(favorite => {
 
     favorite.addEventListener("click", () => {
 
+        if(favorite.classList.contains("active")){
+            favoriteCount--;
+        }else{
+            favoriteCount++;
+        }
+
         favorite.classList.toggle("active");
+
+        favoriteCounter.textContent = "❤️ " + favoriteCount;
 
     });
 
