@@ -36,3 +36,16 @@ showSlide(index);
 });
 
 });
+// ===== Favorites =====
+
+const favorites = document.querySelectorAll(".favorite");
+
+favorites.forEach(favorite => {
+
+    favorite.addEventListener("click", () => {
+
+        favorite.classList.toggle("active");
+
+    });
+
+});
