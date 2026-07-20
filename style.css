@@ -670,3 +670,26 @@ background:#ff5c00;
     background:#ff7300;
     color:white;
 }
+.card{
+    position:relative;
+}
+
+.favorite{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    transition:.3s;
+}
+
+.favorite.active{
+    color:red;
+    transform:scale(1.1);
+}
