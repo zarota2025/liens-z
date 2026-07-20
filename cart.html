@@ -34,27 +34,63 @@
 
 <h1>🛒 Shopping Cart</h1>
 
-<div class="cart-item">
+<div id="cart-items"></div>
 
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300" alt="Phone">
-
-<div class="cart-info">
-
-<h3>iPhone 15 Pro</h3>
-
-<p>$799</p>
-
-<button class="buy-btn">Remove</button>
-
-</div>
-
-</div>
-
-<h2>Total: $799</h2>
+<h2 id="cart-total">Total: $0</h2>
 
 <a href="#" class="btn">Proceed to Checkout</a>
 
 </section>
+<script>
 
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const cartItems = document.getElementById("cart-items");
+
+const total = document.getElementById("cart-total");
+
+let totalPrice = 0;
+
+cart.forEach((product,index)=>{
+
+totalPrice += Number(product.price);
+
+cartItems.innerHTML += `
+
+<div class="cart-item">
+
+<div class="cart-info">
+
+<h3>${product.name}</h3>
+
+<p>$${product.price}</p>
+
+<button onclick="removeItem(${index})" class="buy-btn">
+
+Remove
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+total.textContent = "Total: $" + totalPrice;
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+location.reload();
+
+}
+
+</script>
 </body>
 </html>
