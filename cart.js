@@ -24,11 +24,23 @@ function renderCart() {
 
                     <h3>${product.name}</h3>
 
-                    <p>$${product.price}</p>
+                    <p>Price: $${product.price}</p>
 
-                    <button class="buy-btn" onclick="removeItem(${index})">
-                        🗑 Remove
-                    </button>
+<div class="quantity">
+
+<button onclick="decreaseQuantity(${index})">➖</button>
+
+<span>${product.quantity}</span>
+
+<button onclick="increaseQuantity(${index})">➕</button>
+
+</div>
+
+<p><strong>Subtotal: $${product.price * product.quantity}</strong></p>
+
+<button class="buy-btn" onclick="removeItem(${index})">
+🗑 Remove
+</button>
 
                 </div>
 
@@ -49,3 +61,30 @@ function removeItem(index) {
 }
 
 renderCart();
+function increaseQuantity(index){
+
+    cart[index].quantity++;
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    renderCart();
+
+}
+
+function decreaseQuantity(index){
+
+    if(cart[index].quantity > 1){
+
+        cart[index].quantity--;
+
+    }else{
+
+        cart.splice(index,1);
+
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    renderCart();
+
+}
