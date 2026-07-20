@@ -648,3 +648,25 @@ background:#ff5c00;
     background:#ff4d6d;
     color:white;
 }
+.icons{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.icons span{
+    background:white;
+    color:#0b2a66;
+    padding:8px 15px;
+    border-radius:30px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 5px 12px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.icons span:hover{
+    transform:translateY(-2px);
+    background:#ff7300;
+    color:white;
+}
