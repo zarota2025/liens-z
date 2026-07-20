@@ -674,12 +674,13 @@ background:#ff5c00;
     display:inline-flex;
     align-items:center;
     justify-content:center;
+    width:130px;
+    height:70px;
     background:white;
     color:#0b2a66;
     text-decoration:none;
-    padding:10px 20px;
     border-radius:40px;
-    font-size:28px;
+    font-size:22px;
     font-weight:bold;
     transition:.3s;
 }
