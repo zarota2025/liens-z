@@ -766,3 +766,33 @@ background:#ff5c00;
     min-width:30px;
     text-align:center;
 }
+.cart-item{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    background:#fff;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.cart-item img{
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+.cart-info{
+    flex:1;
+}
+
+.cart-info h3{
+    color:#0b2a66;
+    margin-bottom:10px;
+}
+
+.cart-info p{
+    margin:8px 0;
+}
