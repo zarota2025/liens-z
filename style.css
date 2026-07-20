@@ -670,3 +670,21 @@ background:#ff5c00;
     background:#ff7300;
     color:white;
 }
+#cart-count{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:white;
+    color:#0b2a66;
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:40px;
+    font-size:28px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+#cart-count:hover{
+    background:#ff7300;
+    color:white;
+}
