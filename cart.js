@@ -13,7 +13,7 @@ function renderCart() {
 
     cart.forEach((product, index) => {
 
-        totalPrice += Number(product.price);
+        totalPrice += product.price * product.quantity;
 
         cartItems.innerHTML += `
             <div class="cart-item">
