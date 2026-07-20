@@ -1,3 +1,5 @@
+// ===== Slider =====
+
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
 
@@ -5,37 +7,38 @@ let current = 0;
 
 function showSlide(index){
 
-slides.forEach(slide=>slide.classList.remove("active"));
-dots.forEach(dot=>dot.classList.remove("active"));
+    slides.forEach(slide => slide.classList.remove("active"));
+    dots.forEach(dot => dot.classList.remove("active"));
 
-slides[index].classList.add("active");
-dots[index].classList.add("active");
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
 
-current=index;
-
+    current = index;
 }
 
-setInterval(()=>{
+setInterval(() => {
 
-current++;
+    current++;
 
-if(current>=slides.length){
-current=0;
-}
+    if(current >= slides.length){
+        current = 0;
+    }
 
-showSlide(current);
+    showSlide(current);
 
 },4000);
 
 dots.forEach((dot,index)=>{
 
-dot.addEventListener("click",()=>{
+    dot.addEventListener("click",()=>{
 
-showSlide(index);
+        showSlide(index);
+
+    });
 
 });
 
-});
+
 // ===== Favorites =====
 
 const favorites = document.querySelectorAll(".favorite");
@@ -44,9 +47,9 @@ let favoriteCount = 0;
 
 const favoriteCounter = document.getElementById("favorite-count");
 
-favorites.forEach(favorite => {
+favorites.forEach(favorite=>{
 
-    favorite.addEventListener("click", () => {
+    favorite.addEventListener("click",()=>{
 
         if(favorite.classList.contains("active")){
             favoriteCount--;
@@ -59,6 +62,10 @@ favorites.forEach(favorite => {
         favoriteCounter.textContent = "❤️ " + favoriteCount;
 
     });
+
+});
+
+
 // ===== Shopping Cart =====
 
 const cartCounter = document.getElementById("cart-count");
@@ -69,20 +76,23 @@ cartCounter.textContent = "🛒 " + cart.length;
 
 const buyButtons = document.querySelectorAll(".buy-btn");
 
-buyButtons.forEach(button => {
+buyButtons.forEach(button=>{
 
-    button.addEventListener("click", (e) => {
+    button.addEventListener("click",(e)=>{
 
         e.preventDefault();
 
         const product = {
+
             name: button.dataset.name,
+
             price: button.dataset.price
+
         };
 
         cart.push(product);
 
-        localStorage.setItem("cart", JSON.stringify(cart));
+        localStorage.setItem("cart",JSON.stringify(cart));
 
         cartCounter.textContent = "🛒 " + cart.length;
 
