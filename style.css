@@ -743,20 +743,22 @@ background:#ff5c00;
 }
 
 .quantity button{
-    width:35px;
-    height:35px;
+    width:45px;
+    height:45px;
     border:none;
     border-radius:50%;
-    background:#0b2a66;
-    color:white;
+    background:#ff7300;
+    color:#fff;
     cursor:pointer;
-    font-size:18px;
+    font-size:24px;
+    font-weight:bold;
     transition:.3s;
 }
-
 .quantity button:hover{
-    background:#ff7300;
+    background:#e66600;
+    transform:scale(1.1);
 }
+
 
 .quantity span{
     font-size:20px;
