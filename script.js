@@ -83,12 +83,10 @@ buyButtons.forEach(button=>{
         e.preventDefault();
 
         const product = {
-
-            name: button.dataset.name,
-
-            price: button.dataset.price
-
-        };
+    name: button.dataset.name,
+    price: button.dataset.price,
+    image: button.dataset.image
+};
 
         cart.push(product);
 
