@@ -816,7 +816,6 @@ background:#ff5c00;
 .category-btn{
     width:100px;
     height:100px;
-    }
     background:#fff;
     border-radius:20px;
     display:flex;
@@ -831,13 +830,11 @@ background:#ff5c00;
 
 .category-btn span{
     font-size:36px;
-}
     margin-bottom:10px;
 }
 
 .category-btn p{
     font-size:15px;
-}
     font-weight:700;
     color:#0b2a66;
 }
