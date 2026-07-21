@@ -86,14 +86,26 @@
 </section>
 
 </section>
+<section class="categories">
 
+<button class="category-btn active" data-category="all">All</button>
+
+<button class="category-btn" data-category="phones">📱 Phones</button>
+
+<button class="category-btn" data-category="shoes">👟 Shoes</button>
+
+<button class="category-btn" data-category="headphones">🎧 Headphones</button>
+
+</section>
 <section id="products" class="products">
 
 <h2>🔥 Featured Products</h2>
 
 <div class="products-grid" id="products-grid">
 
-<div class="card" data-name="iphone apple phone ios">
+<div class="card"
+     data-name="iphone apple phone ios"
+     data-category="phones">
 <button class="favorite">❤</button>
 <span class="discount">-20%</span>
 <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600" alt="Phone">
@@ -117,7 +129,9 @@
 
 </div>
 
-<div class="card" data-name="nike shoes sport">
+<div class="card"
+     data-name="nike shoes sport"
+     data-category="shoes">
 <button class="favorite">❤</button>
 <span class="discount">-35%</span>
 
@@ -142,7 +156,9 @@
 
 </div>
 
-<div class="card" data-name="sony headphones audio">
+<div class="card"
+     data-name="sony headphones audio"
+     data-category="headphones">
 <button class="favorite">❤</button>
 <span class="discount">-15%</span>
 
