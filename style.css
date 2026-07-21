@@ -802,3 +802,30 @@ background:#ff5c00;
     font-size:18px;
     border-radius:12px;
 }
+/* ===== Categories ===== */
+
+.categories{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:40px 0;
+}
+
+.category-btn{
+    padding:12px 22px;
+    border:none;
+    border-radius:30px;
+    background:#fff;
+    color:#0b2a66;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.category-btn:hover,
+.category-btn.active{
+    background:#ff7300;
+    color:#fff;
+}
