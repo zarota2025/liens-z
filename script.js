@@ -129,3 +129,35 @@ searchInput.addEventListener("keyup", () => {
     });
 
 });
+// ===== Categories =====
+
+const categoryButtons = document.querySelectorAll(".category-btn");
+
+categoryButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        // إزالة التفعيل من جميع الأزرار
+        categoryButtons.forEach(btn => btn.classList.remove("active"));
+
+        // تفعيل الزر الحالي
+        button.classList.add("active");
+
+        const category = button.dataset.category;
+
+        cards.forEach(card => {
+
+            if (
+                category === "all" ||
+                card.dataset.category === category
+            ) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+    });
+
+});
