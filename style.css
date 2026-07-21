@@ -851,3 +851,21 @@ background:#ff5c00;
 .category-btn.active p{
     color:#fff;
 }
+/* ===== Product Badge ===== */
+
+.badge{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:#ff7300;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    z-index:2;
+}
+
+.badge.new{
+    background:#00b894;
+}
