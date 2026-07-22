@@ -2,16 +2,26 @@ const products = {
 
     iphone15: {
 
-        name: "iPhone 15 Pro",
+    name: "iPhone 15 Pro",
 
-        price: "$799",
+    price: "$799",
 
-        image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900",
+    images: [
 
-        description:
-        "The latest Apple smartphone with A17 Pro chip, 48MP camera and Super Retina XDR display."
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900",
 
-    },
+        "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900",
+
+        "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900",
+
+        "https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=900"
+
+    ],
+
+    description:
+    "The latest Apple smartphone with A17 Pro chip, 48MP camera and Super Retina XDR display."
+
+},
 
     nike: {
 
