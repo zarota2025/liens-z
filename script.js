@@ -161,3 +161,46 @@ categoryButtons.forEach(button => {
     });
 
 });
+// ===== Quick View Modal =====
+
+const modal = document.getElementById("product-modal");
+const closeModal = document.querySelector(".close-modal");
+
+const modalImage = document.getElementById("modal-image");
+const modalName = document.getElementById("modal-name");
+const modalPrice = document.getElementById("modal-price");
+
+const viewButtons = document.querySelectorAll(".view-btn");
+
+viewButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const card = button.closest(".card");
+
+        modalImage.src = card.querySelector("img").src;
+        modalName.textContent = card.querySelector("h3").textContent;
+        modalPrice.textContent =
+            card.querySelector(".new-price").textContent;
+
+        modal.style.display = "flex";
+
+    });
+
+});
+
+closeModal.addEventListener("click", () => {
+
+    modal.style.display = "none";
+
+});
+
+window.addEventListener("click", (e) => {
+
+    if(e.target === modal){
+
+        modal.style.display = "none";
+
+    }
+
+});
