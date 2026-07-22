@@ -597,11 +597,12 @@ background:#ff5c00;
 .discount{
     position:absolute;
     top:15px;
-    left:15px;
+    right:15px;
     background:#ff7300;
-    color:white;
-    padding:8px 14px;
-    border-radius:30px;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
     font-weight:bold;
     z-index:2;
 }
@@ -857,7 +858,7 @@ background:#ff5c00;
     position:absolute;
     top:15px;
     left:15px;
-    background:#ff7300;
+    background:#00b894;
     color:#fff;
     padding:6px 12px;
     border-radius:20px;
