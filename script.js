@@ -177,6 +177,19 @@ viewButtons.forEach(button => {
 
     button.addEventListener("click", () => {
 
+    alert("Button Clicked");
+
+    const card = button.closest(".card");
+
+    modalImage.src = card.querySelector("img").src;
+    modalName.textContent = card.querySelector("h3").textContent;
+    modalPrice.textContent =
+        card.querySelector(".new-price").textContent;
+
+    modal.style.display = "flex";
+
+});
+
         const card = button.closest(".card");
 
         modalImage.src = card.querySelector("img").src;
