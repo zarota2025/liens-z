@@ -25,29 +25,49 @@ const products = {
 
     nike: {
 
-        name: "Nike Shoes",
+    name: "Nike Shoes",
 
-        price: "$120",
+    price: "$120",
 
-        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900",
+    images: [
 
-        description:
-        "Comfortable sports shoes with lightweight design for running and daily use."
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900",
 
-    },
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900",
+
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900",
+
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900"
+
+    ],
+
+    description:
+    "Comfortable sports shoes with lightweight design for running and daily use."
+
+},
 
     sony: {
 
-        name: "Sony Headphones",
+    name: "Sony Headphones",
 
-        price: "$149",
+    price: "$149",
 
-        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900",
+    images: [
 
-        description:
-        "Premium wireless headphones with crystal clear sound and noise cancelling."
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900",
 
-    }
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900",
+
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900",
+
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900"
+
+    ],
+
+    description:
+    "Premium wireless headphones with crystal clear sound and noise cancelling."
+
+},
 
 };
 
