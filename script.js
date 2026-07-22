@@ -171,7 +171,7 @@ const modalName = document.getElementById("modal-name");
 const modalPrice = document.getElementById("modal-price");
 
 const viewButtons = document.querySelectorAll(".view-btn");
-
+alert("Buttons found: " + viewButtons.length);
 viewButtons.forEach(button => {
 
     button.addEventListener("click", () => {
