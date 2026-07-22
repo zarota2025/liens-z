@@ -170,12 +170,24 @@ const modalImage = document.getElementById("modal-image");
 const modalName = document.getElementById("modal-name");
 const modalPrice = document.getElementById("modal-price");
 
-const viewButtons = document.querySelectorAll(".view-btn");
+const viewButtons = document.querySelectorAll(".card-overlay");
 
 alert("Buttons found: " + viewButtons.length);
 viewButtons.forEach(button => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener("click", function () {
+
+    alert("Clicked");
+
+    const card = this.closest(".card");
+
+    modalImage.src = card.querySelector("img").src;
+    modalName.textContent = card.querySelector("h3").textContent;
+    modalPrice.textContent = card.querySelector(".new-price").textContent;
+
+    modal.style.display = "flex";
+
+});
 
     alert("Button Clicked");
 
