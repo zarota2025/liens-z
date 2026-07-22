@@ -169,7 +169,7 @@ const closeModal = document.querySelector(".close-modal");
 const modalImage = document.getElementById("modal-image");
 const modalName = document.getElementById("modal-name");
 const modalPrice = document.getElementById("modal-price");
-
+/*
 const viewButtons = document.querySelectorAll(".view-btn");
 
 console.log("Buttons:", viewButtons.length);
@@ -207,3 +207,4 @@ window.addEventListener("click", function (e) {
     }
 
 });
+*/
