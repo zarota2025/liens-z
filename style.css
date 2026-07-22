@@ -870,3 +870,65 @@ background:#ff5c00;
 .badge.new{
     background:#00b894;
 }
+/* ===== Card Overlay ===== */
+
+.card{
+    position:relative;
+    overflow:hidden;
+}
+
+.card-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.card:hover .card-overlay{
+
+    opacity:1;
+
+}
+
+.view-btn{
+
+    border:none;
+
+    background:white;
+
+    color:#0b2a66;
+
+    padding:14px 24px;
+
+    border-radius:30px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.view-btn:hover{
+
+    background:#ff7300;
+
+    color:white;
+
+}
