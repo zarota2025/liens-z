@@ -61,8 +61,47 @@ const product = products[id];
 
 if(product){
 
-document.getElementById("main-image").src = product.image;
+const mainImage = document.getElementById("main-image");
 
+mainImage.src = product.images[0];
+
+const thumbs = [
+
+document.getElementById("thumb1"),
+
+document.getElementById("thumb2"),
+
+document.getElementById("thumb3"),
+
+document.getElementById("thumb4")
+
+];
+
+thumbs.forEach((thumb,index)=>{
+
+    if(product.images[index]){
+
+        thumb.src = product.images[index];
+
+        thumb.onclick = ()=>{
+
+            mainImage.src = product.images[index];
+
+            document
+                .querySelectorAll(".thumbnail")
+                .forEach(t=>t.classList.remove("active"));
+
+            thumb.classList.add("active");
+
+        };
+
+    }else{
+
+        thumb.style.display="none";
+
+    }
+
+});
 document.getElementById("product-name").textContent = product.name;
 
 document.getElementById("product-price").textContent = product.price;
