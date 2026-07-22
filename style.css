@@ -1105,3 +1105,79 @@ opacity:1;
 .buy-btn:hover{
     background:#e86400;
 }
+/* ===== Product Page ===== */
+
+.product-page{
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.product-page img{
+    width:100%;
+    max-width:450px;
+    margin:auto;
+    display:block;
+    border-radius:20px;
+}
+
+.product-info h1{
+    font-size:42px;
+    color:#0b2a66;
+    margin-bottom:15px;
+}
+
+.product-price{
+    font-size:40px;
+    color:#ff7300;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+.product-info p{
+    font-size:20px;
+    line-height:1.8;
+    color:#444;
+}
+
+.product-info .buy-btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:18px 40px;
+    font-size:22px;
+}
+
+/* الهاتف */
+
+@media(max-width:768px){
+
+.product-page{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.product-page img{
+    max-width:320px;
+}
+
+.product-info h1{
+    font-size:34px;
+}
+
+.product-price{
+    font-size:34px;
+}
+
+.product-info p{
+    font-size:18px;
+}
+
+.product-info .buy-btn{
+    width:100%;
+}
+
+}
