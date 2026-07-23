@@ -189,3 +189,40 @@ quantityText.textContent = quantity;
 }
 
 });
+// ===== Add To Cart =====
+
+const addCartBtn = document.getElementById("add-cart");
+
+addCartBtn.addEventListener("click", () => {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingProduct = cart.find(item => item.id === product.id);
+
+    if(existingProduct){
+
+        existingProduct.quantity += quantity;
+
+    }else{
+
+        cart.push({
+
+            id: product.id,
+
+            name: product.name,
+
+            price: Number(product.price.replace("$","")),
+
+            image: product.images ? product.images[0] : product.image,
+
+            quantity: quantity
+
+        });
+
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(quantity + " × " + product.name + " added to cart ✅");
+
+});
