@@ -102,8 +102,7 @@ if (existingProduct) {
 
         cartCounter.textContent = "🛒 " + cart.length;
 
-        alert(product.name + " added to cart ✅");
-
+        showToast(product.name + " added to cart 🛒");
     });
 
 });
