@@ -129,3 +129,34 @@ document.getElementById("product-price").textContent = product.price;
 document.getElementById("product-description").textContent = product.description;
 
 }
+// ===== Colors =====
+
+const colorButtons = document.querySelectorAll(".color-btn");
+
+colorButtons.forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+colorButtons.forEach(btn=>btn.classList.remove("active"));
+
+button.classList.add("active");
+
+});
+
+});
+
+// ===== Storage =====
+
+const storageButtons = document.querySelectorAll(".storage-btn");
+
+storageButtons.forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+storageButtons.forEach(btn=>btn.classList.remove("active"));
+
+button.classList.add("active");
+
+});
+
+});
