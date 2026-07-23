@@ -1319,3 +1319,56 @@ color:white;
 border-color:#ff7300;
 
 }
+/* ===== Quantity ===== */
+
+.quantity-selector{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+margin:20px 0;
+
+}
+
+.quantity-selector button{
+
+width:45px;
+
+height:45px;
+
+font-size:24px;
+
+border:none;
+
+background:#ff7300;
+
+color:white;
+
+border-radius:10px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.quantity-selector button:hover{
+
+background:#e86400;
+
+}
+
+.quantity-selector span{
+
+font-size:24px;
+
+font-weight:bold;
+
+min-width:35px;
+
+text-align:center;
+
+}
