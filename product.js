@@ -5,7 +5,19 @@ const products = {
     name: "iPhone 15 Pro",
 
     price: "$799",
+brand: "Apple",
 
+model: "iPhone 15 Pro",
+
+display: "6.1-inch Super Retina XDR",
+
+cpu: "A17 Pro",
+
+storageSpec: "128GB / 256GB / 512GB",
+
+camera: "48 MP",
+
+battery: "3274 mAh",
     images: [
 
         "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900",
@@ -127,7 +139,19 @@ document.getElementById("product-name").textContent = product.name;
 document.getElementById("product-price").textContent = product.price;
 
 document.getElementById("product-description").textContent = product.description;
+document.getElementById("spec-brand").textContent = product.brand;
 
+document.getElementById("spec-model").textContent = product.model;
+
+document.getElementById("spec-display").textContent = product.display;
+
+document.getElementById("spec-cpu").textContent = product.cpu;
+
+document.getElementById("spec-storage").textContent = product.storageSpec;
+
+document.getElementById("spec-camera").textContent = product.camera;
+
+document.getElementById("spec-battery").textContent = product.battery;
 }
 // ===== Colors =====
 
