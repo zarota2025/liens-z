@@ -267,3 +267,4 @@ function showToast(message){
     },2500);
 
 }
+console.log("product.js loaded");
