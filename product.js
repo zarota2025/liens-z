@@ -1,7 +1,7 @@
 const products = {
 
     iphone15: {
-
+    id: "iphone15",
     name: "iPhone 15 Pro",
 
     price: "$799",
@@ -24,7 +24,7 @@ const products = {
 },
 
     nike: {
-
+    id: "nike",
     name: "Nike Shoes",
 
     price: "$120",
@@ -47,7 +47,7 @@ const products = {
 },
 
     sony: {
-
+    id: "sony",
     name: "Sony Headphones",
 
     price: "$149",
