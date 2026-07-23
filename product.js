@@ -160,3 +160,32 @@ button.classList.add("active");
 });
 
 });
+// ===== Quantity =====
+
+let quantity = 1;
+
+const quantityText = document.getElementById("quantity");
+
+const plusBtn = document.getElementById("plus-btn");
+
+const minusBtn = document.getElementById("minus-btn");
+
+plusBtn.addEventListener("click",()=>{
+
+quantity++;
+
+quantityText.textContent = quantity;
+
+});
+
+minusBtn.addEventListener("click",()=>{
+
+if(quantity > 1){
+
+quantity--;
+
+quantityText.textContent = quantity;
+
+}
+
+});
