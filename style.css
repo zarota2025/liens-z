@@ -1613,3 +1613,42 @@ color:#bbb;
 font-size:14px;
 
 }
+/* ===== Toast Notification ===== */
+
+.toast{
+
+position:fixed;
+
+top:30px;
+
+right:30px;
+
+background:#28a745;
+
+color:white;
+
+padding:16px 28px;
+
+border-radius:12px;
+
+font-weight:bold;
+
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+opacity:0;
+
+transform:translateY(-30px);
+
+transition:.4s;
+
+z-index:9999;
+
+}
+
+.toast.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
