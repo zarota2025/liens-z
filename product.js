@@ -247,6 +247,6 @@ addCartBtn.addEventListener("click", () => {
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    alert(quantity + " × " + product.name + " added to cart ✅");
+    showToast(`🛒 ${quantity} × ${product.name} has been added to your cart`);
 
 });
