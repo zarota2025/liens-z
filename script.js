@@ -246,3 +246,32 @@ document.addEventListener("click", (e) => {
     }
 
 });
+// ===== Mobile Side Menu =====
+
+const menuBtn = document.getElementById("menu-btn");
+const sideMenu = document.getElementById("side-menu");
+
+if (menuBtn && sideMenu) {
+
+    menuBtn.addEventListener("click", function (e) {
+
+        e.stopPropagation();
+
+        sideMenu.classList.toggle("active");
+
+    });
+
+    document.addEventListener("click", function (e) {
+
+        if (
+            !sideMenu.contains(e.target) &&
+            !menuBtn.contains(e.target)
+        ) {
+
+            sideMenu.classList.remove("active");
+
+        }
+
+    });
+
+}
