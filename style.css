@@ -53,89 +53,159 @@ section{
 --radius:18px;
 
 }
-/* ================= HEADER ================= */
+/* =========================================
+   HEADER
+========================================= */
 
 .header{
-    background:#0b2a66;
-    padding:15px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+
     display:flex;
-    flex-direction:column;
-    gap:15px;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:15px 5%;
+
+    background:#0b2a66;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
+
+/* ---------- Logo ---------- */
 
 .logo{
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:12px;
 }
 
 .logo img{
-    width:70px;
-    height:70px;
-    border-radius:18px;
+    width:58px;
+    height:58px;
+    object-fit:cover;
+    border-radius:15px;
 }
 
 .logo span{
     color:#fff;
-    font-size:50px;
-    font-weight:bold;
+    font-size:30px;
+    font-weight:800;
+    letter-spacing:1px;
 }
 
-/* Search */
+/* ---------- Search ---------- */
 
 .search-box{
+
+    flex:1;
+
+    max-width:550px;
+
+    margin:0 35px;
+
     display:flex;
-    width:100%;
+
 }
 
 .search-box input{
+
     flex:1;
-    height:60px;
+
+    height:48px;
+
     border:none;
-    padding:0 20px;
-    font-size:26px;
-    border-radius:18px 0 0 18px;
+
+    outline:none;
+
+    padding:0 18px;
+
+    border-radius:14px 0 0 14px;
+
+    font-size:16px;
+
 }
 
 .search-box button{
-    width:100px;
-    border:none;
+
+    width:60px;
+
     background:#ff7a00;
+
     color:#fff;
-    font-size:30px;
-    border-radius:0 18px 18px 0;
+
+    font-size:22px;
+
+    border:none;
+
+    border-radius:0 14px 14px 0;
+
 }
 
-/* icons */
+/* ---------- Menu ---------- */
+
+nav{
+
+    display:flex;
+
+    gap:28px;
+
+}
+
+nav a{
+
+    color:#fff;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    color:#ffb347;
+
+}
+
+/* ---------- Icons ---------- */
 
 .icons{
+
     display:flex;
-    justify-content:flex-end;
-    gap:25px;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-left:25px;
+
 }
 
-.icons a,
-.icons span{
+.icons span,
+.icons a{
+
     color:#fff;
-    font-size:28px;
-    text-decoration:none;
+
+    font-size:18px;
+
     font-weight:bold;
+
 }
 
-/* menu */
+/* ---------- Mobile Menu Button ---------- */
 
-.header nav{
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:20px;
-}
+.menu-btn{
 
-.header nav a{
-    color:white;
-    text-decoration:none;
-    font-size:28px;
-    font-weight:bold;
+    display:none;
+
+    background:none;
+
+    color:#fff;
+
+    font-size:30px;
+
 }
 /* ===== Menu Button ===== */
 
