@@ -228,7 +228,8 @@ toast.classList.remove("show");
 
 const menuBtn = document.getElementById("menu-btn");
 const sideMenu = document.getElementById("side-menu");
-
+console.log(menuBtn);
+console.log(sideMenu);
 menuBtn.addEventListener("click", () => {
     sideMenu.classList.toggle("active");
 });
