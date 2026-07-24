@@ -53,9 +53,7 @@ section{
 --radius:18px;
 
 }
-/* ===========================
-   HEADER
-=========================== */
+/* ================= HEADER ================= */
 
 .header{
     background:#0b2a66;
@@ -72,16 +70,18 @@ section{
 }
 
 .logo img{
-    width:80px;
-    height:80px;
+    width:70px;
+    height:70px;
     border-radius:18px;
 }
 
 .logo span{
     color:#fff;
-    font-size:34px;
+    font-size:50px;
     font-weight:bold;
 }
+
+/* Search */
 
 .search-box{
     display:flex;
@@ -90,44 +90,50 @@ section{
 
 .search-box input{
     flex:1;
-    padding:16px;
+    height:60px;
     border:none;
-    border-radius:15px 0 0 15px;
-    font-size:18px;
+    padding:0 20px;
+    font-size:26px;
+    border-radius:18px 0 0 18px;
 }
 
 .search-box button{
-    width:80px;
+    width:100px;
     border:none;
     background:#ff7a00;
-    color:white;
-    font-size:24px;
-    border-radius:0 15px 15px 0;
+    color:#fff;
+    font-size:30px;
+    border-radius:0 18px 18px 0;
 }
+
+/* icons */
 
 .icons{
     display:flex;
     justify-content:flex-end;
-    gap:20px;
-    font-size:24px;
+    gap:25px;
 }
 
 .icons a,
 .icons span{
-    color:white;
+    color:#fff;
+    font-size:28px;
     text-decoration:none;
+    font-weight:bold;
 }
 
-nav{
+/* menu */
+
+.header nav{
     display:flex;
     justify-content:space-between;
     flex-wrap:wrap;
+    gap:20px;
 }
 
-nav a{
+.header nav a{
     color:white;
     text-decoration:none;
-    font-size:20px;
+    font-size:28px;
     font-weight:bold;
-    padding:10px;
 }
