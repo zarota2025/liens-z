@@ -98,29 +98,30 @@ section{
 
 .search-box{
     flex:1;
-    min-width:120px;
-    margin:0 10px;
+    display:flex;
+    align-items:center;
+    margin:0 12px;
 }
 
 .search-box input{
-    width:100%;
-    font-size:15px;
+    flex:1;
+    height:46px;
+    border:none;
+    outline:none;
+    padding:0 18px;
+    border-radius:25px 0 0 25px;
+    font-size:16px;
 }
 
-.search-box button{
-
+.search-btn{
     width:60px;
-
-    background:#ff7a00;
-
-    color:#fff;
-
-    font-size:22px;
-
+    height:46px;
     border:none;
-
-    border-radius:0 14px 14px 0;
-
+    background:#ff7a00;
+    color:#fff;
+    font-size:22px;
+    border-radius:0 25px 25px 0;
+    cursor:pointer;
 }
 
 /* ---------- Menu ---------- */
