@@ -224,3 +224,24 @@ toast.classList.remove("show");
 },2500);
 
 }
+// ===== Side Menu =====
+
+const menuBtn = document.getElementById("menu-btn");
+const sideMenu = document.getElementById("side-menu");
+
+menuBtn.addEventListener("click", () => {
+    sideMenu.classList.toggle("active");
+});
+
+// إغلاق القائمة عند الضغط خارجها
+
+document.addEventListener("click", (e) => {
+
+    if(
+        !sideMenu.contains(e.target) &&
+        !menuBtn.contains(e.target)
+    ){
+        sideMenu.classList.remove("active");
+    }
+
+});
