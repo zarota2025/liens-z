@@ -98,7 +98,136 @@ img{
 
     font-weight:bold;
 }
+/* ==========================
+   HEADER ICONS
+========================== */
 
+.header-icons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.header-icons span,
+.header-icons a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+}
+
+/* ==========================
+   SEARCH
+========================== */
+
+.search-box{
+
+    display:flex;
+
+    margin-top:15px;
+
+    width:100%;
+
+    background:#fff;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    padding:15px;
+
+    font-size:18px;
+
+}
+
+.search-box button{
+
+    width:70px;
+
+    border:none;
+
+    background:#ff7a00;
+
+    color:#fff;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+}
+
+/* ==========================
+   SIDE MENU
+========================== */
+
+.side-menu{
+
+    position:fixed;
+
+    top:0;
+
+    left:-270px;
+
+    width:260px;
+
+    height:100%;
+
+    background:#0b2a66;
+
+    transition:.3s;
+
+    padding-top:80px;
+
+    z-index:2000;
+
+}
+
+.side-menu.active{
+
+    left:0;
+
+}
+
+.side-menu a{
+
+    display:block;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:18px 25px;
+
+    font-size:20px;
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+
+}
+
+.side-menu a:hover{
+
+    background:#ff7a00;
+
+   }
 /* ==========================
    SEARCH
 ========================== */
