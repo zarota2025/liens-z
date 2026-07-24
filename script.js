@@ -254,3 +254,30 @@ const sideMenu = document.getElementById("side-menu");
 menuBtn.onclick = function () {
     alert("Menu works");
 };
+// =========================
+// SIDE MENU
+// =========================
+
+const menuBtn = document.getElementById("menu-btn");
+const sideMenu = document.getElementById("side-menu");
+
+if(menuBtn && sideMenu){
+
+    menuBtn.addEventListener("click", function(){
+
+        sideMenu.classList.toggle("active");
+
+    });
+
+    document.addEventListener("click", function(e){
+
+        if(
+            !sideMenu.contains(e.target) &&
+            !menuBtn.contains(e.target)
+        ){
+            sideMenu.classList.remove("active");
+        }
+
+    });
+
+}
