@@ -82,49 +82,29 @@ section{
 }
 
 .logo img{
-    width:58px;
-    height:58px;
-    object-fit:cover;
-    border-radius:15px;
+    width:48px;
+    height:48px;
+    border-radius:12px;
 }
 
 .logo span{
     color:#fff;
-    font-size:30px;
+    font-size:18px;
     font-weight:800;
-    letter-spacing:1px;
+    white-space:nowrap;
 }
 
 /* ---------- Search ---------- */
 
 .search-box{
-
     flex:1;
-
-    max-width:550px;
-
-    margin:0 35px;
-
-    display:flex;
-
+    min-width:120px;
+    margin:0 10px;
 }
 
 .search-box input{
-
-    flex:1;
-
-    height:48px;
-
-    border:none;
-
-    outline:none;
-
-    padding:0 18px;
-
-    border-radius:14px 0 0 14px;
-
-    font-size:16px;
-
+    width:100%;
+    font-size:15px;
 }
 
 .search-box button{
