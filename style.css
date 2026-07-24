@@ -182,3 +182,59 @@ section{
     background:#ff7a00;
     padding-left:35px;
 }
+/* ===== Menu Button ===== */
+
+.menu-btn{
+    display:none;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:34px;
+    cursor:pointer;
+}
+
+/* ===== Side Menu ===== */
+
+.side-menu{
+    position:fixed;
+    top:0;
+    left:-280px;
+    width:260px;
+    height:100%;
+    background:#0b2a66;
+    padding-top:80px;
+    transition:.35s;
+    z-index:9999;
+    box-shadow:5px 0 20px rgba(0,0,0,.3);
+}
+
+.side-menu.active{
+    left:0;
+}
+
+.side-menu a{
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    padding:18px 25px;
+    font-size:20px;
+    border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.side-menu a:hover{
+    background:#ff7a00;
+}
+
+/* ===== Mobile ===== */
+
+@media (max-width:768px){
+
+.menu-btn{
+    display:block;
+}
+
+nav{
+    display:none;
+}
+
+}
