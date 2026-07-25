@@ -67,38 +67,27 @@ button{
 ========================================== */
 
 .header{
-
-    position:sticky;
-
-    top:0;
-
-    z-index:1000;
-
     background:#0b2a66;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
-
+    padding:15px;
 }
 
-.header-container{
+.top-bar{
 
-    display:grid;
-
-    grid-template-columns:50px 1fr auto;
+    display:flex;
 
     align-items:center;
 
-    gap:15px;
+    justify-content:space-between;
 
-    padding:15px 20px;
+    gap:15px;
 
 }
 
 .menu-btn{
 
-    border:none;
-
     background:none;
+
+    border:none;
 
     color:#fff;
 
@@ -114,13 +103,15 @@ button{
 
     gap:12px;
 
+    flex:1;
+
 }
 
 .logo img{
 
-    width:55px;
+    width:60px;
 
-    height:55px;
+    height:60px;
 
     border-radius:12px;
 
@@ -130,13 +121,12 @@ button{
 
     color:#fff;
 
-    font-size:22px;
+    font-size:18px;
 
-    font-weight:700;
-
-    white-space:nowrap;
+    font-weight:bold;
 
 }
+
 .header-icons{
 
     display:flex;
@@ -145,21 +135,57 @@ button{
 
     gap:18px;
 
-}
-
-.header-icons a{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:5px;
-
     color:#fff;
 
     font-size:18px;
 
-    font-weight:600;
+    font-weight:bold;
+
+}
+
+.header-icons a{
+
+    color:#fff;
+
+}
+
+.search-box{
+
+    display:flex;
+
+    margin-top:18px;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:40px 0 0 40px;
+
+    padding:0 20px;
+
+    font-size:18px;
+
+}
+
+.search-box button{
+
+    width:80px;
+
+    border:none;
+
+    background:#ff7a00;
+
+    color:#fff;
+
+    border-radius:0 40px 40px 0;
+
+    font-size:22px;
 
 }
 /* ==========================================
