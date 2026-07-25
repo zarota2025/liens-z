@@ -125,28 +125,33 @@ button{
 /* Search */
 
 .search-box{
-    margin-top:18px;
     display:flex;
+    align-items:center;
+    width:100%;
+    margin-top:20px;
+    background:#fff;
+    border-radius:50px;
+    overflow:hidden;
 }
 
 .search-box input{
     flex:1;
-    height:58px;
     border:none;
     outline:none;
-    border-radius:35px 0 0 35px;
-    padding:0 20px;
-    font-size:20px;
+    padding:18px 20px;
+    font-size:18px;
 }
 
 .search-box button{
     width:70px;
     border:none;
-    background:#ff7a00;
+    background:#ff8400;
     color:#fff;
-    font-size:30px;
-    border-radius:0 35px 35px 0;
+    font-size:28px;
     cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 /* ==========================================
    SEARCH
