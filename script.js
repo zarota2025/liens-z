@@ -386,3 +386,134 @@ data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600">
 </div>
 
 </section>
+<!-- ================= TOP DEALS ================= -->
+
+<section class="top-deals" id="deals">
+
+<h2 class="section-title">
+⚡ Top Deals
+</h2>
+
+<div class="deals-banner">
+
+<div class="deal-box">
+
+<h3>Summer Sale</h3>
+
+<p>Up to <strong>70% OFF</strong></p>
+
+<a href="#products" class="hero-btn">
+Shop Now
+</a>
+
+</div>
+
+<div class="deal-box">
+
+<h3>Free Shipping</h3>
+
+<p>On orders over <strong>$100</strong></p>
+
+<a href="#products" class="hero-btn">
+Explore
+</a>
+
+</div>
+
+<div class="deal-box">
+
+<h3>New Arrivals</h3>
+
+<p>Latest products every week</p>
+
+<a href="#products" class="hero-btn">
+Discover
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="features">
+
+<h2 class="section-title">
+Why Choose LIENS Z?
+</h2>
+
+<div class="features-grid">
+
+<div class="feature">
+
+🚚
+
+<h3>Fast Delivery</h3>
+
+<p>Worldwide shipping with trusted carriers.</p>
+
+</div>
+
+<div class="feature">
+
+💳
+
+<h3>Secure Payment</h3>
+
+<p>Your payments are protected and encrypted.</p>
+
+</div>
+
+<div class="feature">
+
+⭐
+
+<h3>Premium Quality</h3>
+
+<p>Only high-quality products from trusted brands.</p>
+
+</div>
+
+<div class="feature">
+
+📞
+
+<h3>24/7 Support</h3>
+
+<p>Our team is always ready to help you.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+<h2>
+Stay Updated
+</h2>
+
+<p>
+Subscribe to receive the latest deals and exclusive offers.
+</p>
+
+<div class="newsletter-box">
+
+<input
+type="email"
+placeholder="Enter your email">
+
+<button>
+
+Subscribe
+
+</button>
+
+</div>
+
+</section>
