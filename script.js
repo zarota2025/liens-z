@@ -53,3 +53,50 @@ function initSideMenu(){
     });
 
 }
+/* ======================================
+   SLIDER
+====================================== */
+
+function initSlider(){
+
+    const slides=document.querySelectorAll(".slide");
+
+    const dots=document.querySelectorAll(".dot");
+
+    if(slides.length===0) return;
+
+    let current=0;
+
+    function showSlide(index){
+
+        slides.forEach(slide=>slide.classList.remove("active"));
+
+        dots.forEach(dot=>dot.classList.remove("active"));
+
+        slides[index].classList.add("active");
+
+        if(dots[index]){
+
+            dots[index].classList.add("active");
+
+        }
+
+        current=index;
+
+    }
+
+    setInterval(()=>{
+
+        current++;
+
+        if(current>=slides.length){
+
+            current=0;
+
+        }
+
+        showSlide(current);
+
+    },4000);
+
+                       }
