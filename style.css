@@ -383,3 +383,40 @@ button{
     transform:translateY(-3px);
 
    }
+.slider-dots{
+
+    position:absolute;
+
+    bottom:25px;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+.dot{
+
+    width:14px;
+
+    height:14px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    opacity:.4;
+
+}
+
+.dot.active{
+
+    opacity:1;
+
+    background:#ff7a00;
+
+   }
