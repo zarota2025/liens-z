@@ -517,3 +517,98 @@ Subscribe
 </div>
 
 </section>
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer" id="contact">
+
+<div class="footer-container">
+
+<div class="footer-column">
+
+<h3>LIENS Z</h3>
+
+<p>
+Your trusted online shopping destination for premium products at the best prices.
+</p>
+
+</div>
+
+<div class="footer-column">
+
+<h3>Quick Links</h3>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#categories">Categories</a></li>
+
+<li><a href="#products">Products</a></li>
+
+<li><a href="#deals">Deals</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-column">
+
+<h3>Customer Service</h3>
+
+<ul>
+
+<li><a href="#">Privacy Policy</a></li>
+
+<li><a href="#">Terms & Conditions</a></li>
+
+<li><a href="#">Returns</a></li>
+
+<li><a href="#">Support</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-column">
+
+<h3>Follow Us</h3>
+
+<div class="social-icons">
+
+<a href="#">📘</a>
+
+<a href="#">📷</a>
+
+<a href="#">▶️</a>
+
+<a href="#">🐦</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+
+© 2026 LIENS Z. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
+<!-- ================= TOAST ================= -->
+
+<div id="toast" class="toast"></div>
+
+<!-- ================= SCRIPTS ================= -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
