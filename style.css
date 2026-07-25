@@ -312,3 +312,74 @@ button{
     object-fit:cover;
 
        }
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+}
+
+.hero-content{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    color:#fff;
+
+    text-align:center;
+
+    width:90%;
+
+    max-width:700px;
+
+}
+
+.hero-content h1{
+
+    font-size:52px;
+
+    margin-bottom:20px;
+
+}
+
+.hero-content p{
+
+    font-size:22px;
+
+    margin-bottom:30px;
+
+}
+
+.hero-btn{
+
+    display:inline-block;
+
+    background:#ff7a00;
+
+    color:#fff;
+
+    padding:16px 40px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.hero-btn:hover{
+
+    background:#ff8f1f;
+
+    transform:translateY(-3px);
+
+   }
