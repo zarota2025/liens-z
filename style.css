@@ -149,3 +149,54 @@ button{
     font-size:22px;
 
    }
+/* ==========================================
+   SEARCH
+========================================== */
+
+.search-box{
+
+    display:flex;
+
+    margin:18px auto;
+
+    width:90%;
+
+    max-width:900px;
+
+    background:#fff;
+
+    border-radius:60px;
+
+    overflow:hidden;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    padding:18px 22px;
+
+    font-size:17px;
+
+}
+
+.search-box button{
+
+    width:80px;
+
+    border:none;
+
+    background:#ff7a00;
+
+    color:#fff;
+
+    font-size:22px;
+
+}
