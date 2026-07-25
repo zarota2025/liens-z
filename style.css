@@ -62,131 +62,91 @@ button{
     margin:70px 0 40px;
 
 }
-/* ==========================================
-   HEADER
-========================================== */
+/* ===== HEADER ===== */
 
 .header{
     background:#0b2a66;
-    padding:15px;
+    padding:15px 20px;
 }
 
 .top-bar{
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     gap:15px;
-
 }
 
 .menu-btn{
-
     background:none;
-
     border:none;
-
     color:#fff;
-
-    font-size:34px;
-
+    font-size:36px;
+    cursor:pointer;
 }
 
+/* Logo */
+
 .logo{
-
     display:flex;
-
     align-items:center;
-
-    gap:12px;
-
+    gap:10px;
     flex:1;
-
 }
 
 .logo img{
-
-    width:60px;
-
-    height:60px;
-
+    width:58px;
+    height:58px;
     border-radius:12px;
-
 }
 
 .logo span{
-
     color:#fff;
-
-    font-size:18px;
-
-    font-weight:bold;
-
+    font-size:20px;
+    font-weight:700;
+    white-space:nowrap;
 }
+
+/* Icons */
 
 .header-icons{
-
     display:flex;
-
     align-items:center;
-
     gap:18px;
-
-    color:#fff;
-
-    font-size:18px;
-
-    font-weight:bold;
-
 }
 
+.header-icons span,
 .header-icons a{
-
     color:#fff;
-
+    text-decoration:none;
+    font-size:24px;
+    font-weight:bold;
 }
+
+/* Search */
 
 .search-box{
-
-    display:flex;
-
     margin-top:18px;
-
+    display:flex;
 }
 
 .search-box input{
-
     flex:1;
-
-    height:55px;
-
+    height:58px;
     border:none;
-
-    border-radius:40px 0 0 40px;
-
+    outline:none;
+    border-radius:35px 0 0 35px;
     padding:0 20px;
-
-    font-size:18px;
-
+    font-size:20px;
 }
 
 .search-box button{
-
-    width:80px;
-
+    width:70px;
     border:none;
-
     background:#ff7a00;
-
     color:#fff;
-
-    border-radius:0 40px 40px 0;
-
-    font-size:22px;
-
+    font-size:30px;
+    border-radius:0 35px 35px 0;
+    cursor:pointer;
 }
 /* ==========================================
    SEARCH
