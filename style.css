@@ -128,7 +128,8 @@ button{
     display:flex;
     align-items:center;
     width:100%;
-    margin-top:20px;
+    max-width:600px;
+    margin:20px auto 0;
     background:#fff;
     border-radius:50px;
     overflow:hidden;
@@ -138,14 +139,14 @@ button{
     flex:1;
     border:none;
     outline:none;
-    padding:18px 20px;
+    padding:18px 22px;
     font-size:18px;
 }
 
 .search-box button{
     width:70px;
     border:none;
-    background:#ff8400;
+    background:#ff8800;
     color:#fff;
     font-size:28px;
     cursor:pointer;
@@ -153,57 +154,7 @@ button{
     justify-content:center;
     align-items:center;
 }
-/* ==========================================
-   SEARCH
-========================================== */
 
-.search-box{
-
-    display:flex;
-
-    margin:18px auto;
-
-    width:90%;
-
-    max-width:900px;
-
-    background:#fff;
-
-    border-radius:60px;
-
-    overflow:hidden;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.1);
-
-}
-
-.search-box input{
-
-    flex:1;
-
-    border:none;
-
-    outline:none;
-
-    padding:18px 22px;
-
-    font-size:17px;
-
-}
-
-.search-box button{
-
-    width:80px;
-
-    border:none;
-
-    background:#ff7a00;
-
-    color:#fff;
-
-    font-size:22px;
-
-}
 /* ==========================================
    SIDE MENU
 ========================================== */
