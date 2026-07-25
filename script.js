@@ -179,3 +179,210 @@ Buy Now
 </div>
 
 </section>
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories" id="categories">
+
+<h2 class="section-title">
+Shop by Category
+</h2>
+
+<div class="categories-grid">
+
+<div class="category-card" data-category="phones">
+📱
+<span>Phones</span>
+</div>
+
+<div class="category-card" data-category="laptops">
+💻
+<span>Laptops</span>
+</div>
+
+<div class="category-card" data-category="headphones">
+🎧
+<span>Headphones</span>
+</div>
+
+<div class="category-card" data-category="gaming">
+🎮
+<span>Gaming</span>
+</div>
+
+<div class="category-card" data-category="fashion">
+👟
+<span>Fashion</span>
+</div>
+
+<div class="category-card" data-category="accessories">
+⌚
+<span>Accessories</span>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FEATURED PRODUCTS ================= -->
+
+<section class="products" id="products">
+
+<h2 class="section-title">
+🔥 Featured Products
+</h2>
+
+<div class="products-grid">
+
+<!-- Product 1 -->
+
+<div class="card" data-category="phones">
+
+<span class="discount">-20%</span>
+
+<button class="favorite">❤</button>
+
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600" alt="iPhone">
+
+<div class="card-content">
+
+<h3>iPhone 15 Pro</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<p class="price">
+
+<span class="new-price">$799</span>
+
+<span class="old-price">$999</span>
+
+</p>
+
+<div class="card-buttons">
+
+<a href="product.html?id=iphone15" class="details-btn">
+
+View
+
+</a>
+
+<button
+class="buy-btn"
+data-name="iPhone 15 Pro"
+data-price="799"
+data-image="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600">
+
+🛒 Add
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Product 2 -->
+
+<div class="card" data-category="fashion">
+
+<span class="discount">-35%</span>
+
+<button class="favorite">❤</button>
+
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Nike">
+
+<div class="card-content">
+
+<h3>Nike Shoes</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<p class="price">
+
+<span class="new-price">$120</span>
+
+<span class="old-price">$180</span>
+
+</p>
+
+<div class="card-buttons">
+
+<a href="product.html?id=nike" class="details-btn">
+
+View
+
+</a>
+
+<button
+class="buy-btn"
+data-name="Nike Shoes"
+data-price="120"
+data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600">
+
+🛒 Add
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Product 3 -->
+
+<div class="card" data-category="headphones">
+
+<span class="discount">-15%</span>
+
+<button class="favorite">❤</button>
+
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600" alt="Sony">
+
+<div class="card-content">
+
+<h3>Sony Headphones</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<p class="price">
+
+<span class="new-price">$149</span>
+
+<span class="old-price">$199</span>
+
+</p>
+
+<div class="card-buttons">
+
+<a href="product.html?id=sony" class="details-btn">
+
+View
+
+</a>
+
+<button
+class="buy-btn"
+data-name="Sony Headphones"
+data-price="149"
+data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600">
+
+🛒 Add
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
