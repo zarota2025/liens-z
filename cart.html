@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shopping Cart | LIENS Z</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="cart.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+<div class="top-bar">
+
+<button class="menu-btn" onclick="history.back()">
+←
+</button>
+
+<div class="logo">
+
+<img src="logo.png" alt="LIENS Z">
+
+<span>LIENS Z</span>
+
+</div>
+
+<div class="header-icons">
+
+<span id="favorite-count">
+❤️ <span>0</span>
+</span>
+
+<a href="cart.html" id="cart-count">
+🛒 <span>0</span>
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- ================= CART ================= -->
+
+<section class="cart-page">
+
+<h1 class="cart-title">
+🛒 Shopping Cart
+</h1>
+
+<div id="cart-items">
+
+</div>
+
+<div class="cart-summary">
+
+<div class="summary-row">
+
+<span>Total :</span>
+
+<strong id="cart-total">
+$0
+</strong>
+
+</div>
+
+<button id="checkout-btn" class="checkout-btn">
+
+Proceed to Checkout
+
+</button>
+
+<button id="clear-cart" class="clear-cart">
+
+Clear Cart
+
+</button>
+
+</div>
+
+</section>
+
+<script src="cart.js"></script>
+
+</body>
+
+</html>
