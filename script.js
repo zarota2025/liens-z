@@ -1,614 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
+/* =====================================
+   LIENS Z
+   SCRIPT.JS
+   PART 1
+=====================================*/
 
-<head>
+/* ========= SIDE MENU ========= */
 
-<meta charset="UTF-8">
+const menuBtn = document.getElementById("menu-btn");
+const sideMenu = document.getElementById("side-menu");
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+if(menuBtn && sideMenu){
 
-<title>LIENS Z | Smart Shopping</title>
+    menuBtn.addEventListener("click",()=>{
 
-<link rel="stylesheet" href="style.css">
+        sideMenu.classList.toggle("active");
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    });
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    document.addEventListener("click",(e)=>{
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        if(
+            !sideMenu.contains(e.target) &&
+            !menuBtn.contains(e.target)
+        ){
+            sideMenu.classList.remove("active");
+        }
 
-</head>
+    });
 
-<body>
+}
 
-<!-- ================= HEADER ================= -->
+/* ========= SLIDER ========= */
 
-<header class="header">
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
 
-<div class="header-container">
+let currentSlide = 0;
 
-<button id="menu-btn" class="menu-btn">
-☰
-</button>
+function showSlide(index){
 
-<a href="index.html" class="logo">
+    slides.forEach(slide=>{
+        slide.classList.remove("active");
+    });
 
-<img src="logo.png" alt="LIENS Z">
+    dots.forEach(dot=>{
+        dot.classList.remove("active");
+    });
 
-<span>LIENS Z</span>
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
 
-</a>
+    currentSlide=index;
 
-<div class="header-icons">
+}
 
-<a href="favorites.html" id="favorite-count">
-❤️ <span>0</span>
-</a>
+if(slides.length>0){
 
-<a href="cart.html" id="cart-count">
-🛒 <span>0</span>
-</a>
+    setInterval(()=>{
 
-</div>
+        currentSlide++;
 
-</div>
+        if(currentSlide>=slides.length){
 
-<div class="search-box">
+            currentSlide=0;
 
-<input
-id="search"
-type="text"
-placeholder="Search products...">
+        }
 
-<button id="search-btn">
-🔍
-</button>
+        showSlide(currentSlide);
 
-</div>
+    },4000);
 
-</header>
+}
 
-<!-- ================= SIDE MENU ================= -->
+dots.forEach((dot,index)=>{
 
-<aside id="side-menu" class="side-menu">
+    dot.addEventListener("click",()=>{
 
-<nav>
+        showSlide(index);
 
-<a href="#home">🏠 Home</a>
+    });
 
-<a href="#categories">📂 Categories</a>
-
-<a href="#products">📦 Products</a>
-
-<a href="#deals">🔥 Deals</a>
-
-<a href="#about">ℹ About</a>
-
-<a href="#contact">📞 Contact</a>
-
-<a href="favorites.html">❤️ Favorites</a>
-
-<a href="cart.html">🛒 Cart</a>
-
-</nav>
-
-</aside>
-
-<!-- ================= HERO ================= -->
-
-<section class="hero" id="home">
-
-<div class="slider">
-
-<div class="slide active">
-
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1600" alt="Phone">
-
-<div class="overlay"></div>
-
-<div class="hero-content">
-
-<h1>Discover Amazing Deals</h1>
-
-<p>Premium products at unbeatable prices.</p>
-
-<a href="#products" class="hero-btn">
-
-Shop Now
-
-</a>
-
-</div>
-
-</div>
-
-<div class="slide">
-
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1600" alt="Shoes">
-
-<div class="overlay"></div>
-
-<div class="hero-content">
-
-<h1>Fashion Collection</h1>
-
-<p>New arrivals every week.</p>
-
-<a href="#products" class="hero-btn">
-
-Explore
-
-</a>
-
-</div>
-
-</div>
-
-<div class="slide">
-
-<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1600" alt="Headphones">
-
-<div class="overlay"></div>
-
-<div class="hero-content">
-
-<h1>High Quality Audio</h1>
-
-<p>Experience crystal clear sound.</p>
-
-<a href="#products" class="hero-btn">
-
-Buy Now
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="slider-dots">
-
-<span class="dot active"></span>
-
-<span class="dot"></span>
-
-<span class="dot"></span>
-
-</div>
-
-</section>
-<!-- ================= CATEGORIES ================= -->
-
-<section class="categories" id="categories">
-
-<h2 class="section-title">
-Shop by Category
-</h2>
-
-<div class="categories-grid">
-
-<div class="category-card" data-category="phones">
-📱
-<span>Phones</span>
-</div>
-
-<div class="category-card" data-category="laptops">
-💻
-<span>Laptops</span>
-</div>
-
-<div class="category-card" data-category="headphones">
-🎧
-<span>Headphones</span>
-</div>
-
-<div class="category-card" data-category="gaming">
-🎮
-<span>Gaming</span>
-</div>
-
-<div class="category-card" data-category="fashion">
-👟
-<span>Fashion</span>
-</div>
-
-<div class="category-card" data-category="accessories">
-⌚
-<span>Accessories</span>
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= FEATURED PRODUCTS ================= -->
-
-<section class="products" id="products">
-
-<h2 class="section-title">
-🔥 Featured Products
-</h2>
-
-<div class="products-grid">
-
-<!-- Product 1 -->
-
-<div class="card" data-category="phones">
-
-<span class="discount">-20%</span>
-
-<button class="favorite">❤</button>
-
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600" alt="iPhone">
-
-<div class="card-content">
-
-<h3>iPhone 15 Pro</h3>
-
-<div class="stars">
-★★★★★
-</div>
-
-<p class="price">
-
-<span class="new-price">$799</span>
-
-<span class="old-price">$999</span>
-
-</p>
-
-<div class="card-buttons">
-
-<a href="product.html?id=iphone15" class="details-btn">
-
-View
-
-</a>
-
-<button
-class="buy-btn"
-data-name="iPhone 15 Pro"
-data-price="799"
-data-image="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600">
-
-🛒 Add
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- Product 2 -->
-
-<div class="card" data-category="fashion">
-
-<span class="discount">-35%</span>
-
-<button class="favorite">❤</button>
-
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Nike">
-
-<div class="card-content">
-
-<h3>Nike Shoes</h3>
-
-<div class="stars">
-★★★★★
-</div>
-
-<p class="price">
-
-<span class="new-price">$120</span>
-
-<span class="old-price">$180</span>
-
-</p>
-
-<div class="card-buttons">
-
-<a href="product.html?id=nike" class="details-btn">
-
-View
-
-</a>
-
-<button
-class="buy-btn"
-data-name="Nike Shoes"
-data-price="120"
-data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600">
-
-🛒 Add
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- Product 3 -->
-
-<div class="card" data-category="headphones">
-
-<span class="discount">-15%</span>
-
-<button class="favorite">❤</button>
-
-<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600" alt="Sony">
-
-<div class="card-content">
-
-<h3>Sony Headphones</h3>
-
-<div class="stars">
-★★★★★
-</div>
-
-<p class="price">
-
-<span class="new-price">$149</span>
-
-<span class="old-price">$199</span>
-
-</p>
-
-<div class="card-buttons">
-
-<a href="product.html?id=sony" class="details-btn">
-
-View
-
-</a>
-
-<button
-class="buy-btn"
-data-name="Sony Headphones"
-data-price="149"
-data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600">
-
-🛒 Add
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-<!-- ================= TOP DEALS ================= -->
-
-<section class="top-deals" id="deals">
-
-<h2 class="section-title">
-⚡ Top Deals
-</h2>
-
-<div class="deals-banner">
-
-<div class="deal-box">
-
-<h3>Summer Sale</h3>
-
-<p>Up to <strong>70% OFF</strong></p>
-
-<a href="#products" class="hero-btn">
-Shop Now
-</a>
-
-</div>
-
-<div class="deal-box">
-
-<h3>Free Shipping</h3>
-
-<p>On orders over <strong>$100</strong></p>
-
-<a href="#products" class="hero-btn">
-Explore
-</a>
-
-</div>
-
-<div class="deal-box">
-
-<h3>New Arrivals</h3>
-
-<p>Latest products every week</p>
-
-<a href="#products" class="hero-btn">
-Discover
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= WHY CHOOSE US ================= -->
-
-<section class="features">
-
-<h2 class="section-title">
-Why Choose LIENS Z?
-</h2>
-
-<div class="features-grid">
-
-<div class="feature">
-
-🚚
-
-<h3>Fast Delivery</h3>
-
-<p>Worldwide shipping with trusted carriers.</p>
-
-</div>
-
-<div class="feature">
-
-💳
-
-<h3>Secure Payment</h3>
-
-<p>Your payments are protected and encrypted.</p>
-
-</div>
-
-<div class="feature">
-
-⭐
-
-<h3>Premium Quality</h3>
-
-<p>Only high-quality products from trusted brands.</p>
-
-</div>
-
-<div class="feature">
-
-📞
-
-<h3>24/7 Support</h3>
-
-<p>Our team is always ready to help you.</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= NEWSLETTER ================= -->
-
-<section class="newsletter">
-
-<h2>
-Stay Updated
-</h2>
-
-<p>
-Subscribe to receive the latest deals and exclusive offers.
-</p>
-
-<div class="newsletter-box">
-
-<input
-type="email"
-placeholder="Enter your email">
-
-<button>
-
-Subscribe
-
-</button>
-
-</div>
-
-</section>
-<!-- ================= FOOTER ================= -->
-
-<footer class="footer" id="contact">
-
-<div class="footer-container">
-
-<div class="footer-column">
-
-<h3>LIENS Z</h3>
-
-<p>
-Your trusted online shopping destination for premium products at the best prices.
-</p>
-
-</div>
-
-<div class="footer-column">
-
-<h3>Quick Links</h3>
-
-<ul>
-
-<li><a href="#home">Home</a></li>
-
-<li><a href="#categories">Categories</a></li>
-
-<li><a href="#products">Products</a></li>
-
-<li><a href="#deals">Deals</a></li>
-
-</ul>
-
-</div>
-
-<div class="footer-column">
-
-<h3>Customer Service</h3>
-
-<ul>
-
-<li><a href="#">Privacy Policy</a></li>
-
-<li><a href="#">Terms & Conditions</a></li>
-
-<li><a href="#">Returns</a></li>
-
-<li><a href="#">Support</a></li>
-
-</ul>
-
-</div>
-
-<div class="footer-column">
-
-<h3>Follow Us</h3>
-
-<div class="social-icons">
-
-<a href="#">📘</a>
-
-<a href="#">📷</a>
-
-<a href="#">▶️</a>
-
-<a href="#">🐦</a>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="footer-bottom">
-
-<p>
-
-© 2026 LIENS Z. All Rights Reserved.
-
-</p>
-
-</div>
-
-</footer>
-
-<!-- ================= TOAST ================= -->
-
-<div id="toast" class="toast"></div>
-
-<!-- ================= SCRIPTS ================= -->
-
-<script src="script.js"></script>
-
-</body>
-
-</html>
+});
