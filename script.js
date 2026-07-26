@@ -81,3 +81,31 @@ dots.forEach((dot,index)=>{
     });
 
 });
+/* =====================================
+   LIVE SEARCH
+=====================================*/
+
+const searchInput = document.getElementById("search");
+const products = document.querySelectorAll(".card");
+
+if (searchInput) {
+
+    searchInput.addEventListener("keyup", function () {
+
+        const value = this.value.toLowerCase().trim();
+
+        products.forEach((product) => {
+
+            const name = product.dataset.name.toLowerCase();
+
+            if (name.includes(value)) {
+                product.style.display = "block";
+            } else {
+                product.style.display = "none";
+            }
+
+        });
+
+    });
+
+}
