@@ -147,3 +147,57 @@ categoryButtons.forEach(button => {
     });
 
 });
+/* =====================================
+   FAVORITES
+=====================================*/
+
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+const favoriteButtons = document.querySelectorAll(".favorite");
+const favoriteCounter = document.getElementById("favorite-count");
+
+updateFavorites();
+
+favoriteButtons.forEach(button => {
+
+    const card = button.closest(".card");
+    const name = card.querySelector("h3").textContent;
+
+    if (favorites.includes(name)) {
+        button.classList.add("active");
+    }
+
+    button.addEventListener("click", () => {
+
+        if (favorites.includes(name)) {
+
+            favorites = favorites.filter(item => item !== name);
+
+            button.classList.remove("active");
+
+        } else {
+
+            favorites.push(name);
+
+            button.classList.add("active");
+
+        }
+
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+
+        updateFavorites();
+
+    });
+
+});
+
+function updateFavorites(){
+
+    if(favoriteCounter){
+
+        favoriteCounter.innerHTML =
+        `❤️ <span>${favorites.length}</span>`;
+
+    }
+
+}
