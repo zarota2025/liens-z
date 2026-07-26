@@ -146,3 +146,44 @@ section{
     align-items:center;
     justify-content:center;
 }
+/* ==========================
+   SIDE MENU
+========================== */
+
+.side-menu{
+    position:fixed;
+    top:0;
+    left:-280px;
+    width:260px;
+    height:100vh;
+
+    background:#0b2a66;
+
+    padding-top:90px;
+
+    transition:.3s;
+
+    z-index:999;
+}
+
+.side-menu.active{
+    left:0;
+}
+
+.side-menu a{
+    display:block;
+
+    color:#fff;
+
+    padding:18px 25px;
+
+    font-size:18px;
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+
+    transition:.3s;
+}
+
+.side-menu a:hover{
+    background:#ff7a00;
+   }
