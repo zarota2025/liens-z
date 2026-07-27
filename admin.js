@@ -147,7 +147,39 @@ productImage.value = "";
     showToast("✅ Product added");
 
 });
+/* ========================= */
 
+function editProduct(index) {
+
+    const product = adminProducts[index];
+
+    productName.value = product.name;
+
+    productPrice.value = product.price;
+
+    productOldPrice.value = product.oldPrice || "";
+
+    productDiscount.value = product.discount || "";
+
+    productBadge.value = product.badge || "";
+
+    productCategory.value = product.category;
+
+    productImage.value = product.image;
+
+    editingIndex = index;
+
+    saveButton.textContent = "💾 Update Product";
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
 /* ========================= */
 
 function deleteProduct(index) {
