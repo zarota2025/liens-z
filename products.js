@@ -88,7 +88,7 @@ const productsGrid = document.getElementById("products-grid");
 
 if (productsGrid) {
 
-    defaultProducts.forEach(product => {
+allProducts.forEach(product => {
 
         productsGrid.innerHTML += `
 
