@@ -1,1 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout | LIENS Z</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="checkout.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="top-bar">
+
+<button
+class="menu-btn"
+onclick="history.back()">
+
+←
+
+</button>
+
+<div class="logo">
+
+<img src="logo.png" alt="LIENS Z">
+
+<span>LIENS Z</span>
+
+</div>
+
+<div class="header-icons">
+
+<span id="favorite-count">
+
+❤️ <span>0</span>
+
+</span>
+
+<a href="cart.html" id="cart-count">
+
+🛒 <span>0</span>
+
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+<section class="checkout-page">
+
+<h1 class="checkout-title">
+
+Checkout
+
+</h1>
+
+<div class="checkout-container">
+
+<div class="customer-form">
+
+<h2>
+
+Customer Information
+
+</h2>
+
+<input
+type="text"
+placeholder="Full Name"
+id="fullname">
+
+<input
+type="email"
+placeholder="Email Address"
+id="email">
+
+<input
+type="tel"
+placeholder="Phone Number"
+id="phone">
+
+<input
+type="text"
+placeholder="Country"
+id="country">
+
+<input
+type="text"
+placeholder="City"
+id="city">
+
+<input
+type="text"
+placeholder="Street Address"
+id="address">
+
+<input
+type="text"
+placeholder="Postal Code"
+id="postal">
+
+<select id="payment">
+
+<option>
+Cash on Delivery
+</option>
+
+<option>
+Credit Card
+</option>
+
+<option>
+PayPal
+</option>
+
+</select>
+
+</div>
+
+<div class="order-summary">
+
+<h2>
+
+Order Summary
+
+</h2>
+
+<div id="checkout-items">
+
+</div>
+
+<div class="checkout-total">
+
+Total :
+
+<span id="checkout-total">
+
+$0
+
+</span>
+
+</div>
+
+<button
+id="place-order"
+class="checkout-btn">
+
+Place Order
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="checkout.js"></script>
+
+</body>
+
+</html>
