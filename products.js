@@ -122,17 +122,19 @@ ${product.badge ? `
                     ★★★★★
                 </div>
 
-                <p class="price">
+<p class="price">
 
-                    <span class="new-price">
-                        $${product.price}
-                    </span>
+    <span class="new-price">
+        $${product.price}
+    </span>
 
-                    <span class="old-price">
-                        $${product.oldPrice}
-                    </span>
+    ${product.oldPrice ? `
+    <span class="old-price">
+        $${product.oldPrice}
+    </span>
+    ` : ""}
 
-                </p>
+</p>
 
                 <div class="card-buttons">
 
