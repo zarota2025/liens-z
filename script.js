@@ -1,4 +1,27 @@
 /* =====================================
+   TOAST
+===================================== */
+
+function showToast(message, type = "success") {
+
+    const toast = document.getElementById("toast");
+
+    if (!toast) return;
+
+    const text = document.getElementById("toast-message");
+
+    text.textContent = message;
+
+    toast.className = "toast show " + type;
+
+    setTimeout(() => {
+
+        toast.className = "toast";
+
+    }, 2500);
+
+}
+/* =====================================
    LIENS Z
    SCRIPT.JS
    PART 1
