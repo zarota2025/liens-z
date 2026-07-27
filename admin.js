@@ -16,7 +16,7 @@ const productImage = document.getElementById("product-image");
 
 const saveButton = document.getElementById("save-product");
 const productsContainer = document.getElementById("admin-products");
-
+let editingIndex = -1;
 /* ========================= */
 
 function renderProducts() {
