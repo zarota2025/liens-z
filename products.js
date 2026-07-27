@@ -65,3 +65,84 @@ image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"
 }
 
 ];
+/* =====================================
+   RENDER PRODUCTS
+===================================== */
+
+const productsGrid = document.getElementById("products-grid");
+
+if (productsGrid) {
+
+    defaultProducts.forEach(product => {
+
+        productsGrid.innerHTML += `
+
+        <div class="card"
+        data-name="${product.name.toLowerCase()}"
+        data-category="${product.category}">
+
+            <button class="favorite">
+                ❤
+            </button>
+
+            <span class="discount">
+                ${product.discount}
+            </span>
+
+            <span class="badge">
+                ${product.badge}
+            </span>
+
+            <img src="${product.image}" alt="${product.name}">
+
+            <div class="card-info">
+
+                <h3>${product.name}</h3>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p class="price">
+
+                    <span class="new-price">
+                        $${product.price}
+                    </span>
+
+                    <span class="old-price">
+                        $${product.oldPrice}
+                    </span>
+
+                </p>
+
+                <div class="card-buttons">
+
+                    <a
+                    href="product.html?id=${product.id}"
+                    class="details-btn">
+
+                    View
+
+                    </a>
+
+                    <button
+                    class="buy-btn"
+                    data-name="${product.name}"
+                    data-price="${product.price}"
+                    data-image="${product.image}">
+
+                    🛒 Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
