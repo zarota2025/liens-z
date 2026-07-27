@@ -157,7 +157,7 @@ function addToCart(name) {
 
     updateCounters();
 
-    alert("Added to cart 🛒");
+    showToast("Added to cart 🛒");
 
 }
 
