@@ -92,15 +92,23 @@ saveButton.addEventListener("click", () => {
 
     adminProducts.push({
 
-        name: productName.value,
+    id: Date.now(),
 
-        price: Number(productPrice.value),
+    name: productName.value,
 
-        category: productCategory.value,
+    price: Number(productPrice.value),
 
-        image: productImage.value
+    oldPrice: Number(productOldPrice.value),
 
-    });
+    discount: productDiscount.value,
+
+    badge: productBadge.value,
+
+    category: productCategory.value,
+
+    image: productImage.value
+
+});
 
     localStorage.setItem(
 
