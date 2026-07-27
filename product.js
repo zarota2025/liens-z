@@ -127,3 +127,28 @@ localStorage.setItem("cart",JSON.stringify(cart));
 alert("Product added to cart 🛒");
 
 };
+/* =====================================
+   FAVORITE
+===================================== */
+
+const favoriteBtn=document.getElementById("add-favorite");
+
+favoriteBtn.onclick=()=>{
+
+let favorites=JSON.parse(localStorage.getItem("favorites"))||[];
+
+if(!favorites.includes(product.name)){
+
+favorites.push(product.name);
+
+localStorage.setItem("favorites",JSON.stringify(favorites));
+
+alert("Added to Favorites ❤️");
+
+}else{
+
+alert("Already in Favorites ❤️");
+
+}
+
+};
