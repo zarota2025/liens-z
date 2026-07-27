@@ -179,6 +179,7 @@ productBadge.value = "";
 productCategory.value = "";
 
 productImage.value = "";
+selectedImage = "";
 editingIndex = -1;
 
 saveButton.textContent = "➕ Add Product";
