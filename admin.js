@@ -149,6 +149,7 @@ if (editingIndex === -1) {
     );
 
     renderProducts();
+productName.value = "";
 
 productPrice.value = "";
 
