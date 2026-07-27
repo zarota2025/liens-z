@@ -100,13 +100,17 @@ allProducts.forEach(product => {
                 ❤
             </button>
 
-            <span class="discount">
-                ${product.discount}
-            </span>
+${product.discount ? `
+<span class="discount">
+    ${product.discount}
+</span>
+` : ""}
 
-            <span class="badge">
-                ${product.badge}
-            </span>
+${product.badge ? `
+<span class="badge">
+    ${product.badge}
+</span>
+` : ""}
 
             <img src="${product.image}" alt="${product.name}">
 
