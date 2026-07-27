@@ -280,7 +280,9 @@ buyButtons.forEach(button => {
 
         localStorage.setItem("cart", JSON.stringify(cart));
 
-        updateCartCounter();
+updateCartCounter();
+
+showToast("🛒 Product added to cart");
 
     });
 
