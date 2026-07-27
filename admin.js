@@ -164,7 +164,6 @@ productImage.value = "";
 editingIndex = -1;
 
 saveButton.textContent = "➕ Add Product";
-    showToast("✅ Product added");
 
 });
 /* ========================= */
