@@ -17,6 +17,23 @@ let selectedImage = "";
 const saveButton = document.getElementById("save-product");
 const productsContainer = document.getElementById("admin-products");
 let editingIndex = -1;
+productImage.addEventListener("change", function () {
+
+    const file = this.files[0];
+
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+
+        selectedImage = e.target.result;
+
+    };
+
+    reader.readAsDataURL(file);
+
+});
 /* ========================= */
 
 function renderProducts() {
