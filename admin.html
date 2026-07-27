@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Admin Panel | LIENS Z</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="admin.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="top-bar">
+
+<button
+class="menu-btn"
+onclick="history.back()">
+
+←
+
+</button>
+
+<div class="logo">
+
+<img src="logo.png" alt="LIENS Z">
+
+<span>LIENS Z</span>
+
+</div>
+
+</div>
+
+</header>
+
+<section class="admin-page">
+
+<h1 class="section-title">
+
+👨‍💼 Admin Panel
+
+</h1>
+
+<div class="admin-form">
+
+<input
+type="text"
+id="product-name"
+placeholder="Product Name">
+
+<input
+type="number"
+id="product-price"
+placeholder="Price">
+
+<input
+type="text"
+id="product-category"
+placeholder="Category">
+
+<input
+type="text"
+id="product-image"
+placeholder="Image URL">
+
+<button id="save-product">
+
+➕ Add Product
+
+</button>
+
+</div>
+
+<h2 class="section-title">
+
+Products
+
+</h2>
+
+<div id="admin-products">
+
+</div>
+
+</section>
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>
