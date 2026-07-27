@@ -6,6 +6,11 @@ let adminProducts = JSON.parse(localStorage.getItem("adminProducts")) || [];
 
 const productName = document.getElementById("product-name");
 const productPrice = document.getElementById("product-price");
+const productOldPrice = document.getElementById("product-old-price");
+
+const productDiscount = document.getElementById("product-discount");
+
+const productBadge = document.getElementById("product-badge");
 const productCategory = document.getElementById("product-category");
 const productImage = document.getElementById("product-image");
 
