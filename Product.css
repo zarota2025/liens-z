@@ -55,3 +55,162 @@
     font-size:18px;
     margin-bottom:30px;
 }
+/* ==========================
+   QUANTITY
+========================== */
+
+.quantity{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin-bottom:35px;
+
+}
+
+.quantity button{
+
+width:48px;
+
+height:48px;
+
+border:none;
+
+border-radius:12px;
+
+background:#0b2a66;
+
+color:#fff;
+
+font-size:28px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.quantity button:hover{
+
+background:#1546a0;
+
+transform:scale(1.08);
+
+}
+
+.quantity span{
+
+font-size:26px;
+
+font-weight:700;
+
+min-width:40px;
+
+text-align:center;
+
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.product-buttons{
+
+display:flex;
+
+gap:18px;
+
+margin-bottom:35px;
+
+}
+
+.product-buttons button{
+
+flex:1;
+
+padding:18px;
+
+font-size:18px;
+
+font-weight:600;
+
+border:none;
+
+border-radius:14px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.product-buttons .buy-btn{
+
+background:#ff8800;
+
+color:#fff;
+
+}
+
+.product-buttons .buy-btn:hover{
+
+background:#ff6a00;
+
+transform:translateY(-3px);
+
+}
+
+.product-buttons .details-btn{
+
+background:#0b2a66;
+
+color:#fff;
+
+}
+
+.product-buttons .details-btn:hover{
+
+background:#1546a0;
+
+transform:translateY(-3px);
+
+}
+
+/* ==========================
+   SHIPPING
+========================== */
+
+.shipping{
+
+background:#fff;
+
+padding:25px;
+
+border-radius:18px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.shipping p{
+
+font-size:18px;
+
+padding:10px 0;
+
+color:#444;
+
+border-bottom:1px solid #eee;
+
+}
+
+.shipping p:last-child{
+
+border-bottom:none;
+
+}
