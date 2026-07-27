@@ -135,7 +135,7 @@ const productData = {
 
     category: productCategory.value,
 
-    image: productImage.value
+    image: selectedImage
 
 };
 
