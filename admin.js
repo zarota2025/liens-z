@@ -50,13 +50,25 @@ function renderProducts() {
 
                 <br><br>
 
-                <button
-                class="delete-btn"
-                onclick="deleteProduct(${index})">
+                <div style="display:flex;gap:10px;">
 
-                Delete
+<button
+class="edit-btn"
+onclick="editProduct(${index})">
 
-                </button>
+✏️ Edit
+
+</button>
+
+<button
+class="delete-btn"
+onclick="deleteProduct(${index})">
+
+🗑 Delete
+
+</button>
+
+</div>
 
             </div>
 
