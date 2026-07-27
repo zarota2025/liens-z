@@ -202,7 +202,7 @@ function editProduct(index) {
 
     productCategory.value = product.category;
 
-    productImage.value = product.image;
+    selectedImage = product.image;
 
     editingIndex = index;
 
