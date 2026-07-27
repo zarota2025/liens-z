@@ -1,1 +1,57 @@
+/* ==========================
+   PRODUCT PAGE
+========================== */
 
+.product-page{
+    max-width:1200px;
+    margin:40px auto;
+    padding:20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.product-gallery img{
+    width:100%;
+    border-radius:20px;
+    background:#fff;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+.product-info{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.product-info h1{
+    font-size:42px;
+    color:#0b2a66;
+    margin-bottom:15px;
+}
+
+.rating{
+    font-size:24px;
+    color:#ffb400;
+    margin-bottom:20px;
+}
+
+.rating span{
+    color:#666;
+    font-size:16px;
+    margin-left:10px;
+}
+
+.price{
+    font-size:42px;
+    color:#ff6a00;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.description{
+    color:#555;
+    line-height:1.8;
+    font-size:18px;
+    margin-bottom:30px;
+}
