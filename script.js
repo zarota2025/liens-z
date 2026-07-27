@@ -208,7 +208,17 @@ favoriteButtons.forEach(button => {
 
         localStorage.setItem("favorites", JSON.stringify(favorites));
 
-        updateFavorites();
+updateFavorites();
+
+if (favorites.includes(name)) {
+
+    showToast("❤️ Added to favorites");
+
+} else {
+
+    showToast("🗑️ Removed from favorites", "warning");
+
+}
 
     });
 
