@@ -13,7 +13,7 @@ const productDiscount = document.getElementById("product-discount");
 const productBadge = document.getElementById("product-badge");
 const productCategory = document.getElementById("product-category");
 const productImage = document.getElementById("product-image");
-
+let selectedImage = "";
 const saveButton = document.getElementById("save-product");
 const productsContainer = document.getElementById("admin-products");
 let editingIndex = -1;
