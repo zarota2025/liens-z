@@ -72,7 +72,7 @@ document.getElementById("place-order").addEventListener("click", () => {
         !postal
     ) {
 
-        alert("Please fill in all fields.");
+        showToast("Please fill in all fields.");
 
         return;
     }
@@ -84,7 +84,7 @@ document.getElementById("place-order").addEventListener("click", () => {
         return;
     }
 
-    alert("✅ Order placed successfully!");
+    showToast("✅ Order placed successfully!");
 
     localStorage.removeItem("cart");
 
