@@ -102,9 +102,9 @@ saveButton.addEventListener("click", () => {
 
     }
 
-    adminProducts.push({
+const productData = {
 
-    id: Date.now(),
+    id: editingIndex === -1 ? Date.now() : adminProducts[editingIndex].id,
 
     name: productName.value,
 
@@ -120,7 +120,25 @@ saveButton.addEventListener("click", () => {
 
     image: productImage.value
 
-});
+};
+
+if (editingIndex === -1) {
+
+    adminProducts.push(productData);
+
+    showToast("✅ Product added");
+
+} else {
+
+    adminProducts[editingIndex] = productData;
+
+    editingIndex = -1;
+
+    saveButton.textContent = "➕ Add Product";
+
+    showToast("✏️ Product updated");
+
+}
 
     localStorage.setItem(
 
