@@ -297,3 +297,48 @@ showToast("🛒 Product added to cart");
     });
 
 });
+/* =====================================
+   DARK MODE
+===================================== */
+
+const themeBtn = document.getElementById("theme-toggle");
+
+// تحميل الوضع المحفوظ
+if (localStorage.getItem("theme") === "dark") {
+
+    document.body.classList.add("dark");
+
+    if (themeBtn) {
+        themeBtn.textContent = "☀️";
+    }
+
+}
+
+// تغيير الوضع
+if (themeBtn) {
+
+    themeBtn.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+
+            localStorage.setItem("theme", "dark");
+
+            themeBtn.textContent = "☀️";
+
+            showToast("🌙 Dark Mode Enabled");
+
+        } else {
+
+            localStorage.setItem("theme", "light");
+
+            themeBtn.textContent = "🌙";
+
+            showToast("☀️ Light Mode Enabled");
+
+        }
+
+    });
+
+}
