@@ -120,13 +120,17 @@ saveButton.addEventListener("click", () => {
 
     renderProducts();
 
-    productName.value = "";
+productPrice.value = "";
 
-    productPrice.value = "";
+productOldPrice.value = "";
 
-    productCategory.value = "";
+productDiscount.value = "";
 
-    productImage.value = "";
+productBadge.value = "";
+
+productCategory.value = "";
+
+productImage.value = "";
 
     showToast("✅ Product added");
 
