@@ -90,3 +90,40 @@ qty.textContent=quantity;
 }
 
 };
+/* =====================================
+   ADD TO CART
+===================================== */
+
+const addCart=document.getElementById("add-cart");
+
+addCart.onclick=()=>{
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+const existing=cart.find(item=>item.name===product.name);
+
+if(existing){
+
+existing.quantity+=quantity;
+
+}else{
+
+cart.push({
+
+name:product.name,
+
+price:product.price,
+
+image:product.image,
+
+quantity:quantity
+
+});
+
+}
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+alert("Product added to cart 🛒");
+
+};
