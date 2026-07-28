@@ -231,7 +231,7 @@ selectedImage = "";
 editingIndex = -1;
 
 saveButton.textContent = "➕ Add Product";
-
+saveButton.disabled = false;
 });
 /* ========================= */
 
