@@ -143,7 +143,31 @@ saveButton.addEventListener("click", async () => {
         return;
 
     }
+let imageUrl = selectedImage;
 
+if (productImage.files.length > 0) {
+
+    saveButton.disabled = true;
+
+    saveButton.textContent = "Uploading...";
+
+    try {
+
+        imageUrl = await uploadImage(productImage.files[0]);
+
+    } catch (error) {
+
+        showToast("❌ Image upload failed", "warning");
+
+        saveButton.disabled = false;
+
+        saveButton.textContent = "➕ Add Product";
+
+        return;
+
+    }
+
+}
 const productData = {
 
     id: editingIndex === -1 ? Date.now() : adminProducts[editingIndex].id,
