@@ -124,7 +124,7 @@ onclick="deleteProduct(${index})">
 
 /* ========================= */
 
-saveButton.addEventListener("click", () => {
+saveButton.addEventListener("click", async () => {
 
     if (
 
