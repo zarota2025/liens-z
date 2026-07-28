@@ -184,8 +184,7 @@ const productData = {
 
     category: productCategory.value,
 
-    image: selectedImage
-
+    image: imageUrl
 };
 
 if (editingIndex === -1) {
