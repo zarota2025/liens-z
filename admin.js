@@ -130,7 +130,9 @@ saveButton.addEventListener("click", async () => {
 
         productCategory.value.trim() === "" ||
 
-        productImage.value.trim() === ""
+        editingIndex === -1 &&
+        
+       productImage.files.length === 0
 
     ) {
 
