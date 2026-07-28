@@ -34,7 +34,8 @@ async function uploadImage(file){
     );
 
     const data = await response.json();
-
+    console.log(response);
+    console.log(data);
     return data.secure_url;
 
 }
