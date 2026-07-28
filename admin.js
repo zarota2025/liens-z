@@ -50,11 +50,7 @@ productImage.addEventListener("change", function () {
 
     const reader = new FileReader();
 
-    reader.onload = function (e) {
-
-        selectedImage = e.target.result;
-
-    };
+    reader.onload = function () {};
 
     reader.readAsDataURL(file);
 
