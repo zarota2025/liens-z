@@ -23,13 +23,35 @@ const price = document.getElementById("product-price");
 
 /* ========================= */
 
-if(product){
+if (product) {
 
-image.src = product.image;
+    image.src = product.image;
 
-title.textContent = product.name;
+    title.textContent = product.name;
 
-price.textContent = "$"+product.price;
+    price.textContent = "$" + product.price;
+
+    document.title = product.name + " | LIENS Z";
+
+} else {
+
+    document.querySelector(".product-page").innerHTML = `
+
+        <div style="text-align:center;padding:80px;">
+
+            <h2>❌ Product Not Found</h2>
+
+            <br>
+
+            <a href="index.html" class="buy-btn">
+
+                العودة إلى الصفحة الرئيسية
+
+            </a>
+
+        </div>
+
+    `;
 
 }
 
