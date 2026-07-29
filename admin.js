@@ -223,6 +223,8 @@ if (editingIndex === -1) {
 
     adminProducts.push(productData);
 
+console.log(adminProducts);
+alert("وصلنا إلى push");
     showToast("✅ Product added");
 
 } else {
