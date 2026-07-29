@@ -170,7 +170,7 @@ saveButton.addEventListener("click", async () => {
 
     ) {
 
-        showToast("⚠ Please fill all fields", "warning");
+        alert("⚠ Please fill all fields");
 
         return;
 
@@ -189,7 +189,7 @@ if (productImage.files.length > 0) {
 
     } catch (error) {
 
-        showToast("❌ Image upload failed", "warning");
+        alert("❌ Image upload failed");
 
         saveButton.disabled = false;
 
@@ -225,7 +225,7 @@ if (editingIndex === -1) {
 
 console.log(adminProducts);
 alert("وصلنا إلى push");
-    showToast("✅ Product added");
+    alert("✅ Product added");
 
 } else {
 
@@ -235,7 +235,7 @@ alert("وصلنا إلى push");
 
     saveButton.textContent = "➕ Add Product";
 
-    showToast("✏️ Product updated");
+    alert("✏️ Product updated");
 
 }
 
@@ -316,8 +316,7 @@ function deleteProduct(index) {
 
     renderProducts();
 alert("تم تنفيذ renderProducts");
-    showToast("🗑 Product deleted", "warning");
-
+    alert("🗑 Product deleted");
 }
 
 /* ========================= */
