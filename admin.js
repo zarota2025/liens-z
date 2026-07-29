@@ -1,3 +1,8 @@
+if (localStorage.getItem("adminLogged") !== "true") {
+
+    location.href = "admin-login.html";
+
+}
 /* =====================================
    LIENS Z - ADMIN PANEL
 ===================================== */
