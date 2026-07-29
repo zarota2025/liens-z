@@ -246,7 +246,7 @@ alert("وصلنا إلى push");
         JSON.stringify(adminProducts)
 
     );
-
+alert("تم حفظ المنتج");
     renderProducts();
 productName.value = "";
 
