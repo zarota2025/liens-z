@@ -342,3 +342,68 @@ if (themeBtn) {
     });
 
 }
+/* =====================================
+   LOAD ADMIN PRODUCTS
+===================================== */
+
+const productsGrid = document.getElementById("products-grid");
+
+if (productsGrid) {
+
+    const adminProducts = JSON.parse(localStorage.getItem("adminProducts")) || [];
+
+    productsGrid.innerHTML = "";
+
+    adminProducts.forEach(product => {
+
+        productsGrid.innerHTML += `
+
+        <div class="card"
+        data-name="${product.name.toLowerCase()}"
+        data-category="${product.category}">
+
+            <button class="favorite">❤</button>
+
+            <span class="discount">${product.discount}</span>
+
+            <span class="badge">${product.badge}</span>
+
+            <img src="${product.image}" alt="${product.name}">
+
+            <div class="card-info">
+
+                <h3>${product.name}</h3>
+
+                <div class="stars">★★★★★</div>
+
+                <p class="price">
+
+                    <span class="new-price">$${product.price}</span>
+
+                    <span class="old-price">$${product.oldPrice}</span>
+
+                </p>
+
+                <div class="card-buttons">
+
+                    <button
+                    class="buy-btn"
+                    data-name="${product.name}"
+                    data-price="${product.price}"
+                    data-image="${product.image}">
+
+                    🛒 Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
