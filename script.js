@@ -351,7 +351,7 @@ const productsGrid = document.getElementById("products-grid");
 if (productsGrid) {
 
     const adminProducts = JSON.parse(localStorage.getItem("adminProducts")) || [];
-
+    alert(JSON.stringify(adminProducts));
     productsGrid.innerHTML = "";
 
     adminProducts.forEach(product => {
