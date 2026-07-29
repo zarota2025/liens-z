@@ -305,7 +305,7 @@ function editProduct(index) {
 function deleteProduct(index) {
 
     adminProducts.splice(index, 1);
-
+   
     localStorage.setItem(
 
         "adminProducts",
@@ -315,7 +315,7 @@ function deleteProduct(index) {
     );
 
     renderProducts();
-
+alert("تم تنفيذ renderProducts");
     showToast("🗑 Product deleted", "warning");
 
 }
