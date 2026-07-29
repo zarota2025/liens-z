@@ -109,8 +109,7 @@ dots.forEach((dot,index)=>{
 =====================================*/
 
 const searchInput = document.getElementById("search");
-const products = document.querySelectorAll(".card");
-
+let products = [];
 if (searchInput) {
 
     searchInput.addEventListener("keyup", function () {
