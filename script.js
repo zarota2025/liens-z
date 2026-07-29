@@ -386,13 +386,25 @@ if (productsGrid) {
 
                 <div class="card-buttons">
 
-                    <button
-                    class="buy-btn"
-                    data-name="${product.name}"
-                    data-price="${product.price}"
-                    data-image="${product.image}">
+    <a
+    href="product.html?id=${product.id}"
+    class="details-btn">
 
-                    🛒 Add
+    View
+
+    </a>
+
+    <button
+    class="buy-btn"
+    data-name="${product.name}"
+    data-price="${product.price}"
+    data-image="${product.image}">
+
+    🛒 Add
+
+    </button>
+
+</div>
 
                     </button>
 
