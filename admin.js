@@ -23,22 +23,24 @@ async function uploadImage(file){
     const formData = new FormData();
 
     formData.append("file", file);
+
     formData.append("upload_preset", UPLOAD_PRESET);
 
-    const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
-        {
-            method: "POST",
-            body: formData
-        }
-    );
+    try{
 
-    const data = await response.json();
-    console.log(response);
-    console.log(data);
-    return data.secure_url;
+        const response = await fetch(
 
-}
+            `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+
+            {
+
+                method: "POST",
+
+                body: formData
+
+            }
+
+        );
 
 const saveButton = document.getElementById("save-product");
 const productsContainer = document.getElementById("admin-products");
