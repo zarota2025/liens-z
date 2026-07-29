@@ -9,39 +9,9 @@ const productId = params.get("id");
 
 /* ========================= */
 
-const products = {
+const products = JSON.parse(localStorage.getItem("adminProducts")) || [];
 
-iphone15:{
-
-name:"iPhone 15 Pro",
-
-price:799,
-
-image:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800"
-
-},
-
-nike:{
-
-name:"Nike Shoes",
-
-price:120,
-
-image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800"
-
-},
-
-sony:{
-
-name:"Sony Headphones",
-
-price:149,
-
-image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800"
-
-}
-
-};
+const product = products.find(item => item.id == productId);
 
 /* ========================= */
 
