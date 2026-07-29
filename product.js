@@ -15,8 +15,6 @@ const product = products.find(item => item.id == productId);
 
 /* ========================= */
 
-const product = products[productId];
-
 const image = document.getElementById("product-image");
 
 const title = document.getElementById("product-title");
