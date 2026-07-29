@@ -56,6 +56,17 @@ async function uploadImage(file){
         }
 
         return data.secure_url;
+           } catch (error) {
+
+        console.error(error);
+
+        alert(error.message);
+
+        throw error;
+
+    }
+
+}
 const saveButton = document.getElementById("save-product");
 const productsContainer = document.getElementById("admin-products");
 let editingIndex = -1;
