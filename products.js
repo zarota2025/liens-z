@@ -165,5 +165,5 @@ ${product.badge ? `
         `;
 
     });
-
+window.products = document.querySelectorAll(".card");
 }
