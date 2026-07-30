@@ -7,6 +7,7 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const cartItems = document.getElementById("cart-items");
 const cartTotal = document.getElementById("cart-total");
+const cartCount = document.getElementById("cart-count");
 const clearCartBtn = document.getElementById("clear-cart");
 
 function saveCart() {
