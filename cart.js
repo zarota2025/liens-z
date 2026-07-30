@@ -114,7 +114,7 @@ function increaseQuantity(index){
     saveCart();
 
     renderCart();
-
+showToast("Quantity Updated");
 }
 
 function decreaseQuantity(index){
