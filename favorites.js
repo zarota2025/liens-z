@@ -11,25 +11,35 @@ const cartCounter = document.querySelector("#cart-count span");
 
 /* ========================= */
 
-const products = {
+const defaultProducts = [
 
-    "iPhone 15 Pro": {
-        price: 799,
-        image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800"
-    },
+{
+id:1,
+name:"iPhone 15 Pro",
+price:799,
+image:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800"
+},
 
-    "Nike Shoes": {
-        price: 120,
-        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800"
-    },
+{
+id:2,
+name:"Nike Shoes",
+price:120,
+image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800"
+},
 
-    "Sony Headphones": {
-        price: 149,
-        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800"
-    }
+{
+id:3,
+name:"Sony Headphones",
+price:149,
+image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800"
+}
 
-};
+];
 
+const adminProducts =
+JSON.parse(localStorage.getItem("adminProducts")) || [];
+
+const allProducts = [...defaultProducts, ...adminProducts];
 /* ========================= */
 
 function updateCounters() {
