@@ -83,47 +83,53 @@ function renderFavorites() {
 if (!product) return;
         favoriteItems.innerHTML += `
 
-        <div class="favorite-item">
+<div class="card">
 
-            <img src="${product.image}" alt="${name}">
+    <button class="favorite active">
+        ❤️
+    </button>
 
-            <div class="favorite-info">
+    <img src="${product.image}" alt="${product.name}">
 
-                <h3>${name}</h3>
+    <div class="card-info">
 
-                <div class="favorite-price">
-                    $${product.price}
-                </div>
+        <h3>${product.name}</h3>
 
-                <div class="favorite-buttons">
+        <div class="stars">
+            ★★★★★
+        </div>
 
-<a href="product.html?id=${product.id}" class="details-btn">
-View
-</a>
+        <p class="price">
+            <span class="new-price">$${product.price}</span>
+        </p>
 
-<button
-class="add-cart"
-onclick="addToCart('${name}')">
+        <div class="card-buttons">
 
-🛒 Add to Cart
+            <a
+            href="product.html?id=${product.id}"
+            class="details-btn">
+                View
+            </a>
 
-</button>
+            <button
+            class="buy-btn"
+            onclick="addToCart('${name}')">
+                🛒 Add
+            </button>
 
-<button
-class="remove-favorite"
-onclick="removeFavorite(${index})">
-
-Delete
-
-</button>
-
-</div>
-
-            </div>
+            <button
+            class="remove-favorite"
+            onclick="removeFavorite(${index})">
+                🗑
+            </button>
 
         </div>
 
-        `;
+    </div>
+
+</div>
+
+`;
 
     });
 
