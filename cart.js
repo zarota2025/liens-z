@@ -55,8 +55,16 @@ function renderCart() {
                 <h3>${item.name}</h3>
 
                 <div class="item-price">
-                    $${item.price}
-                </div>
+
+    $${item.price}
+
+    <br>
+
+    <strong>
+    Total: $${(item.price * item.quantity).toFixed(2)}
+    </strong>
+
+</div>
 
                 <div class="quantity">
 
