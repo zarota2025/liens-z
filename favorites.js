@@ -97,23 +97,27 @@ if (!product) return;
 
                 <div class="favorite-buttons">
 
-                    <button
-                    class="add-cart"
-                    onclick="addToCart('${name}')">
+<a href="product.html?id=${product.id}" class="details-btn">
+View
+</a>
 
-                    🛒 Add to Cart
+<button
+class="add-cart"
+onclick="addToCart('${name}')">
 
-                    </button>
+🛒 Add to Cart
 
-                    <button
-                    class="remove-favorite"
-                    onclick="removeFavorite(${index})">
+</button>
 
-                    Delete
+<button
+class="remove-favorite"
+onclick="removeFavorite(${index})">
 
-                    </button>
+Delete
 
-                </div>
+</button>
+
+</div>
 
             </div>
 
