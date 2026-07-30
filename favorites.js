@@ -78,8 +78,9 @@ function renderFavorites() {
 
     favorites.forEach((name, index) => {
 
-        const product = products[name];
+        const product = allProducts.find(item => item.name === name);
 
+if (!product) return;
         favoriteItems.innerHTML += `
 
         <div class="favorite-item">
