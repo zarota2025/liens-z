@@ -17,12 +17,22 @@ function saveCart() {
 function updateTotal() {
 
     let total = 0;
+    let count = 0;
 
     cart.forEach(item => {
+
         total += item.price * item.quantity;
+        count += item.quantity;
+
     });
 
     cartTotal.textContent = "$" + total.toFixed(2);
+
+    if (cartCount) {
+
+        cartCount.textContent = count;
+
+    }
 
 }
 
