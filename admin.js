@@ -327,3 +327,16 @@ alert("تم تنفيذ renderProducts");
 /* ========================= */
 
 renderProducts();
+const logoutBtn = document.getElementById("logout-btn");
+
+if (logoutBtn) {
+
+    logoutBtn.addEventListener("click", () => {
+
+        localStorage.removeItem("adminLogged");
+
+        window.location.href = "admin-login.html";
+
+    });
+
+}
