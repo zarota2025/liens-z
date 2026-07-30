@@ -138,7 +138,7 @@ function decreaseQuantity(index){
 function removeItem(index){
 
     cart.splice(index,1);
-
+showToast("🗑 Product removed", "warning");
     saveCart();
 
     renderCart();
