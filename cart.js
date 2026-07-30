@@ -132,7 +132,7 @@ function decreaseQuantity(index){
     saveCart();
 
     renderCart();
-
+showToast("Quantity Updated");
 }
 
 function removeItem(index){
