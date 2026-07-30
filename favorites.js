@@ -153,8 +153,8 @@ function removeFavorite(index) {
 
 function addToCart(name) {
 
-    const product = products[name];
-
+    const product = allProducts.find(item => item.name === name);
+    if (!product) return;
     const existing = cart.find(item => item.name === name);
 
     if (existing) {
