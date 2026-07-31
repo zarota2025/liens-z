@@ -71,6 +71,11 @@ document.getElementById("place-order").addEventListener("click", () => {
         !address ||
         !postal
     ) {
+
+        showToast("Please fill in all fields.");
+
+        return;
+    }
 let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
 orders.push({
@@ -78,21 +83,13 @@ orders.push({
     id: Date.now(),
 
     customer: {
-
         fullname,
-
         email,
-
         phone,
-
         country,
-
         city,
-
         address,
-
         postal
-
     },
 
     products: cart,
@@ -106,11 +103,6 @@ orders.push({
 });
 
 localStorage.setItem("orders", JSON.stringify(orders));
-        showToast("Please fill in all fields.");
-
-        return;
-    }
-
     if (cart.length === 0) {
 
         alert("Your cart is empty.");
