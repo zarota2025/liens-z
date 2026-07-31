@@ -103,6 +103,8 @@ orders.push({
 });
 
 localStorage.setItem("orders", JSON.stringify(orders));
+   console.log(orders);
+alert("Order Saved Successfully");
     if (cart.length === 0) {
 
         alert("Your cart is empty.");
