@@ -126,5 +126,11 @@ function deleteOrder(index) {
     renderOrders();
 
 }
+function changeStatus(index, status) {
 
+    orders[index].status = status;
+
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+}
 renderOrders();
