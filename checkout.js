@@ -124,6 +124,10 @@ localStorage.setItem("orders", JSON.stringify(orders));
 
 localStorage.setItem("cart", JSON.stringify(cart));
 
+    setTimeout(() => {
+
     window.location.href = "index.html";
+
+}, 2000);
 
 });
