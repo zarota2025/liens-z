@@ -340,3 +340,32 @@ if (logoutBtn) {
     });
 
 }
+function updateDashboard() {
+
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    document.getElementById("products-count").textContent = adminProducts.length;
+
+    document.getElementById("orders-count").textContent = orders.length;
+
+    document.getElementById("favorites-count").textContent = favorites.length;
+
+    let revenue = 0;
+
+    orders.forEach(order => {
+
+        order.products.forEach(product => {
+
+            revenue += product.price * product.quantity;
+
+        });
+
+    });
+
+    document.getElementById("revenue-total").textContent =
+        "$" + revenue.toFixed(2);
+
+}
+
+updateDashboard();
