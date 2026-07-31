@@ -280,3 +280,16 @@ flex:1;
     font-weight:bold;
     color:#ff6600;
 }
+.orders-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 18px;
+    background:#ff8c00;
+    color:#fff;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+    white-space:nowrap;
+}
