@@ -71,7 +71,41 @@ document.getElementById("place-order").addEventListener("click", () => {
         !address ||
         !postal
     ) {
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
+orders.push({
+
+    id: Date.now(),
+
+    customer: {
+
+        fullname,
+
+        email,
+
+        phone,
+
+        country,
+
+        city,
+
+        address,
+
+        postal
+
+    },
+
+    products: cart,
+
+    total: checkoutTotal.textContent,
+
+    payment: document.getElementById("payment").value,
+
+    date: new Date().toLocaleString()
+
+});
+
+localStorage.setItem("orders", JSON.stringify(orders));
         showToast("Please fill in all fields.");
 
         return;
