@@ -120,7 +120,9 @@ localStorage.setItem("orders", JSON.stringify(orders));
 
     showToast("✅ Order placed successfully!");
 
-    localStorage.removeItem("cart");
+    cart = [];
+
+localStorage.setItem("cart", JSON.stringify(cart));
 
     window.location.href = "index.html";
 
