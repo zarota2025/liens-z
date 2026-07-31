@@ -118,7 +118,7 @@ localStorage.setItem("orders", JSON.stringify(orders));
         return;
     }
 
-    showToast("✅ Order placed successfully!");
+    showToast("🎉 Thank you! Your order has been received.");
 
     cart = [];
 
