@@ -70,6 +70,37 @@ function renderOrders() {
 
             <h3>Total: ${order.total}</h3>
 
+<p>
+<strong>Status:</strong>
+
+<select
+class="order-status"
+onchange="changeStatus(${index},this.value)">
+
+<option value="Pending"
+${order.status==="Pending"?"selected":""}>
+Pending
+</option>
+
+<option value="Processing"
+${order.status==="Processing"?"selected":""}>
+Processing
+</option>
+
+<option value="Shipped"
+${order.status==="Shipped"?"selected":""}>
+Shipped
+</option>
+
+<option value="Delivered"
+${order.status==="Delivered"?"selected":""}>
+Delivered
+</option>
+
+</select>
+
+</p>
+
             <button onclick="deleteOrder(${index})" class="delete-btn">
 
                 🗑 Delete Order
