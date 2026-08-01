@@ -78,3 +78,22 @@
     border-color:#ff7a00;
     box-shadow:0 0 10px rgba(255,122,0,.2);
 }
+/* ===========================
+   ORDER STATUS COLORS
+=========================== */
+
+.order-card.pending{
+    border-left:6px solid #ff9800;
+}
+
+.order-card.processing{
+    border-left:6px solid #2196f3;
+}
+
+.order-card.shipped{
+    border-left:6px solid #9c27b0;
+}
+
+.order-card.delivered{
+    border-left:6px solid #4caf50;
+}
