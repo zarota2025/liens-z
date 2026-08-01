@@ -136,6 +136,43 @@ function changeStatus(index, status) {
 
 }
 renderOrders();
+function updateStats() {
+
+    let pending = 0;
+    let processing = 0;
+    let shipped = 0;
+    let delivered = 0;
+
+    orders.forEach(order => {
+
+        switch (order.status) {
+
+            case "Pending":
+                pending++;
+                break;
+
+            case "Processing":
+                processing++;
+                break;
+
+            case "Shipped":
+                shipped++;
+                break;
+
+            case "Delivered":
+                delivered++;
+                break;
+
+        }
+
+    });
+
+    document.getElementById("pending-count").textContent = pending;
+    document.getElementById("processing-count").textContent = processing;
+    document.getElementById("shipped-count").textContent = shipped;
+    document.getElementById("delivered-count").textContent = delivered;
+
+    }
 const searchInput = document.getElementById("search-order");
 
 searchInput.addEventListener("input", function () {
