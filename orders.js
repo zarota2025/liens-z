@@ -124,6 +124,7 @@ function deleteOrder(index) {
     localStorage.setItem("orders", JSON.stringify(orders));
 
     renderOrders();
+updateStats();
 
 }
 function changeStatus(index, status) {
@@ -133,6 +134,7 @@ function changeStatus(index, status) {
     localStorage.setItem("orders", JSON.stringify(orders));
 
     renderOrders();
+updateStats();
 
 }
 renderOrders();
