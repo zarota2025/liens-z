@@ -38,7 +38,7 @@ function renderOrders() {
 
         ordersList.innerHTML += `
 
-        <div class="order-card">
+        <div class="order-card ${order.status ? order.status.toLowerCase() : 'pending'}">
 
             <h2>Order #${order.id}</h2>
 
