@@ -1,7 +1,11 @@
 /* =====================================
    LIENS Z - CHECKOUT
 ===================================== */
-alert("checkout.js loaded");
+alert("1");
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+alert("2");
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const checkoutItems = document.getElementById("checkout-items");
