@@ -116,7 +116,7 @@ alert("Order Saved Successfully");
         return;
     }
 
-    showToast("🎉 Thank you! Your order has been received.");
+    alert("🎉 Thank you! Your order has been received.");
 
     cart = [];
 
