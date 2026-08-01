@@ -196,3 +196,5 @@ searchInput.addEventListener("input", function () {
     });
 
 });
+renderOrders();
+updateStats();
