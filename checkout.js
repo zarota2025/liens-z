@@ -1,4 +1,4 @@
-import { db } from "./firebase.js";
+import { db, collection, addDoc } from "./firebase.js";
 /* =====================================
    LIENS Z - CHECKOUT
 ===================================== */
