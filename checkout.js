@@ -53,7 +53,7 @@ renderCheckout();
 ===================================== */
 
 document.getElementById("place-order").addEventListener("click", () => {
-
+alert("Button Works");
     const fullname = document.getElementById("fullname").value.trim();
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
