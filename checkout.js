@@ -1,7 +1,7 @@
 /* =====================================
    LIENS Z - CHECKOUT
 ===================================== */
-
+alert("checkout.js loaded");
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const checkoutItems = document.getElementById("checkout-items");
