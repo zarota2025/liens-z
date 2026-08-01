@@ -77,8 +77,7 @@ alert("Button Works");
         !postal
     ) {
 
-        showToast("Please fill in all fields.");
-
+        alert("Please fill in all fields.");
         return;
     }
 let orders = JSON.parse(localStorage.getItem("orders")) || [];
