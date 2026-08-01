@@ -6,7 +6,6 @@ alert("1");
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 alert("2");
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const checkoutItems = document.getElementById("checkout-items");
 const checkoutTotal = document.getElementById("checkout-total");
