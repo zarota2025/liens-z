@@ -108,6 +108,39 @@ orders.push({
 });
 
 localStorage.setItem("orders", JSON.stringify(orders));
+ try {
+
+    await addDoc(collection(db, "orders"), {
+
+        customer: {
+            fullname,
+            email,
+            phone,
+            country,
+            city,
+            address,
+            postal
+        },
+
+        products: cart,
+
+        total: checkoutTotal.textContent,
+
+        payment: document.getElementById("payment").value,
+
+        status: "Pending",
+
+        date: new Date().toLocaleString()
+
+    });
+
+    console.log("Order saved to Firebase");
+
+} catch (error) {
+
+    console.error(error);
+
+}  
    console.log(orders);
 alert("Order Saved Successfully");
     if (cart.length === 0) {
