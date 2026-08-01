@@ -63,3 +63,18 @@
 .order-card p{
     margin:10px 0;
 }
+.search-order{
+    width:100%;
+    padding:15px;
+    margin:20px 0 30px;
+    border:2px solid #ddd;
+    border-radius:12px;
+    font-size:16px;
+    outline:none;
+    transition:.3s;
+}
+
+.search-order:focus{
+    border-color:#ff7a00;
+    box-shadow:0 0 10px rgba(255,122,0,.2);
+}
