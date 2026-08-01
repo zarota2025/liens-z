@@ -52,6 +52,8 @@ function renderCheckout() {
 
 renderCheckout();
 
+alert("3");
+
 /* =====================================
    PLACE ORDER
 ===================================== */
