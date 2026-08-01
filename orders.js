@@ -132,6 +132,8 @@ function changeStatus(index, status) {
 
     localStorage.setItem("orders", JSON.stringify(orders));
 
+    renderOrders();
+
 }
 renderOrders();
 const searchInput = document.getElementById("search-order");
