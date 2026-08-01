@@ -134,3 +134,24 @@ function changeStatus(index, status) {
 
 }
 renderOrders();
+const searchInput = document.getElementById("search-order");
+
+searchInput.addEventListener("input", function () {
+
+    const keyword = this.value.toLowerCase();
+
+    const cards = document.querySelectorAll(".order-card");
+
+    cards.forEach(card => {
+
+        const text = card.textContent.toLowerCase();
+
+        if (text.includes(keyword)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+});
