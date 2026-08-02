@@ -65,7 +65,7 @@ alert("5")
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
     const country = document.getElementById("country").value.trim();
-    const city = docalert("4");ument.getElementById("city").value.trim();
+    const city = document.getElementById("city").value.trim();
     const address = document.getElementById("address").value.trim();
     const postal = document.getElementById("postal").value.trim();
 
