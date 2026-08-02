@@ -110,8 +110,11 @@ orders.push({
 
 localStorage.setItem("orders", JSON.stringify(orders));
  try {
-alert("6");
+
+    alert("6");
+
     await addDoc(collection(db, "orders"), {
+
         customer: {
             fullname,
             email,
@@ -140,7 +143,11 @@ alert("6");
 
     console.error(error);
 
-}  
+    alert(error.message);
+
+    return;
+
+}
    console.log(orders);
 alert("Order Saved Successfully");
     
