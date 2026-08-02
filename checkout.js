@@ -53,18 +53,19 @@ function renderCheckout() {
 renderCheckout();
 
 alert("3");
-
+alert("4");
 /* =====================================
    PLACE ORDER
 ===================================== */
 
 document.getElementById("place-order").addEventListener("click", async () => {
-alert("Button Works");
+alert("5")
+   alert("Button Works");
     const fullname = document.getElementById("fullname").value.trim();
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
     const country = document.getElementById("country").value.trim();
-    const city = document.getElementById("city").value.trim();
+    const city = docalert("4");ument.getElementById("city").value.trim();
     const address = document.getElementById("address").value.trim();
     const postal = document.getElementById("postal").value.trim();
 
@@ -111,7 +112,7 @@ localStorage.setItem("orders", JSON.stringify(orders));
  try {
 
     await addDoc(collection(db, "orders"), {
-
+alert("6");
         customer: {
             fullname,
             email,
