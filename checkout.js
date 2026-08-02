@@ -143,14 +143,8 @@ alert("6");
 }  
    console.log(orders);
 alert("Order Saved Successfully");
-    if (cart.length === 0) {
-
-        alert("Your cart is empty.");
-
-        return;
-    }
-
-    alert("🎉 Thank you! Your order has been received.");
+    
+alert("🎉 Thank you! Your order has been received.");
 
     cart = [];
 
