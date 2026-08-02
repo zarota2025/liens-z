@@ -1,7 +1,10 @@
 // Import the functions
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-
+import {
+    getFirestore,
+    collection,
+    addDoc
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 const firebaseConfig = {
   apiKey: "AIzaSyDmzIUU1_ytocfHNs4wnyL8coWVk76Cxz8",
   authDomain: "liens-z.firebaseapp.com",
