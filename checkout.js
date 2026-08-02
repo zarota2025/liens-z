@@ -110,9 +110,8 @@ orders.push({
 
 localStorage.setItem("orders", JSON.stringify(orders));
  try {
-
-    await addDoc(collection(db, "orders"), {
 alert("6");
+    await addDoc(collection(db, "orders"), {
         customer: {
             fullname,
             email,
