@@ -2,8 +2,19 @@
    LIENS Z - ORDERS
 ===================================== */
 
-let orders = JSON.parse(localStorage.getItem("orders")) || [];
+import {
+    db,
+    collection
+} from "./firebase.js";
 
+import {
+    getDocs,
+    deleteDoc,
+    doc,
+    updateDoc
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+let orders = [];
 const ordersList = document.getElementById("orders-list");
 
 function renderOrders() {
