@@ -13,8 +13,7 @@ if (localStorage.getItem("adminLogged") !== "true") {
    LIENS Z - ADMIN PANEL
 ===================================== */
 
-let adminProducts = JSON.parse(localStorage.getItem("adminProducts")) || [];
-
+let adminProducts = [];
 const productName = document.getElementById("product-name");
 const productPrice = document.getElementById("product-price");
 const productOldPrice = document.getElementById("product-old-price");
