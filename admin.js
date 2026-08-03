@@ -1,3 +1,8 @@
+import {
+    db,
+    collection,
+    addDoc
+} from "./firebase.js";
 if (localStorage.getItem("adminLogged") !== "true") {
 
     location.href = "admin-login.html";
