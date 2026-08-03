@@ -230,7 +230,7 @@ const productData = {
 };
 
 if (editingIndex === -1) {
-await addDoc(collection(db, "products"), productData);
+await addProduct(productData);
     adminProducts.push(productData);
 
 console.log(adminProducts);
