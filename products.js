@@ -76,31 +76,33 @@ import { getProducts } from "./firebase-products.js";
 
 const productsGrid = document.getElementById("products-grid");
 
-if (productsGrid) {
+async function loadProducts() {
 
-allProducts.forEach(product => {
+    const firebaseProducts = await getProducts();
+
+    const allProducts = [
+        ...defaultProducts,
+        ...firebaseProducts
+    ];
+
+    productsGrid.innerHTML = "";
+
+    allProducts.forEach(product => {
 
         productsGrid.innerHTML += `
-
         <div class="card"
-        data-name="${product.name.toLowerCase()}"
-        data-category="${product.category}">
+             data-name="${product.name.toLowerCase()}"
+             data-category="${product.category}">
 
-            <button class="favorite">
-                ❤
-            </button>
+            <button class="favorite">❤</button>
 
-${product.discount ? `
-<span class="discount">
-    ${product.discount}
-</span>
-` : ""}
+            ${product.discount ? `
+            <span class="discount">${product.discount}</span>
+            ` : ""}
 
-${product.badge ? `
-<span class="badge">
-    ${product.badge}
-</span>
-` : ""}
+            ${product.badge ? `
+            <span class="badge">${product.badge}</span>
+            ` : ""}
 
             <img src="${product.image}" alt="${product.name}">
 
@@ -108,42 +110,27 @@ ${product.badge ? `
 
                 <h3>${product.name}</h3>
 
-                <div class="stars">
-                    ★★★★★
-                </div>
+                <div class="stars">★★★★★</div>
 
-<p class="price">
+                <p class="price">
+                    <span class="new-price">$${product.price}</span>
 
-    <span class="new-price">
-        $${product.price}
-    </span>
-
-    ${product.oldPrice ? `
-    <span class="old-price">
-        $${product.oldPrice}
-    </span>
-    ` : ""}
-
-</p>
+                    ${product.oldPrice ? `
+                    <span class="old-price">$${product.oldPrice}</span>
+                    ` : ""}
+                </p>
 
                 <div class="card-buttons">
 
-                    <a
-                    href="product.html?id=${product.id}"
-                    class="details-btn">
-
-                    View
-
+                    <a href="product.html?id=${product.id}" class="details-btn">
+                        View
                     </a>
 
-                    <button
-                    class="buy-btn"
-                    data-name="${product.name}"
-                    data-price="${product.price}"
-                    data-image="${product.image}">
-
-                    🛒 Add
-
+                    <button class="buy-btn"
+                        data-name="${product.name}"
+                        data-price="${product.price}"
+                        data-image="${product.image}">
+                        🛒 Add
                     </button>
 
                 </div>
@@ -151,9 +138,11 @@ ${product.badge ? `
             </div>
 
         </div>
-
         `;
 
     });
-window.products = document.querySelectorAll(".card");
+
+    window.products = document.querySelectorAll(".card");
 }
+
+loadProducts();
