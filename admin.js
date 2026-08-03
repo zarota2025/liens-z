@@ -249,15 +249,8 @@ alert("وصلنا إلى push");
 
 }
 
-    localStorage.setItem(
-
-        "adminProducts",
-
-        JSON.stringify(adminProducts)
-
-    );
 alert("تم حفظ المنتج");
-    renderProducts();
+    await loadProducts();
 productName.value = "";
 
 productPrice.value = "";
