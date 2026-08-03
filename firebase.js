@@ -3,7 +3,11 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebas
 import {
     getFirestore,
     collection,
-    addDoc
+    addDoc,
+    getDocs,
+    deleteDoc,
+    updateDoc,
+    doc
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 const firebaseConfig = {
   apiKey: "AIzaSyDmzIUU1_ytocfHNs4wnyL8coWVk76Cxz8",
