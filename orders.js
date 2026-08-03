@@ -207,5 +207,26 @@ searchInput.addEventListener("input", function () {
     });
 
 });
+async function loadOrders() {
+
+    orders = [];
+
+    const querySnapshot = await getDocs(collection(db, "orders"));
+
+    querySnapshot.forEach((document) => {
+
+        orders.push({
+            id: document.id,
+            ...document.data()
+        });
+
+    });
+
+    renderOrders();
+    updateStats();
+
+}
+
+loadOrders();
 renderOrders();
 updateStats();
