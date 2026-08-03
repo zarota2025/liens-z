@@ -130,10 +130,9 @@ function deleteOrder(index) {
 
     if (!confirm("Delete this order?")) return;
 
-    orders.splice(index, 1);
+    await deleteDoc(doc(db,"orders",orders[index].id));
 
-    localStorage.setItem("orders", JSON.stringify(orders));
-
+loadOrders();
     renderOrders();
 updateStats();
 
