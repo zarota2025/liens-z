@@ -305,21 +305,16 @@ function editProduct(index) {
 }
 /* ========================= */
 
-function deleteProduct(index) {
+async function deleteProduct(index) {
 
-    adminProducts.splice(index, 1);
-   
-    localStorage.setItem(
+    if (!confirm("Delete this product?")) return;
 
-        "adminProducts",
+    await deleteFirebaseProduct(adminProducts[index].id);
 
-        JSON.stringify(adminProducts)
+    await loadProducts();
 
-    );
-
-    renderProducts();
-alert("تم تنفيذ renderProducts");
     alert("🗑 Product deleted");
+
 }
 
 /* ========================= */
