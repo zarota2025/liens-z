@@ -69,17 +69,7 @@ image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"
    LOAD ADMIN PRODUCTS
 ===================================== */
 
-const adminProducts = JSON.parse(
-    localStorage.getItem("adminProducts")
-) || [];
-
-const allProducts = [
-
-    ...defaultProducts,
-
-    ...adminProducts
-
-];
+import { getProducts } from "./firebase-products.js";
 /* =====================================
    RENDER PRODUCTS
 ===================================== */
