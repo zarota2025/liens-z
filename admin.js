@@ -331,7 +331,17 @@ alert("تم تنفيذ renderProducts");
 
 /* ========================= */
 
-renderProducts();
+async function loadProducts() {
+
+    adminProducts = await getProducts();
+
+    renderProducts();
+
+    updateDashboard();
+
+}
+
+loadProducts();
 const logoutBtn = document.getElementById("logout-btn");
 
 if (logoutBtn) {
