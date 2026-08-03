@@ -141,7 +141,11 @@ function changeStatus(index, status) {
 
     orders[index].status = status;
 
-    localStorage.setItem("orders", JSON.stringify(orders));
+    await updateDoc(doc(db,"orders",orders[index].id),{
+    status:status
+});
+
+loadOrders();
 
     renderOrders();
 updateStats();
