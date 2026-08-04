@@ -70,7 +70,6 @@ image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"
    LOAD ADMIN PRODUCTS
 ===================================== */
 
-import { getProducts } from "./firebase-products.js";
 /* =====================================
    RENDER PRODUCTS
 ===================================== */
