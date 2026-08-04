@@ -145,4 +145,10 @@ async function loadProducts() {
     window.products = document.querySelectorAll(".card");
 }
 
-loadProducts();
+loadProducts().then(() => {
+
+    if (typeof initProducts === "function") {
+        initProducts();
+    }
+
+});
