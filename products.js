@@ -1,3 +1,4 @@
+import { getProducts } from "./firebase-products.js";
 /* =====================================
    LIENS Z PRODUCTS
 ===================================== */
