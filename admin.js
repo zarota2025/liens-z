@@ -239,7 +239,12 @@ alert("وصلنا إلى push");
 
 } else {
 
-    adminProducts[editingIndex] = productData;
+    await updateProduct(adminProducts[editingIndex].id, productData);
+
+adminProducts[editingIndex] = {
+    ...adminProducts[editingIndex],
+    ...productData
+};
 
     editingIndex = -1;
 
