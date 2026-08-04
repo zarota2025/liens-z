@@ -170,78 +170,25 @@ categoryButtons.forEach(button => {
 
 });
 /* =====================================
-   FAVORITES
-=====================================*/
+   FAVORITES + CART
+===================================== */
 
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-const favoriteButtons = document.querySelectorAll(".favorite");
-const favoriteCounter = document.getElementById("favorite-count");
-
-updateFavorites();
-
-favoriteButtons.forEach(button => {
-
-    const card = button.closest(".card");
-    const name = card.querySelector("h3").textContent;
-
-    if (favorites.includes(name)) {
-        button.classList.add("active");
-    }
-
-    button.addEventListener("click", () => {
-
-        if (favorites.includes(name)) {
-
-            favorites = favorites.filter(item => item !== name);
-
-            button.classList.remove("active");
-
-        } else {
-
-            favorites.push(name);
-
-            button.classList.add("active");
-
-        }
-
-        localStorage.setItem("favorites", JSON.stringify(favorites));
-
-updateFavorites();
-
-if (favorites.includes(name)) {
-
-    showToast("❤️ Added to favorites");
-
-} else {
-
-    showToast("🗑️ Removed from favorites", "warning");
-
-}
-
-    });
-
-});
-
-function updateFavorites(){
-
-    if(favoriteCounter){
-
-        favoriteCounter.innerHTML =
-        `❤️ <span>${favorites.length}</span>`;
-
-    }
-
-}
-// ===============================
-// CART
-// ===============================
-
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-const cartCounter = document.querySelector("#cart-count span");
+function updateFavorites() {
+
+    const favoriteCounter = document.getElementById("favorite-count");
+
+    if (favoriteCounter) {
+        favoriteCounter.innerHTML = `❤️ <span>${favorites.length}</span>`;
+    }
+
+}
 
 function updateCartCounter() {
+
+    const cartCounter = document.querySelector("#cart-count span");
 
     let total = 0;
 
@@ -255,47 +202,87 @@ function updateCartCounter() {
 
 }
 
-updateCartCounter();
+function initProducts() {
 
-const buyButtons = document.querySelectorAll(".buy-btn");
+    const favoriteButtons = document.querySelectorAll(".favorite");
+    const buyButtons = document.querySelectorAll(".buy-btn");
 
-buyButtons.forEach(button => {
+    updateFavorites();
+    updateCartCounter();
 
-    button.addEventListener("click", () => {
+    favoriteButtons.forEach(button => {
 
-        const product = {
+        const card = button.closest(".card");
+        const name = card.querySelector("h3").textContent;
 
-            name: button.dataset.name,
-
-            price: Number(button.dataset.price),
-
-            image: button.dataset.image,
-
-            quantity: 1
-
-        };
-
-        const existing = cart.find(item => item.name === product.name);
-
-        if (existing) {
-
-            existing.quantity++;
-
-        } else {
-
-            cart.push(product);
-
+        if (favorites.includes(name)) {
+            button.classList.add("active");
         }
 
-        localStorage.setItem("cart", JSON.stringify(cart));
+        button.addEventListener("click", () => {
 
-updateCartCounter();
+            if (favorites.includes(name)) {
 
-showToast("🛒 Product added to cart");
+                favorites = favorites.filter(item => item !== name);
+
+                button.classList.remove("active");
+
+                showToast("🗑️ Removed from favorites", "warning");
+
+            } else {
+
+                favorites.push(name);
+
+                button.classList.add("active");
+
+                showToast("❤️ Added to favorites");
+
+            }
+
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+
+            updateFavorites();
+
+        });
 
     });
 
-});
+    buyButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const product = {
+
+                name: button.dataset.name,
+                price: Number(button.dataset.price),
+                image: button.dataset.image,
+                quantity: 1
+
+            };
+
+            const existing = cart.find(item => item.name === product.name);
+
+            if (existing) {
+
+                existing.quantity++;
+
+            } else {
+
+                cart.push(product);
+
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            updateCartCounter();
+
+            showToast("🛒 Product added to cart");
+
+        });
+
+    });
+
+                 }
 /* =====================================
    DARK MODE
 ===================================== */
