@@ -294,3 +294,87 @@ document.getElementById("close-modal").onclick = function(){
     document.getElementById("order-modal").style.display = "none";
 
 };
+window.printInvoice = function(index){
+
+    const order = orders[index];
+
+    let products = "";
+
+    order.products.forEach(product => {
+
+        products += `
+        <tr>
+            <td>${product.name}</td>
+            <td>${product.quantity}</td>
+            <td>$${product.price}</td>
+            <td>$${(product.price * product.quantity).toFixed(2)}</td>
+        </tr>
+        `;
+
+    });
+
+    const win = window.open("", "_blank");
+
+    win.document.write(`
+    <html>
+    <head>
+    <title>Invoice</title>
+
+    <style>
+
+    body{
+        font-family:Arial;
+        padding:30px;
+    }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+    }
+
+    table,th,td{
+        border:1px solid #000;
+    }
+
+    th,td{
+        padding:10px;
+    }
+
+    </style>
+
+    </head>
+
+    <body>
+
+    <h1>LIENS Z</h1>
+
+    <h2>Invoice</h2>
+
+    <p><b>Customer:</b> ${order.customer.fullname}</p>
+    <p><b>Email:</b> ${order.customer.email}</p>
+    <p><b>Phone:</b> ${order.customer.phone}</p>
+    <p><b>Date:</b> ${order.date}</p>
+
+    <table>
+
+    <tr>
+        <th>Product</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Total</th>
+    </tr>
+
+    ${products}
+
+    </table>
+
+    <h2>Total: ${order.total}</h2>
+
+    </body>
+    </html>
+    `);
+
+    win.document.close();
+    win.print();
+
+};
