@@ -239,3 +239,54 @@ document.getElementById("search-order").addEventListener("input",function(){
 // =========================
 
 loadOrders();
+window.viewOrder = function(index){
+
+    const order = orders[index];
+
+    const details = document.getElementById("order-details");
+
+    let products = "";
+
+    order.products.forEach(product => {
+
+        products += `
+            <li>
+                ${product.name}
+                × ${product.quantity}
+                - $${product.price}
+            </li>
+        `;
+
+    });
+
+    details.innerHTML = `
+        <h2>Order Details</h2>
+
+        <p><strong>Name:</strong> ${order.customer.fullname}</p>
+
+        <p><strong>Email:</strong> ${order.customer.email}</p>
+
+        <p><strong>Phone:</strong> ${order.customer.phone}</p>
+
+        <p><strong>Address:</strong> ${order.customer.address}</p>
+
+        <p><strong>Payment:</strong> ${order.payment}</p>
+
+        <p><strong>Date:</strong> ${order.date}</p>
+
+        <h3>Products</h3>
+
+        <ul>${products}</ul>
+
+        <h3>Total: ${order.total}</h3>
+    `;
+
+    document.getElementById("order-modal").style.display = "flex";
+
+};
+
+document.getElementById("close-modal").onclick = function(){
+
+    document.getElementById("order-modal").style.display = "none";
+
+};
