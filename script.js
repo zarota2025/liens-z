@@ -202,7 +202,7 @@ function updateCartCounter() {
 
 }
 
-function initProducts() {
+window.initProducts = function () {
 
     const favoriteButtons = document.querySelectorAll(".favorite");
     const buyButtons = document.querySelectorAll(".buy-btn");
