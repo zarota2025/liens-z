@@ -128,6 +128,10 @@ function renderOrders() {
         👁 View
     </button>
 
+    <button onclick="printInvoice(${index})" class="print-btn">
+        🖨 Print
+    </button>
+
     <button onclick="deleteOrder(${index})" class="delete-btn">
         🗑 Delete
     </button>
