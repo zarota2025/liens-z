@@ -122,11 +122,17 @@ function renderOrders() {
 
             </p>
 
-            <button onclick="deleteOrder(${index})" class="delete-btn">
+            <div class="order-actions">
 
-                Delete
+    <button onclick="viewOrder(${index})" class="view-btn">
+        👁 View
+    </button>
 
-            </button>
+    <button onclick="deleteOrder(${index})" class="delete-btn">
+        🗑 Delete
+    </button>
+
+</div>
 
         </div>
 
