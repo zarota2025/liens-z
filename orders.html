@@ -85,7 +85,35 @@ class="search-order">
 
 </div>
 </section>
+<!-- ================= INVOICE MODAL ================= -->
 
+<div id="order-modal" class="modal">
+
+    <div class="modal-content">
+
+        <span id="close-modal" class="close">&times;</span>
+
+        <div id="order-details"></div>
+
+        <div class="invoice-buttons">
+
+            <button id="print-invoice">
+                🖨 Print Invoice
+            </button>
+
+            <button id="download-pdf">
+                📄 Download PDF
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- html2pdf -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script type="module" src="orders.js"></script>
 
 </body>
