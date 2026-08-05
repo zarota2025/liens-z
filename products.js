@@ -147,8 +147,8 @@ async function loadProducts() {
 
 loadProducts().then(() => {
 
-    if (typeof initProducts === "function") {
-        initProducts();
+    if (window.initProducts) {
+        window.initProducts();
     }
 
 });
