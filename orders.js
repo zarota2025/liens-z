@@ -378,3 +378,23 @@ window.printInvoice = function(index){
     win.print();
 
 };
+document.getElementById("download-pdf").onclick = function () {
+
+    const invoice = document.getElementById("order-details");
+
+    html2pdf()
+        .set({
+            margin: 10,
+            filename: "LIENS-Z-Invoice.pdf",
+            image: { type: "jpeg", quality: 1 },
+            html2canvas: { scale: 2 },
+            jsPDF: {
+                unit: "mm",
+                format: "a4",
+                orientation: "portrait"
+            }
+        })
+        .from(invoice)
+        .save();
+
+};
