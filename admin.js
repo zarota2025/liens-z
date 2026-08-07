@@ -377,3 +377,102 @@ function updateDashboard() {
 }
 
 updateDashboard();
+// =====================================
+// 📈 SALES ANALYTICS
+// =====================================
+
+let salesChart;
+
+function drawSalesChart() {
+
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+    const months = [
+        "Jan", "Feb", "Mar", "Apr",
+        "May", "Jun", "Jul", "Aug",
+        "Sep", "Oct", "Nov", "Dec"
+    ];
+
+    let totals = new Array(12).fill(0);
+
+    orders.forEach(order => {
+
+        const date = new Date(order.date);
+
+        const month = date.getMonth();
+
+        if (order.products) {
+
+            order.products.forEach(product => {
+
+                totals[month] +=
+                    Number(product.price) *
+                    Number(product.quantity);
+
+            });
+
+        }
+
+    });
+
+    const canvas = document.getElementById("salesChart");
+
+    if (!canvas) return;
+
+    if (salesChart) {
+        salesChart.destroy();
+    }
+
+    salesChart = new Chart(canvas, {
+
+        type: "line",
+
+        data: {
+
+            labels: months,
+
+            datasets: [{
+
+                label: "Sales ($)",
+
+                data: totals,
+
+                borderWidth: 3,
+
+                tension: 0.4,
+
+                fill: true
+
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+            plugins: {
+
+                legend: {
+                    display: true
+                }
+
+            },
+
+            scales: {
+
+                y: {
+
+                    beginAtZero: true
+
+                }
+
+            }
+
+        }
+
+    });
+
+}
