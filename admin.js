@@ -174,3 +174,118 @@ if (productImage) {
     );
 
 }
+// =====================================
+// 📦 RENDER ADMIN PRODUCTS
+// =====================================
+
+function renderProducts() {
+
+    if (!productsContainer) return;
+
+    productsContainer.innerHTML = "";
+
+    if (adminProducts.length === 0) {
+
+        productsContainer.innerHTML = `
+            <div class="empty-products">
+                <p>📦 No products yet.</p>
+            </div>
+        `;
+
+        return;
+    }
+
+
+    adminProducts.forEach((product, index) => {
+
+        productsContainer.innerHTML += `
+
+        <div class="admin-card">
+
+            <img
+                src="${product.image}"
+                alt="${product.name}"
+            >
+
+            <div class="admin-card-content">
+
+                <h3>
+                    ${product.name}
+                </h3>
+
+                <p>
+                    💰 $${product.price}
+                </p>
+
+                ${
+                    product.oldPrice
+                    ? `
+                    <small>
+                        Old price:
+                        $${product.oldPrice}
+                    </small>
+                    `
+                    : ""
+                }
+
+                <p>
+                    📂 ${product.category}
+                </p>
+
+                ${
+                    product.discount
+                    ? `
+                    <span>
+                        ${product.discount}
+                    </span>
+                    `
+                    : ""
+                }
+
+                ${
+                    product.badge
+                    ? `
+                    <span>
+                        ${product.badge}
+                    </span>
+                    `
+                    : ""
+                }
+
+                <br><br>
+
+                <div
+                    class="admin-card-actions"
+                    style="
+                        display:flex;
+                        gap:10px;
+                        flex-wrap:wrap;
+                    "
+                >
+
+                    <button
+                        class="edit-btn"
+                        onclick="editProduct(${index})"
+                    >
+                        ✏️ Edit
+                    </button>
+
+
+                    <button
+                        class="delete-btn"
+                        onclick="deleteProduct(${index})"
+                    >
+                        🗑 Delete
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
