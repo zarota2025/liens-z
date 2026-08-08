@@ -5,24 +5,21 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin Panel | LIENS Z</title>
+<title>LIENS Z | Admin Dashboard</title>
 
 <link rel="stylesheet" href="style.css">
-
 <link rel="stylesheet" href="admin.css">
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
 rel="stylesheet">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -30,124 +27,295 @@ rel="stylesheet">
 
 <header class="header">
 
-<div class="top-bar">
+    <div class="top-bar">
 
-<button
-class="menu-btn"
-onclick="history.back()">
+        <button
+            class="menu-btn"
+            onclick="history.back()">
+            ←
+        </button>
 
-←
+        <div class="logo">
 
-</button>
+            <img src="logo.png" alt="LIENS Z">
 
-<div class="logo">
+            <span>LIENS Z</span>
 
-<img src="logo.png" alt="LIENS Z">
+        </div>
 
-<span>LIENS Z</span>
+        <button
+            id="theme-toggle"
+            class="theme-btn">
+            🌙
+        </button>
 
-</div>
-<button id="logout-btn" class="logout-btn">
-🚪 Logout
-</button>
-</div>
+        <button
+            id="logout-btn"
+            class="logout-btn">
+            🚪 Logout
+        </button>
+
+    </div>
 
 </header>
 
+
 <section class="admin-page">
 
-<h1 class="section-title">
 
-👨‍💼 Admin Panel
-<a href="orders.html" class="orders-btn">
-📦 Orders
-</a>
-</h1>
-<div class="dashboard">
+    <!-- ============================= -->
+    <!-- ADMIN TITLE -->
+    <!-- ============================= -->
 
-    <div class="dash-card">
-        <h3>📦 Products</h3>
-        <span id="products-count">0</span>
+    <div class="admin-title-row">
+
+        <h1 class="section-title">
+            👨‍💼 Admin Dashboard
+        </h1>
+
+        <a
+            href="orders.html"
+            class="orders-btn">
+            📦 Orders
+        </a>
+
     </div>
 
-    <div class="dash-card">
-        <h3>🛒 Orders</h3>
-        <span id="orders-count">0</span>
+
+    <!-- ============================= -->
+    <!-- NOTIFICATION -->
+    <!-- ============================= -->
+
+    <div
+        id="new-order-notification"
+        class="admin-notification"
+        style="display:none;">
+
+        🔔 New order received!
+
+        <a href="orders.html">
+            View Orders
+        </a>
+
     </div>
 
-    <div class="dash-card">
-        <h3>💰 Revenue</h3>
-        <span id="revenue-total">$0</span>
+
+    <!-- ============================= -->
+    <!-- DASHBOARD CARDS -->
+    <!-- ============================= -->
+
+    <div class="dashboard">
+
+
+        <div class="dash-card">
+
+            <h3>
+                📦 Products
+            </h3>
+
+            <span id="products-count">
+                0
+            </span>
+
+        </div>
+
+
+        <div class="dash-card">
+
+            <h3>
+                🛒 Orders
+            </h3>
+
+            <span id="orders-count">
+                0
+            </span>
+
+        </div>
+
+
+        <div class="dash-card">
+
+            <h3>
+                👥 Customers
+            </h3>
+
+            <span id="customers-count">
+                0
+            </span>
+
+        </div>
+
+
+        <div class="dash-card">
+
+            <h3>
+                ❤️ Favorites
+            </h3>
+
+            <span id="favorites-count">
+                0
+            </span>
+
+        </div>
+
+
+        <div class="dash-card">
+
+            <h3>
+                💰 Revenue
+            </h3>
+
+            <span id="revenue-total">
+                $0
+            </span>
+
+        </div>
+
+
+        <div class="dash-card">
+
+            <h3>
+                📅 Today
+            </h3>
+
+            <span id="daily-revenue">
+                $0
+            </span>
+
+        </div>
+
+
+        <div class="dash-card">
+
+            <h3>
+                📆 This Month
+            </h3>
+
+            <span id="monthly-revenue">
+                $0
+            </span>
+
+        </div>
+
+
     </div>
 
-    <div class="dash-card">
-        <h3>❤️ Favorites</h3>
-        <span id="favorites-count">0</span>
-    </div>
 
-</div>
+    <!-- ============================= -->
+    <!-- SALES ANALYTICS -->
+    <!-- ============================= -->
+
     <div class="analytics-card">
 
-    <h2>📈 Sales Analytics</h2>
+        <h2>
+            📈 Sales Analytics
+        </h2>
 
-    <canvas id="salesChart"></canvas>
+        <canvas id="salesChart"></canvas>
 
-</div>
-<div class="admin-form">
+    </div>
 
-<input
-type="text"
-id="product-name"
-placeholder="Product Name">
 
-<input
-type="number"
-id="product-price"
-placeholder="Price">
+    <!-- ============================= -->
+    <!-- BEST SELLING PRODUCTS -->
+    <!-- ============================= -->
 
-<input
-type="text"
-id="product-category"
-placeholder="Category">
+    <div class="analytics-card">
 
-<input
-type="file"
-id="product-image"
-accept="image/*">
-<input
-type="number"
-id="product-old-price"
-placeholder="Old Price">
+        <h2>
+            📊 Best Selling Products
+        </h2>
 
-<input
-type="text"
-id="product-discount"
-placeholder="Discount (مثال: -20%)">
+        <div id="best-products">
 
-<input
-type="text"
-id="product-badge"
-placeholder="Badge (Best Seller / New)">
-<button id="save-product">
+            <p>
+                Loading products...
+            </p>
 
-➕ Add Product
+        </div>
 
-</button>
+    </div>
 
-</div>
 
-<h2 class="section-title">
+    <!-- ============================= -->
+    <!-- ADD PRODUCT -->
+    <!-- ============================= -->
 
-Products
+    <div class="admin-form">
 
-</h2>
 
-<div id="admin-products">
+        <input
+            type="text"
+            id="product-name"
+            placeholder="Product Name">
 
-</div>
+
+        <input
+            type="number"
+            id="product-price"
+            placeholder="Price">
+
+
+        <input
+            type="text"
+            id="product-category"
+            placeholder="Category">
+
+
+        <input
+            type="file"
+            id="product-image"
+            accept="image/*">
+
+
+        <input
+            type="number"
+            id="product-old-price"
+            placeholder="Old Price">
+
+
+        <input
+            type="text"
+            id="product-discount"
+            placeholder="Discount (مثال: -20%)">
+
+
+        <input
+            type="text"
+            id="product-badge"
+            placeholder="Badge (Best Seller / New)">
+
+
+        <button
+            id="save-product">
+
+            ➕ Add Product
+
+        </button>
+
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- PRODUCTS -->
+    <!-- ============================= -->
+
+    <h2 class="section-title">
+
+        Products
+
+    </h2>
+
+
+    <div id="admin-products">
+
+    </div>
+
 
 </section>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
 <script type="module" src="admin.js"></script>
 
 </body>
