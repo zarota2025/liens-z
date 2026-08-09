@@ -1197,3 +1197,314 @@ function drawSalesChart() {
     });
 
 }
+// =====================================
+// 🔔 NEW ORDER NOTIFICATION
+// =====================================
+
+let lastOrderCount =
+    Number(
+        localStorage.getItem(
+            "lastOrderCount"
+        )
+    ) || 0;
+
+
+async function checkNewOrders() {
+
+    try {
+
+        const snapshot =
+            await getDocs(
+                collection(db, "orders")
+            );
+
+        const currentOrderCount =
+            snapshot.size;
+
+
+        const notification =
+            document.getElementById(
+                "new-order-notification"
+            );
+
+
+        // أول مرة فقط نحفظ العدد
+        if (
+            !localStorage.getItem(
+                "lastOrderCount"
+            )
+        ) {
+
+            localStorage.setItem(
+                "lastOrderCount",
+                currentOrderCount
+            );
+
+            return;
+
+        }
+
+
+        // يوجد طلب جديد
+        if (
+            currentOrderCount >
+            lastOrderCount
+        ) {
+
+            if (notification) {
+
+                notification.style.display =
+                    "block";
+
+            }
+
+            showAdminNotification();
+
+        }
+
+
+        lastOrderCount =
+            currentOrderCount;
+
+
+        localStorage.setItem(
+            "lastOrderCount",
+            currentOrderCount
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Notification error:",
+            error
+        );
+
+    }
+
+}
+
+
+// =====================================
+// 🔔 SHOW NOTIFICATION
+// =====================================
+
+function showAdminNotification() {
+
+    const notification =
+        document.getElementById(
+            "new-order-notification"
+        );
+
+
+    if (!notification) return;
+
+
+    notification.style.display =
+        "block";
+
+
+    // إخفاء الإشعار بعد 10 ثوانٍ
+    setTimeout(() => {
+
+        notification.style.display =
+            "none";
+
+    }, 10000);
+
+}
+
+
+// =====================================
+// 📊 BEST SELLING PRODUCTS
+// =====================================
+
+async function updateBestProducts() {
+
+    const container =
+        document.getElementById(
+            "best-products"
+        );
+
+
+    if (!container) return;
+
+
+    try {
+
+        const snapshot =
+            await getDocs(
+                collection(db, "orders")
+            );
+
+
+        const productSales = {};
+
+
+        snapshot.forEach(document => {
+
+            const order =
+                document.data();
+
+
+            if (
+                !order.products ||
+                !Array.isArray(
+                    order.products
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            order.products.forEach(
+                product => {
+
+                    const name =
+                        product.name;
+
+
+                    if (
+                        !productSales[name]
+                    ) {
+
+                        productSales[name] = {
+
+                            name:
+                                name,
+
+                            quantity:
+                                0,
+
+                            revenue:
+                                0
+
+                        };
+
+                    }
+
+
+                    productSales[name]
+                        .quantity +=
+                        Number(
+                            product.quantity || 0
+                        );
+
+
+                    productSales[name]
+                        .revenue +=
+                        Number(
+                            product.price || 0
+                        ) *
+                        Number(
+                            product.quantity || 0
+                        );
+
+                }
+            );
+
+        });
+
+
+        // ---------------------------------
+        // SORT
+        // ---------------------------------
+
+        const bestProducts =
+            Object.values(
+                productSales
+            )
+            .sort(
+                (a, b) =>
+                    b.quantity -
+                    a.quantity
+            )
+            .slice(0, 5);
+
+
+        // ---------------------------------
+        // EMPTY
+        // ---------------------------------
+
+        if (
+            bestProducts.length === 0
+        ) {
+
+            container.innerHTML = `
+                <p>
+                    No sales yet 📦
+                </p>
+            `;
+
+            return;
+
+        }
+
+
+        // ---------------------------------
+        // DISPLAY
+        // ---------------------------------
+
+        container.innerHTML = "";
+
+
+        bestProducts.forEach(
+            (product, index) => {
+
+                container.innerHTML += `
+
+                <div class="best-product">
+
+                    <div class="best-product-rank">
+                        #${index + 1}
+                    </div>
+
+                    <div class="best-product-info">
+
+                        <h3>
+                            ${product.name}
+                        </h3>
+
+                        <p>
+                            🛒 Sold:
+                            <strong>
+                                ${product.quantity}
+                            </strong>
+                        </p>
+
+                        <p>
+                            💰 Revenue:
+                            <strong>
+                                $${product.revenue.toFixed(2)}
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </div>
+
+                `;
+
+            }
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Best products error:",
+            error
+        );
+
+
+        container.innerHTML = `
+            <p>
+                ❌ Unable to load sales.
+            </p>
+        `;
+
+    }
+
+}
