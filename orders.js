@@ -222,23 +222,420 @@ function updateStats(){
 // SEARCH
 // =========================
 
-document.getElementById("search-order").addEventListener("input",function(){
+// =====================================
+// 🔎 SEARCH + FILTER + SORT ORDERS
+// =====================================
 
-    const keyword=this.value.toLowerCase();
+const searchOrder =
+    document.getElementById("search-order");
 
-    document.querySelectorAll(".order-card").forEach(card=>{
+const statusFilter =
+    document.getElementById("status-filter");
 
-        card.style.display=
+const sortOrders =
+    document.getElementById("sort-orders");
 
-        card.textContent.toLowerCase().includes(keyword)
 
-        ? "block"
+// =====================================
+// 🔄 DISPLAY ORDERS
+// =====================================
 
-        : "none";
+function displayFilteredOrders() {
+
+    const keyword =
+        searchOrder
+        ? searchOrder.value.toLowerCase().trim()
+        : "";
+
+    const status =
+        statusFilter
+        ? statusFilter.value
+        : "all";
+
+    const sort =
+        sortOrders
+        ? sortOrders.value
+        : "newest";
+
+
+    // ---------------------------------
+    // FILTER
+    // ---------------------------------
+
+    let filteredOrders =
+        orders.filter(order => {
+
+            // Status filter
+            if (
+                status !== "all" &&
+                order.status !== status
+            ) {
+
+                return false;
+
+            }
+
+
+            // Search
+            const customer =
+                order.customer || {};
+
+
+            const searchText = `
+
+                ${customer.fullname || ""}
+
+                ${customer.email || ""}
+
+                ${customer.phone || ""}
+
+                ${customer.country || ""}
+
+                ${customer.city || ""}
+
+            `.toLowerCase();
+
+
+            return searchText.includes(
+                keyword
+            );
+
+        });
+
+
+    // ---------------------------------
+    // SORT
+    // ---------------------------------
+
+    filteredOrders.sort((a, b) => {
+
+        if (sort === "high") {
+
+            return (
+                Number(b.total || 0) -
+                Number(a.total || 0)
+            );
+
+        }
+
+
+        if (sort === "low") {
+
+            return (
+                Number(a.total || 0) -
+                Number(b.total || 0)
+            );
+
+        }
+
+
+        const dateA =
+            new Date(a.date || 0).getTime();
+
+        const dateB =
+            new Date(b.date || 0).getTime();
+
+
+        if (sort === "oldest") {
+
+            return dateA - dateB;
+
+        }
+
+
+        // newest
+        return dateB - dateA;
 
     });
 
-});
+
+    // ---------------------------------
+    // RENDER
+    // ---------------------------------
+
+    renderFilteredOrders(
+        filteredOrders
+    );
+
+}
+
+
+// =====================================
+// 📦 RENDER FILTERED ORDERS
+// =====================================
+
+function renderFilteredOrders(
+    filteredOrders
+) {
+
+    ordersList.innerHTML = "";
+
+
+    if (
+        filteredOrders.length === 0
+    ) {
+
+        ordersList.innerHTML = `
+
+            <div class="empty-orders">
+
+                🔍 No matching orders found.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    filteredOrders.forEach(order => {
+
+        let productsHTML = "";
+
+
+        if (
+            order.products &&
+            Array.isArray(order.products)
+        ) {
+
+            order.products.forEach(
+                product => {
+
+                    productsHTML += `
+
+                        <li>
+
+                            ${product.name}
+                            × ${product.quantity}
+
+                            -
+                            $${(
+                                Number(product.price || 0) *
+                                Number(product.quantity || 0)
+                            ).toFixed(2)}
+
+                        </li>
+
+                    `;
+
+                }
+            );
+
+        }
+
+
+        // العثور على رقم الطلب الأصلي
+        const originalIndex =
+            orders.indexOf(order);
+
+
+        ordersList.innerHTML += `
+
+            <div
+                class="order-card ${(
+                    order.status || "Pending"
+                ).toLowerCase()}">
+
+                <h2>
+                    📦 Order
+                </h2>
+
+
+                <p>
+                    <strong>Name:</strong>
+                    ${order.customer?.fullname || "-"}
+                </p>
+
+
+                <p>
+                    <strong>Email:</strong>
+                    ${order.customer?.email || "-"}
+                </p>
+
+
+                <p>
+                    <strong>Phone:</strong>
+                    ${order.customer?.phone || "-"}
+                </p>
+
+
+                <p>
+                    <strong>Country:</strong>
+                    ${order.customer?.country || "-"}
+                </p>
+
+
+                <p>
+                    <strong>City:</strong>
+                    ${order.customer?.city || "-"}
+                </p>
+
+
+                <p>
+                    <strong>Date:</strong>
+                    ${order.date || "-"}
+                </p>
+
+
+                <h3>
+                    Products
+                </h3>
+
+
+                <ul>
+
+                    ${productsHTML}
+
+                </ul>
+
+
+                <h3>
+                    Total:
+                    $${Number(
+                        order.total || 0
+                    ).toFixed(2)}
+                </h3>
+
+
+                <p>
+
+                    <strong>Status:</strong>
+
+                    <select
+                        onchange="changeStatus(
+                            ${originalIndex},
+                            this.value
+                        )">
+
+                        <option
+                            value="Pending"
+                            ${
+                                order.status === "Pending"
+                                ? "selected"
+                                : ""
+                            }>
+                            Pending
+                        </option>
+
+
+                        <option
+                            value="Processing"
+                            ${
+                                order.status === "Processing"
+                                ? "selected"
+                                : ""
+                            }>
+                            Processing
+                        </option>
+
+
+                        <option
+                            value="Shipped"
+                            ${
+                                order.status === "Shipped"
+                                ? "selected"
+                                : ""
+                            }>
+                            Shipped
+                        </option>
+
+
+                        <option
+                            value="Delivered"
+                            ${
+                                order.status === "Delivered"
+                                ? "selected"
+                                : ""
+                            }>
+                            Delivered
+                        </option>
+
+                    </select>
+
+                </p>
+
+
+                <div class="order-actions">
+
+                    <button
+                        onclick="viewOrder(${originalIndex})"
+                        class="view-btn">
+
+                        👁 View
+
+                    </button>
+
+
+                    <button
+                        onclick="printInvoice(${originalIndex})"
+                        class="print-btn">
+
+                        🖨 Print
+
+                    </button>
+
+
+                    <button
+                        onclick="deleteOrder(${originalIndex})"
+                        class="delete-btn">
+
+                        🗑 Delete
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+// =====================================
+// 🔎 SEARCH EVENT
+// =====================================
+
+if (searchOrder) {
+
+    searchOrder.addEventListener(
+        "input",
+        displayFilteredOrders
+    );
+
+}
+
+
+// =====================================
+// 📦 STATUS FILTER
+// =====================================
+
+if (statusFilter) {
+
+    statusFilter.addEventListener(
+        "change",
+        displayFilteredOrders
+    );
+
+}
+
+
+// =====================================
+// ↕️ SORT
+// =====================================
+
+if (sortOrders) {
+
+    sortOrders.addEventListener(
+        "change",
+        displayFilteredOrders
+    );
+
+}
 
 // =========================
 
