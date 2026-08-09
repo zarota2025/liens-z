@@ -70,6 +70,59 @@ type="text"
 id="search-order"
 placeholder="🔍 Search by name, email or phone..."
 class="search-order">
+<!-- ============================= -->
+<!-- ORDER FILTERS -->
+<!-- ============================= -->
+
+<div class="order-controls">
+
+    <select id="status-filter">
+
+        <option value="all">
+            📦 All Orders
+        </option>
+
+        <option value="Pending">
+            ⏳ Pending
+        </option>
+
+        <option value="Processing">
+            ⚙️ Processing
+        </option>
+
+        <option value="Shipped">
+            🚚 Shipped
+        </option>
+
+        <option value="Delivered">
+            ✅ Delivered
+        </option>
+
+    </select>
+
+
+    <select id="sort-orders">
+
+        <option value="newest">
+            🆕 Newest First
+        </option>
+
+        <option value="oldest">
+            📅 Oldest First
+        </option>
+
+        <option value="high">
+            💰 Highest Price
+        </option>
+
+        <option value="low">
+            💵 Lowest Price
+        </option>
+
+    </select>
+
+</div>
+  
 <div id="orders-list">
 
 </div>
