@@ -1508,3 +1508,14 @@ async function updateBestProducts() {
     }
 
 }
+// =====================================
+// 🚀 START ADMIN DASHBOARD
+// =====================================
+
+checkNewOrders();
+
+updateBestProducts();
+
+drawSalesChart();
+
+loadProducts();
