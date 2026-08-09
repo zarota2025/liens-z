@@ -1519,3 +1519,108 @@ updateBestProducts();
 drawSalesChart();
 
 loadProducts();
+// =====================================
+// 🌙 ADMIN DARK MODE
+// =====================================
+
+const themeBtn =
+    document.getElementById("theme-toggle");
+
+
+function loadAdminTheme() {
+
+    const savedTheme =
+        localStorage.getItem("adminTheme");
+
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add(
+            "dark"
+        );
+
+        if (themeBtn) {
+            themeBtn.textContent = "☀️";
+        }
+
+    } else {
+
+        document.body.classList.remove(
+            "dark"
+        );
+
+        if (themeBtn) {
+            themeBtn.textContent = "🌙";
+        }
+
+    }
+
+}
+
+
+if (themeBtn) {
+
+    themeBtn.addEventListener(
+        "click",
+        function () {
+
+            document.body.classList.toggle(
+                "dark"
+            );
+
+
+            if (
+                document.body.classList.contains(
+                    "dark"
+                )
+            ) {
+
+                localStorage.setItem(
+                    "adminTheme",
+                    "dark"
+                );
+
+                themeBtn.textContent =
+                    "☀️";
+
+            } else {
+
+                localStorage.setItem(
+                    "adminTheme",
+                    "light"
+                );
+
+                themeBtn.textContent =
+                    "🌙";
+
+            }
+
+        }
+    );
+
+}
+
+
+loadAdminTheme();
+
+
+// =====================================
+// 🔄 AUTO REFRESH DASHBOARD
+// =====================================
+
+// تحديث الإحصائيات كل 30 ثانية
+
+setInterval(
+    async function () {
+
+        await updateDashboard();
+
+        await updateBestProducts();
+
+        await checkNewOrders();
+
+        drawSalesChart();
+
+    },
+    30000
+);
