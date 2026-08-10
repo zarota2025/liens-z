@@ -1254,3 +1254,137 @@ body {
     }
 
 }
+/* =====================================
+   FINAL POLISH
+   PART 8 / 8
+===================================== */
+
+
+/* =====================================
+   SCROLLBAR
+===================================== */
+
+#order-details::-webkit-scrollbar {
+    width: 7px;
+}
+
+#order-details::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+#order-details::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+}
+
+#order-details::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+
+/* =====================================
+   SELECTION
+===================================== */
+
+::selection {
+    background: #0b2a66;
+    color: white;
+}
+
+
+/* =====================================
+   SMOOTH TRANSITIONS
+===================================== */
+
+button,
+select,
+input {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =====================================
+   TOUCH DEVICES
+===================================== */
+
+@media (hover: none) {
+
+    .order-card:hover,
+    .stat-card:hover,
+    .order-actions button:hover {
+        transform: none;
+    }
+
+}
+
+
+/* =====================================
+   VERY SMALL PHONES
+===================================== */
+
+@media (max-width: 380px) {
+
+    .orders-page {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    .orders-stats {
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 13px;
+    }
+
+    .stat-card h3 {
+        font-size: 12px;
+    }
+
+    .stat-card p {
+        font-size: 24px;
+    }
+
+    .order-card {
+        padding: 17px;
+    }
+
+    .logo span {
+        font-size: 16px;
+    }
+
+}
+
+
+/* =====================================
+   PRINT
+===================================== */
+
+@media print {
+
+    .header,
+    .search-order,
+    .order-controls,
+    .orders-stats,
+    .order-actions,
+    #close-modal {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+    }
+
+    .orders-page {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .order-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+    }
+
+}
