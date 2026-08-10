@@ -1214,3 +1214,344 @@ body.dark-mode ::-webkit-scrollbar-thumb {
 
     border-radius: 10px;
 }
+/* =====================================
+   RESPONSIVE ADMIN DASHBOARD
+   PART 8 / 8
+===================================== */
+
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 1000px) {
+
+    .admin-page {
+        padding: 35px 4%;
+    }
+
+    .dashboard {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    #admin-products {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    #best-products {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 650px) {
+
+    .top-bar {
+        min-height: 70px;
+
+        padding:
+            10px 4%;
+
+        gap: 8px;
+    }
+
+
+    .menu-btn,
+    .theme-btn {
+        width: 40px;
+        height: 40px;
+
+        font-size: 19px;
+    }
+
+
+    .logo {
+        gap: 7px;
+    }
+
+
+    .logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .logo span {
+        font-size: 17px;
+    }
+
+
+    .logout-btn {
+        min-height: 40px;
+
+        padding: 0 10px;
+
+        font-size: 11px;
+    }
+
+
+    /* =================================
+       ADMIN PAGE
+    ================================= */
+
+    .admin-page {
+        padding:
+            25px 4%;
+    }
+
+
+    /* =================================
+       TITLE
+    ================================= */
+
+    .admin-title-row {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 12px;
+    }
+
+
+    .admin-title-row .section-title {
+        font-size: 25px;
+    }
+
+
+    .orders-btn {
+        width: 100%;
+    }
+
+
+    /* =================================
+       NOTIFICATION
+    ================================= */
+
+    .admin-notification {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        text-align: center;
+
+        font-size: 13px;
+    }
+
+
+    .admin-notification a {
+        width: 100%;
+    }
+
+
+    /* =================================
+       DASHBOARD
+    ================================= */
+
+    .dashboard {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .dash-card {
+        min-height: 110px;
+
+        padding: 16px;
+
+        border-radius: 15px;
+    }
+
+
+    .dash-card h3 {
+        font-size: 12px;
+    }
+
+
+    .dash-card span {
+        margin-top: 12px;
+
+        font-size: 25px;
+    }
+
+
+    /* =================================
+       ANALYTICS
+    ================================= */
+
+    .analytics-card {
+        padding: 18px;
+
+        border-radius: 17px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .analytics-card h2 {
+        font-size: 18px;
+    }
+
+
+    .analytics-card canvas {
+        height: 280px !important;
+    }
+
+
+    /* =================================
+       BEST PRODUCTS
+    ================================= */
+
+    #best-products {
+        grid-template-columns: 1fr;
+    }
+
+
+    .best-product {
+        padding: 12px;
+    }
+
+
+    .best-product img {
+        width: 52px;
+        height: 52px;
+    }
+
+
+    /* =================================
+       PRODUCT FORM
+    ================================= */
+
+    .admin-form {
+        grid-template-columns: 1fr;
+
+        padding: 18px;
+
+        gap: 11px;
+
+        border-radius: 17px;
+    }
+
+
+    .admin-form::before {
+        font-size: 18px;
+    }
+
+
+    .admin-form input {
+        height: 48px;
+
+        font-size: 13px;
+    }
+
+
+    #save-product {
+        min-height: 50px;
+    }
+
+
+    /* =================================
+       PRODUCTS
+    ================================= */
+
+    .admin-page > .section-title {
+        font-size: 23px;
+
+        margin-top: 28px;
+    }
+
+
+    #admin-products {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    .admin-card {
+        border-radius: 17px;
+    }
+
+
+    .admin-card > img {
+        height: 230px;
+    }
+
+
+    .admin-card-content {
+        padding: 16px;
+    }
+
+
+    .admin-card-content h3 {
+        font-size: 16px;
+    }
+
+
+    .admin-card-content p {
+        font-size: 19px;
+    }
+
+}
+
+
+/* =====================================
+   VERY SMALL PHONES
+===================================== */
+
+@media (max-width: 380px) {
+
+    .top-bar {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+
+    .logo span {
+        font-size: 15px;
+    }
+
+
+    .logout-btn {
+        padding: 0 7px;
+
+        font-size: 10px;
+    }
+
+
+    .dashboard {
+        gap: 8px;
+    }
+
+
+    .dash-card {
+        padding: 13px;
+    }
+
+
+    .dash-card h3 {
+        font-size: 11px;
+    }
+
+
+    .dash-card span {
+        font-size: 22px;
+    }
+
+
+    .analytics-card {
+        padding: 15px;
+    }
+
+}
