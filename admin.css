@@ -988,3 +988,229 @@ body {
     margin-bottom: 2px;
 
 }
+/* =====================================
+   DARK MODE
+   PART 7 / 8
+===================================== */
+
+body.dark-mode {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+body.dark-mode .header {
+    background: #020617;
+}
+
+
+/* =====================================
+   ADMIN TITLE
+===================================== */
+
+body.dark-mode .admin-title-row .section-title {
+    color: #e2e8f0;
+}
+
+
+/* =====================================
+   DASHBOARD CARDS
+===================================== */
+
+body.dark-mode .dash-card {
+    background: #1e293b;
+
+    border-color: #334155;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+body.dark-mode .dash-card h3 {
+    color: #94a3b8;
+}
+
+
+body.dark-mode .dash-card span {
+    color: #60a5fa;
+}
+
+
+/* =====================================
+   ANALYTICS
+===================================== */
+
+body.dark-mode .analytics-card {
+    background: #1e293b;
+
+    border-color: #334155;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+body.dark-mode .analytics-card h2 {
+    color: #e2e8f0;
+}
+
+
+/* =====================================
+   PRODUCT FORM
+===================================== */
+
+body.dark-mode .admin-form {
+    background: #1e293b;
+
+    border-color: #334155;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+body.dark-mode .admin-form::before {
+    color: #e2e8f0;
+}
+
+
+body.dark-mode .admin-form input {
+    background: #0f172a;
+
+    border-color: #475569;
+
+    color: #e2e8f0;
+}
+
+
+body.dark-mode .admin-form input::placeholder {
+    color: #64748b;
+}
+
+
+body.dark-mode .admin-form input:focus {
+    background: #0f172a;
+
+    border-color: #60a5fa;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(96, 165, 250, 0.12);
+}
+
+
+/* =====================================
+   PRODUCTS
+===================================== */
+
+body.dark-mode .admin-page > .section-title {
+    color: #e2e8f0;
+}
+
+
+body.dark-mode .admin-card {
+    background: #1e293b;
+
+    border-color: #334155;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+body.dark-mode .admin-card-content h3 {
+    color: #e2e8f0;
+}
+
+
+body.dark-mode .admin-card-content p {
+    color: #60a5fa;
+}
+
+
+body.dark-mode .admin-card-content small {
+    color: #94a3b8;
+}
+
+
+/* =====================================
+   BEST PRODUCTS
+===================================== */
+
+body.dark-mode .best-product {
+    background: #0f172a;
+
+    border-color: #334155;
+}
+
+
+body.dark-mode .best-product:hover {
+    background: #1e293b;
+}
+
+
+body.dark-mode .best-product-info h3 {
+    color: #e2e8f0;
+}
+
+
+body.dark-mode .best-product-info p {
+    color: #94a3b8;
+}
+
+
+/* =====================================
+   NOTIFICATION
+===================================== */
+
+body.dark-mode .admin-notification {
+    background: #431407;
+
+    border-color: #7c2d12;
+
+    color: #fed7aa;
+}
+
+
+/* =====================================
+   ORDERS BUTTON
+===================================== */
+
+body.dark-mode .orders-btn {
+    background: #2563eb;
+}
+
+
+body.dark-mode .orders-btn:hover {
+    background: #3b82f6;
+}
+
+
+/* =====================================
+   SCROLLBAR
+===================================== */
+
+body.dark-mode ::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+body.dark-mode ::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #475569;
+
+    border-radius: 10px;
+}
