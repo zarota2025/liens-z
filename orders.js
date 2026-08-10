@@ -655,3 +655,179 @@ function updateStats() {
     }
 
 }
+// =====================================
+// 🔎 SEARCH + FILTER + SORT
+// PART 6 / 8
+// =====================================
+
+function applyOrderFilters() {
+
+    const keyword =
+        searchOrder
+            ? searchOrder.value.toLowerCase().trim()
+            : "";
+
+    const selectedStatus =
+        statusFilter
+            ? statusFilter.value
+            : "all";
+
+    const selectedSort =
+        sortOrders
+            ? sortOrders.value
+            : "newest";
+
+
+    // =================================
+    // FILTER
+    // =================================
+
+    let filteredOrders = orders.filter(order => {
+
+        const customer =
+            order.customer || {};
+
+
+        const searchText = `
+
+            ${customer.fullname || ""}
+
+            ${customer.email || ""}
+
+            ${customer.phone || ""}
+
+            ${customer.country || ""}
+
+            ${customer.city || ""}
+
+            ${customer.address || ""}
+
+        `.toLowerCase();
+
+
+        // البحث
+        if (
+            keyword &&
+            !searchText.includes(keyword)
+        ) {
+
+            return false;
+
+        }
+
+
+        // فلترة الحالة
+        if (
+            selectedStatus !== "all" &&
+            (order.status || "Pending")
+                !== selectedStatus
+        ) {
+
+            return false;
+
+        }
+
+
+        return true;
+
+    });
+
+
+    // =================================
+    // SORT
+    // =================================
+
+    filteredOrders.sort((a, b) => {
+
+        // الأعلى سعرًا
+        if (selectedSort === "high") {
+
+            return (
+                Number(b.total || 0) -
+                Number(a.total || 0)
+            );
+
+        }
+
+
+        // الأقل سعرًا
+        if (selectedSort === "low") {
+
+            return (
+                Number(a.total || 0) -
+                Number(b.total || 0)
+            );
+
+        }
+
+
+        const dateA =
+            new Date(a.date || 0).getTime();
+
+        const dateB =
+            new Date(b.date || 0).getTime();
+
+
+        // الأقدم
+        if (selectedSort === "oldest") {
+
+            return dateA - dateB;
+
+        }
+
+
+        // الأحدث
+        return dateB - dateA;
+
+    });
+
+
+    // =================================
+    // DISPLAY
+    // =================================
+
+    renderOrders(filteredOrders);
+
+}
+
+
+// =====================================
+// 🔎 SEARCH EVENT
+// =====================================
+
+if (searchOrder) {
+
+    searchOrder.addEventListener(
+        "input",
+        applyOrderFilters
+    );
+
+}
+
+
+// =====================================
+// 📦 STATUS FILTER EVENT
+// =====================================
+
+if (statusFilter) {
+
+    statusFilter.addEventListener(
+        "change",
+        applyOrderFilters
+    );
+
+}
+
+
+// =====================================
+// ↕️ SORT EVENT
+// =====================================
+
+if (sortOrders) {
+
+    sortOrders.addEventListener(
+        "change",
+        applyOrderFilters
+    );
+
+}
