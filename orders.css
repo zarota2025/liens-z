@@ -906,3 +906,351 @@ body {
     font-size: 20px;
 
 }
+/* =====================================
+   RESPONSIVE DESIGN
+   PART 7 / 8
+===================================== */
+
+
+/* =====================================
+   CLOSE BUTTON
+===================================== */
+
+#close-modal {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 15px;
+
+    width: 40px;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #feecec;
+
+    color: #dc2626;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+#close-modal:hover {
+
+    background: #dc2626;
+
+    color: white;
+
+    transform: rotate(90deg);
+
+}
+
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 900px) {
+
+    .orders-page {
+
+        padding:
+            30px 4%;
+
+    }
+
+
+    .orders-stats {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    #orders-list {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+
+    .top-bar {
+
+        min-height: 70px;
+
+        padding:
+            10px 4%;
+
+        gap: 10px;
+
+    }
+
+
+    .logo img {
+
+        width: 40px;
+
+        height: 40px;
+
+    }
+
+
+    .logo span {
+
+        font-size: 18px;
+
+    }
+
+
+    .menu-btn {
+
+        width: 40px;
+
+        height: 40px;
+
+        font-size: 21px;
+
+    }
+
+
+    .orders-page {
+
+        padding:
+            25px 4%;
+
+    }
+
+
+    .orders-page .section-title {
+
+        font-size: 25px;
+
+        margin-bottom: 22px;
+
+    }
+
+
+    /* ================================
+       STATS
+    ================================= */
+
+    .orders-stats {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+
+    }
+
+
+    .stat-card {
+
+        min-height: 105px;
+
+        padding: 16px;
+
+        border-radius: 15px;
+
+    }
+
+
+    .stat-card h3 {
+
+        font-size: 13px;
+
+    }
+
+
+    .stat-card p {
+
+        font-size: 27px;
+
+        margin-top: 10px;
+
+    }
+
+
+    /* ================================
+       SEARCH
+    ================================= */
+
+    .search-order {
+
+        height: 48px;
+
+        font-size: 13px;
+
+    }
+
+
+    /* ================================
+       FILTERS
+    ================================= */
+
+    .order-controls {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 10px;
+
+        margin-bottom: 22px;
+
+    }
+
+
+    .order-controls select {
+
+        height: 46px;
+
+        font-size: 13px;
+
+    }
+
+
+    /* ================================
+       ORDER CARD
+    ================================= */
+
+    .order-card {
+
+        padding: 20px;
+
+        border-radius: 17px;
+
+    }
+
+
+    .order-card h2 {
+
+        font-size: 19px;
+
+    }
+
+
+    .order-card p {
+
+        font-size: 13px;
+
+    }
+
+
+    .order-card h3 {
+
+        font-size: 15px;
+
+    }
+
+
+    .order-card ul {
+
+        font-size: 13px;
+
+    }
+
+
+    /* ================================
+       ACTIONS
+    ================================= */
+
+    .order-actions {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 8px;
+
+    }
+
+
+    .order-actions button {
+
+        width: 100%;
+
+        min-height: 45px;
+
+    }
+
+
+    /* ================================
+       MODAL
+    ================================= */
+
+    #order-modal {
+
+        padding: 12px;
+
+    }
+
+
+    #order-details {
+
+        max-height: 90vh;
+
+        padding: 22px 18px;
+
+        border-radius: 18px;
+
+    }
+
+
+    #order-details h2 {
+
+        font-size: 20px;
+
+        padding-right: 40px;
+
+    }
+
+
+    #order-details p {
+
+        font-size: 13px;
+
+    }
+
+
+    #order-details h3 {
+
+        font-size: 15px;
+
+    }
+
+
+    #close-modal {
+
+        top: 10px;
+
+        right: 10px;
+
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 18px;
+
+    }
+
+}
