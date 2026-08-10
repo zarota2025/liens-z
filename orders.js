@@ -413,3 +413,129 @@ function renderOrders(list = orders) {
     });
 
 }
+// =====================================
+// 🗑 DELETE ORDER
+// PART 4 / 8
+// =====================================
+
+window.deleteOrder = async function(index) {
+
+    const order = orders[index];
+
+    if (!order) return;
+
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to delete this order?"
+        );
+
+
+    if (!confirmed) return;
+
+
+    try {
+
+        await deleteDoc(
+
+            doc(
+                db,
+                "orders",
+                order.firebaseId
+            )
+
+        );
+
+
+        // حذف من القائمة المحلية
+        orders.splice(index, 1);
+
+
+        // تحديث العرض
+        renderOrders();
+
+
+        // تحديث الإحصائيات
+        updateStats();
+
+
+        alert(
+            "🗑 Order deleted successfully"
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "❌ Delete order error:",
+            error
+        );
+
+
+        alert(
+            "❌ Unable to delete the order."
+        );
+
+    }
+
+};
+
+
+// =====================================
+// 🔄 CHANGE ORDER STATUS
+// =====================================
+
+window.changeStatus = async function(
+    index,
+    status
+) {
+
+    const order = orders[index];
+
+    if (!order) return;
+
+
+    try {
+
+        await updateDoc(
+
+            doc(
+                db,
+                "orders",
+                order.firebaseId
+            ),
+
+            {
+                status: status
+            }
+
+        );
+
+
+        // تحديث القائمة المحلية
+        orders[index].status = status;
+
+
+        // إعادة العرض
+        renderOrders();
+
+
+        // تحديث الإحصائيات
+        updateStats();
+
+
+    } catch (error) {
+
+        console.error(
+            "❌ Status update error:",
+            error
+        );
+
+
+        alert(
+            "❌ Unable to update order status."
+        );
+
+    }
+
+};
