@@ -316,3 +316,156 @@ body {
     background: #ea580c;
 
 }
+/* =====================================
+   DASHBOARD STATISTICS
+   PART 3 / 8
+===================================== */
+
+.dashboard {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =====================================
+   DASH CARD
+===================================== */
+
+.dash-card {
+
+    position: relative;
+
+    min-height: 135px;
+
+    padding: 22px;
+
+    background: white;
+
+    border: 1px solid #e5eaf2;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(15, 35, 70, 0.07);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.dash-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 14px 35px
+        rgba(15, 35, 70, 0.12);
+}
+
+
+/* =====================================
+   CARD TITLE
+===================================== */
+
+.dash-card h3 {
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================
+   CARD NUMBER
+===================================== */
+
+.dash-card span {
+
+    display: block;
+
+    margin-top: 14px;
+
+    color: #0b2a66;
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+
+/* =====================================
+   DECORATION
+===================================== */
+
+.dash-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 75px;
+
+    height: 75px;
+
+    right: -25px;
+
+    bottom: -25px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(11, 42, 102, 0.05);
+}
+
+
+/* =====================================
+   REVENUE CARD
+===================================== */
+
+.dash-card:nth-child(5) {
+
+    border-top:
+        4px solid #10b981;
+}
+
+
+/* =====================================
+   DAILY REVENUE
+===================================== */
+
+.dash-card:nth-child(6) {
+
+    border-top:
+        4px solid #3b82f6;
+}
+
+
+/* =====================================
+   MONTHLY REVENUE
+===================================== */
+
+.dash-card:nth-child(7) {
+
+    border-top:
+        4px solid #8b5cf6;
+}
