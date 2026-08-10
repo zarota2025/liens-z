@@ -53,3 +53,73 @@ const statusFilter =
 
 const sortOrders =
     document.getElementById("sort-orders");
+// =====================================
+// 🔥 LOAD ORDERS FROM FIREBASE
+// PART 2 / 8
+// =====================================
+
+async function loadOrders() {
+
+    try {
+
+        orders = [];
+
+        const snapshot =
+            await getDocs(
+                collection(db, "orders")
+            );
+
+
+        snapshot.forEach(
+            (document) => {
+
+                orders.push({
+
+                    firebaseId:
+                        document.id,
+
+                    ...document.data()
+
+                });
+
+            }
+        );
+
+
+        // عرض الطلبات
+        renderOrders();
+
+
+        // تحديث الإحصائيات
+        updateStats();
+
+
+    } catch (error) {
+
+        console.error(
+            "❌ Error loading orders:",
+            error
+        );
+
+
+        if (ordersList) {
+
+            ordersList.innerHTML = `
+
+                <div class="empty-orders">
+
+                    ❌ Unable to load orders.
+
+                    <br><br>
+
+                    Please try again.
+
+                </div>
+
+            `;
+
+        }
+
+    }
+
+}
