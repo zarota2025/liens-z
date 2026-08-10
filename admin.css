@@ -546,3 +546,258 @@ body {
 
     min-height: 430px;
 }
+/* =====================================
+   BEST SELLING PRODUCTS + PRODUCTS
+   PART 5 / 8
+===================================== */
+
+
+/* =====================================
+   BEST PRODUCTS
+===================================== */
+
+#best-products {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+
+/* =====================================
+   BEST PRODUCT ITEM
+===================================== */
+
+.best-product {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 15px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5eaf2;
+
+    border-radius: 14px;
+
+    transition: 0.25s;
+}
+
+
+.best-product:hover {
+    background: #eef4ff;
+    transform: translateY(-2px);
+}
+
+
+/* =====================================
+   BEST PRODUCT IMAGE
+===================================== */
+
+.best-product img {
+    width: 60px;
+    height: 60px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    background: white;
+}
+
+
+/* =====================================
+   BEST PRODUCT INFO
+===================================== */
+
+.best-product-info {
+    flex: 1;
+}
+
+
+.best-product-info h3 {
+    margin: 0 0 5px;
+
+    color: #1e293b;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.best-product-info p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* =====================================
+   PRODUCTS TITLE
+===================================== */
+
+.admin-page > .section-title {
+    margin: 35px 0 20px;
+
+    color: #0b2a66;
+
+    font-size: 26px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================
+   ADMIN PRODUCTS GRID
+===================================== */
+
+#admin-products {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =====================================
+   ADMIN PRODUCT CARD
+===================================== */
+
+.admin-card {
+
+    overflow: hidden;
+
+    background: white;
+
+    border: 1px solid #e5eaf2;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(15, 35, 70, 0.07);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.admin-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 14px 35px
+        rgba(15, 35, 70, 0.12);
+}
+
+
+/* =====================================
+   PRODUCT IMAGE
+===================================== */
+
+.admin-card > img {
+
+    width: 100%;
+
+    height: 220px;
+
+    display: block;
+
+    object-fit: cover;
+
+    background: #f1f5f9;
+}
+
+
+/* =====================================
+   PRODUCT CONTENT
+===================================== */
+
+.admin-card-content {
+
+    padding: 18px;
+}
+
+
+.admin-card-content h3 {
+
+    margin: 0 0 8px;
+
+    color: #1e293b;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+
+.admin-card-content p {
+
+    margin: 0 0 6px;
+
+    color: #0b2a66;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+.admin-card-content small {
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* =====================================
+   PRODUCT BUTTONS
+===================================== */
+
+.admin-card-content button {
+
+    min-height: 40px;
+
+    padding: 0 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-family:
+        "Poppins",
+        Arial,
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+.admin-card-content button:hover {
+
+    transform:
+        translateY(-2px);
+
+    opacity: 0.9;
+}
