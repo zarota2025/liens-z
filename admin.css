@@ -1,1 +1,152 @@
+/* =====================================
+   LIENS Z - ADMIN DASHBOARD
+   PART 1 / 8
+===================================== */
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+.header {
+    width: 100%;
+    background: #0b2a66;
+    color: white;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+.top-bar {
+    min-height: 80px;
+    padding: 12px 6%;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* =====================================
+   BACK BUTTON
+===================================== */
+
+.menu-btn {
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.menu-btn:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+
+/* =====================================
+   LOGO
+===================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-right: auto;
+}
+
+.logo img {
+    width: 48px;
+    height: 48px;
+
+    object-fit: contain;
+}
+
+.logo span {
+    font-size: 22px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================
+   THEME BUTTON
+===================================== */
+
+.theme-btn {
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.theme-btn:hover {
+    background: rgba(255, 255, 255, 0.22);
+
+    transform: rotate(15deg);
+}
+
+
+/* =====================================
+   LOGOUT
+===================================== */
+
+.logout-btn {
+    min-height: 44px;
+
+    padding: 0 16px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #ef4444;
+
+    color: white;
+
+    font-family: "Poppins", Arial, sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.logout-btn:hover {
+    background: #dc2626;
+
+    transform: translateY(-2px);
+}
