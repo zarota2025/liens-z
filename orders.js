@@ -1473,3 +1473,66 @@ window.printInvoice = function(index) {
     }, 500);
 
 };
+// =====================================
+// 🚀 START ORDERS SYSTEM
+// PART 8 / 8
+// =====================================
+
+
+// =====================================
+// 🔄 APPLY FILTERS AFTER LOADING
+// =====================================
+
+function refreshOrdersView() {
+
+    if (
+        typeof applyOrderFilters === "function"
+    ) {
+
+        applyOrderFilters();
+
+    } else {
+
+        renderOrders();
+
+    }
+
+}
+
+
+// =====================================
+// 🔥 LOAD EVERYTHING
+// =====================================
+
+async function startOrdersSystem() {
+
+    try {
+
+        await loadOrders();
+
+        refreshOrdersView();
+
+        updateStats();
+
+        console.log(
+            "✅ LIENS Z Orders System Loaded"
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "❌ Orders system error:",
+            error
+        );
+
+    }
+
+}
+
+
+// =====================================
+// ▶️ START
+// =====================================
+
+startOrdersSystem();
