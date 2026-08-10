@@ -539,3 +539,119 @@ window.changeStatus = async function(
     }
 
 };
+// =====================================
+// 📊 ORDER STATISTICS
+// PART 5 / 8
+// =====================================
+
+function updateStats() {
+
+    let pending = 0;
+
+    let processing = 0;
+
+    let shipped = 0;
+
+    let delivered = 0;
+
+
+    orders.forEach(order => {
+
+        const status =
+            order.status || "Pending";
+
+
+        switch (status) {
+
+            case "Pending":
+
+                pending++;
+
+                break;
+
+
+            case "Processing":
+
+                processing++;
+
+                break;
+
+
+            case "Shipped":
+
+                shipped++;
+
+                break;
+
+
+            case "Delivered":
+
+                delivered++;
+
+                break;
+
+        }
+
+    });
+
+
+    // =================================
+    // UPDATE HTML
+    // =================================
+
+    const pendingCount =
+        document.getElementById(
+            "pending-count"
+        );
+
+
+    const processingCount =
+        document.getElementById(
+            "processing-count"
+        );
+
+
+    const shippedCount =
+        document.getElementById(
+            "shipped-count"
+        );
+
+
+    const deliveredCount =
+        document.getElementById(
+            "delivered-count"
+        );
+
+
+    if (pendingCount) {
+
+        pendingCount.textContent =
+            pending;
+
+    }
+
+
+    if (processingCount) {
+
+        processingCount.textContent =
+            processing;
+
+    }
+
+
+    if (shippedCount) {
+
+        shippedCount.textContent =
+            shipped;
+
+    }
+
+
+    if (deliveredCount) {
+
+        deliveredCount.textContent =
+            delivered;
+
+    }
+
+}
