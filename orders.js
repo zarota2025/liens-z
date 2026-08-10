@@ -831,3 +831,645 @@ if (sortOrders) {
     );
 
 }
+// =====================================
+// 👁 VIEW ORDER
+// 🖨 PRINT INVOICE
+// PART 7 / 8
+// =====================================
+
+
+// =====================================
+// 👁 VIEW ORDER DETAILS
+// =====================================
+
+window.viewOrder = function(index) {
+
+    const order = orders[index];
+
+    if (!order) return;
+
+
+    const details =
+        document.getElementById(
+            "order-details"
+        );
+
+
+    if (!details) {
+
+        alert(
+            "❌ Order details window was not found."
+        );
+
+        return;
+
+    }
+
+
+    let productsHTML = "";
+
+
+    if (
+        order.products &&
+        Array.isArray(order.products)
+    ) {
+
+        order.products.forEach(product => {
+
+            const quantity =
+                Number(product.quantity || 0);
+
+            const price =
+                Number(product.price || 0);
+
+
+            productsHTML += `
+
+                <li>
+
+                    ${product.name}
+
+                    × ${quantity}
+
+                    — $${(
+                        price * quantity
+                    ).toFixed(2)}
+
+                </li>
+
+            `;
+
+        });
+
+    }
+
+
+    details.innerHTML = `
+
+        <h2>
+            📦 Order Details
+        </h2>
+
+
+        <p>
+            <strong>Name:</strong>
+            ${order.customer?.fullname || "-"}
+        </p>
+
+
+        <p>
+            <strong>Email:</strong>
+            ${order.customer?.email || "-"}
+        </p>
+
+
+        <p>
+            <strong>Phone:</strong>
+            ${order.customer?.phone || "-"}
+        </p>
+
+
+        <p>
+            <strong>Country:</strong>
+            ${order.customer?.country || "-"}
+        </p>
+
+
+        <p>
+            <strong>City:</strong>
+            ${order.customer?.city || "-"}
+        </p>
+
+
+        <p>
+            <strong>Address:</strong>
+            ${order.customer?.address || "-"}
+        </p>
+
+
+        <p>
+            <strong>Postal:</strong>
+            ${order.customer?.postal || "-"}
+        </p>
+
+
+        <p>
+            <strong>Payment:</strong>
+            ${order.payment || "-"}
+        </p>
+
+
+        <p>
+            <strong>Date:</strong>
+            ${order.date || "-"}
+        </p>
+
+
+        <p>
+            <strong>Status:</strong>
+            ${order.status || "Pending"}
+        </p>
+
+
+        <h3>
+            🛍 Products
+        </h3>
+
+
+        <ul>
+
+            ${productsHTML}
+
+        </ul>
+
+
+        <h3>
+
+            💰 Total:
+
+            $${Number(
+                order.total || 0
+            ).toFixed(2)}
+
+        </h3>
+
+    `;
+
+
+    const modal =
+        document.getElementById(
+            "order-modal"
+        );
+
+
+    if (modal) {
+
+        modal.style.display = "flex";
+
+    }
+
+};
+
+
+// =====================================
+// ❌ CLOSE ORDER MODAL
+// =====================================
+
+const closeModal =
+    document.getElementById(
+        "close-modal"
+    );
+
+
+if (closeModal) {
+
+    closeModal.onclick = function() {
+
+        const modal =
+            document.getElementById(
+                "order-modal"
+            );
+
+
+        if (modal) {
+
+            modal.style.display = "none";
+
+        }
+
+    };
+
+}
+
+
+// =====================================
+// 🖨 PRINT INVOICE
+// =====================================
+
+window.printInvoice = function(index) {
+
+    const order = orders[index];
+
+    if (!order) return;
+
+
+    let productsHTML = "";
+
+
+    if (
+        order.products &&
+        Array.isArray(order.products)
+    ) {
+
+        order.products.forEach(product => {
+
+            const quantity =
+                Number(product.quantity || 0);
+
+            const price =
+                Number(product.price || 0);
+
+
+            productsHTML += `
+
+                <tr>
+
+                    <td>
+                        ${product.name}
+                    </td>
+
+                    <td>
+                        ${quantity}
+                    </td>
+
+                    <td>
+                        $${price.toFixed(2)}
+                    </td>
+
+                    <td>
+                        $${(
+                            price * quantity
+                        ).toFixed(2)}
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+    }
+
+
+    const invoiceWindow =
+        window.open(
+            "",
+            "_blank",
+            "width=900,height=700"
+        );
+
+
+    if (!invoiceWindow) {
+
+        alert(
+            "❌ Please allow pop-ups to print the invoice."
+        );
+
+        return;
+
+    }
+
+
+    invoiceWindow.document.write(`
+
+        <!DOCTYPE html>
+
+        <html>
+
+        <head>
+
+            <meta charset="UTF-8">
+
+            <title>
+                LIENS Z - Invoice
+            </title>
+
+
+            <style>
+
+                body {
+
+                    font-family:
+                        Arial, sans-serif;
+
+                    padding: 40px;
+
+                    color: #222;
+
+                }
+
+
+                .invoice-header {
+
+                    display:
+                        flex;
+
+                    justify-content:
+                        space-between;
+
+                    align-items:
+                        center;
+
+                    border-bottom:
+                        2px solid #222;
+
+                    padding-bottom:
+                        20px;
+
+                    margin-bottom:
+                        25px;
+
+                }
+
+
+                .logo {
+
+                    font-size:
+                        28px;
+
+                    font-weight:
+                        bold;
+
+                }
+
+
+                .invoice-title {
+
+                    font-size:
+                        24px;
+
+                    font-weight:
+                        bold;
+
+                }
+
+
+                .customer {
+
+                    margin-bottom:
+                        25px;
+
+                }
+
+
+                .customer p {
+
+                    margin:
+                        6px 0;
+
+                }
+
+
+                table {
+
+                    width:
+                        100%;
+
+                    border-collapse:
+                        collapse;
+
+                    margin-top:
+                        20px;
+
+                }
+
+
+                th,
+                td {
+
+                    border:
+                        1px solid #ccc;
+
+                    padding:
+                        12px;
+
+                    text-align:
+                        left;
+
+                }
+
+
+                th {
+
+                    background:
+                        #f2f2f2;
+
+                }
+
+
+                .total {
+
+                    text-align:
+                        right;
+
+                    margin-top:
+                        25px;
+
+                    font-size:
+                        22px;
+
+                    font-weight:
+                        bold;
+
+                }
+
+
+                .footer {
+
+                    margin-top:
+                        50px;
+
+                    text-align:
+                        center;
+
+                    color:
+                        #777;
+
+                }
+
+
+                @media print {
+
+                    body {
+
+                        padding:
+                            20px;
+
+                    }
+
+                }
+
+            </style>
+
+        </head>
+
+
+        <body>
+
+
+            <div class="invoice-header">
+
+                <div class="logo">
+                    LIENS Z
+                </div>
+
+
+                <div class="invoice-title">
+                    INVOICE
+                </div>
+
+            </div>
+
+
+            <div class="customer">
+
+                <p>
+                    <strong>
+                        Customer:
+                    </strong>
+
+                    ${
+                        order.customer?.fullname
+                        || "-"
+                    }
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Email:
+                    </strong>
+
+                    ${
+                        order.customer?.email
+                        || "-"
+                    }
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Phone:
+                    </strong>
+
+                    ${
+                        order.customer?.phone
+                        || "-"
+                    }
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Address:
+                    </strong>
+
+                    ${
+                        order.customer?.address
+                        || "-"
+                    }
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Date:
+                    </strong>
+
+                    ${
+                        order.date
+                        || "-"
+                    }
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Payment:
+                    </strong>
+
+                    ${
+                        order.payment
+                        || "-"
+                    }
+
+                </p>
+
+            </div>
+
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Product
+                        </th>
+
+                        <th>
+                            Qty
+                        </th>
+
+                        <th>
+                            Price
+                        </th>
+
+                        <th>
+                            Total
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    ${productsHTML}
+
+                </tbody>
+
+            </table>
+
+
+            <div class="total">
+
+                Total:
+
+                $${Number(
+                    order.total || 0
+                ).toFixed(2)}
+
+            </div>
+
+
+            <div class="footer">
+
+                Thank you for shopping
+                with LIENS Z ❤️
+
+            </div>
+
+
+        </body>
+
+        </html>
+
+    `);
+
+
+    invoiceWindow.document.close();
+
+
+    invoiceWindow.focus();
+
+
+    setTimeout(() => {
+
+        invoiceWindow.print();
+
+    }, 500);
+
+};
