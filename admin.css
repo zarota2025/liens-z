@@ -469,3 +469,80 @@ body {
     border-top:
         4px solid #8b5cf6;
 }
+/* =====================================
+   SALES ANALYTICS
+   PART 4 / 8
+===================================== */
+
+.analytics-card {
+
+    width: 100%;
+
+    margin-bottom: 30px;
+
+    padding: 25px;
+
+    background: white;
+
+    border: 1px solid #e5eaf2;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(15, 35, 70, 0.07);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.analytics-card:hover {
+
+    box-shadow:
+        0 14px 35px
+        rgba(15, 35, 70, 0.10);
+}
+
+
+/* =====================================
+   ANALYTICS TITLE
+===================================== */
+
+.analytics-card h2 {
+
+    margin: 0 0 20px;
+
+    color: #0b2a66;
+
+    font-size: 21px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================
+   SALES CHART
+===================================== */
+
+.analytics-card canvas {
+
+    display: block;
+
+    width: 100% !important;
+
+    height: 350px !important;
+
+    max-width: 100%;
+}
+
+
+/* =====================================
+   CHART CONTAINER
+===================================== */
+
+.analytics-card:has(#salesChart) {
+
+    min-height: 430px;
+}
