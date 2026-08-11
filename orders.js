@@ -87,7 +87,7 @@ async function loadOrders() {
 
 
         // عرض الطلبات
-        renderOrders();
+        displayFilteredOrders();
 
 
         // تحديث الإحصائيات
