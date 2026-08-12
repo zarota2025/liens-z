@@ -867,3 +867,368 @@ async function loadProducts() {
     }
 
 }
+// =====================================
+// 📊 UPDATE DASHBOARD
+// PART 7 / 10
+// =====================================
+
+async function updateDashboard() {
+
+    try {
+
+        // =================================
+        // 📦 LOAD ORDERS
+        // =================================
+
+        const snapshot =
+            await getDocs(
+                collection(db, "orders")
+            );
+
+
+        const orders = [];
+
+
+        snapshot.forEach((document) => {
+
+            orders.push({
+
+                id: document.id,
+
+                ...document.data()
+
+            });
+
+        });
+
+
+        // =================================
+        // ❤️ FAVORITES
+        // =================================
+
+        const favorites =
+            JSON.parse(
+                localStorage.getItem(
+                    "favorites"
+                )
+            ) || [];
+
+
+        // =================================
+        // 🛍️ PRODUCTS COUNT
+        // =================================
+
+        const productsCount =
+            document.getElementById(
+                "products-count"
+            );
+
+
+        if (productsCount) {
+
+            productsCount.textContent =
+                adminProducts.length;
+
+        }
+
+
+        // =================================
+        // 📦 ORDERS COUNT
+        // =================================
+
+        const ordersCount =
+            document.getElementById(
+                "orders-count"
+            );
+
+
+        if (ordersCount) {
+
+            ordersCount.textContent =
+                orders.length;
+
+        }
+
+
+        // =================================
+        // ❤️ FAVORITES COUNT
+        // =================================
+
+        const favoritesCount =
+            document.getElementById(
+                "favorites-count"
+            );
+
+
+        if (favoritesCount) {
+
+            favoritesCount.textContent =
+                favorites.length;
+
+        }
+
+
+        // =================================
+        // 👥 CUSTOMERS
+        // =================================
+
+        const customers =
+            new Set();
+
+
+        orders.forEach((order) => {
+
+            if (
+                order.customer &&
+                order.customer.email
+            ) {
+
+                customers.add(
+                    order.customer.email
+                );
+
+            }
+
+        });
+
+
+        const customersCount =
+            document.getElementById(
+                "customers-count"
+            );
+
+
+        if (customersCount) {
+
+            customersCount.textContent =
+                customers.size;
+
+        }
+
+
+        // =================================
+        // 💰 TOTAL REVENUE
+        // =================================
+
+        let revenue = 0;
+
+
+        orders.forEach((order) => {
+
+            if (
+                !order.products ||
+                !Array.isArray(
+                    order.products
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            order.products.forEach(
+                (product) => {
+
+                    revenue +=
+
+                        Number(
+                            product.price || 0
+                        ) *
+
+                        Number(
+                            product.quantity || 0
+                        );
+
+                }
+            );
+
+        });
+
+
+        const revenueTotal =
+            document.getElementById(
+                "revenue-total"
+            );
+
+
+        if (revenueTotal) {
+
+            revenueTotal.textContent =
+                "$" +
+                revenue.toFixed(2);
+
+        }
+
+
+        // =================================
+        // 📅 TODAY'S REVENUE
+        // =================================
+
+        let dailyRevenue = 0;
+
+
+        const today =
+            new Date();
+
+
+        orders.forEach((order) => {
+
+            const orderDate =
+                new Date(order.date);
+
+
+            if (
+                isNaN(
+                    orderDate.getTime()
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            if (
+                orderDate.getDate() ===
+                today.getDate() &&
+
+                orderDate.getMonth() ===
+                today.getMonth() &&
+
+                orderDate.getFullYear() ===
+                today.getFullYear()
+            ) {
+
+                if (
+                    order.products &&
+                    Array.isArray(
+                        order.products
+                    )
+                ) {
+
+                    order.products.forEach(
+                        (product) => {
+
+                            dailyRevenue +=
+
+                                Number(
+                                    product.price || 0
+                                ) *
+
+                                Number(
+                                    product.quantity || 0
+                                );
+
+                        }
+                    );
+
+                }
+
+            }
+
+        });
+
+
+        const dailyRevenueElement =
+            document.getElementById(
+                "daily-revenue"
+            );
+
+
+        if (dailyRevenueElement) {
+
+            dailyRevenueElement.textContent =
+                "$" +
+                dailyRevenue.toFixed(2);
+
+        }
+
+
+        // =================================
+        // 📅 THIS MONTH'S REVENUE
+        // =================================
+
+        let monthlyRevenue = 0;
+
+
+        orders.forEach((order) => {
+
+            const orderDate =
+                new Date(order.date);
+
+
+            if (
+                isNaN(
+                    orderDate.getTime()
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            if (
+                orderDate.getMonth() ===
+                today.getMonth() &&
+
+                orderDate.getFullYear() ===
+                today.getFullYear()
+            ) {
+
+                if (
+                    order.products &&
+                    Array.isArray(
+                        order.products
+                    )
+                ) {
+
+                    order.products.forEach(
+                        (product) => {
+
+                            monthlyRevenue +=
+
+                                Number(
+                                    product.price || 0
+                                ) *
+
+                                Number(
+                                    product.quantity || 0
+                                );
+
+                        }
+                    );
+
+                }
+
+            }
+
+        });
+
+
+        const monthlyRevenueElement =
+            document.getElementById(
+                "monthly-revenue"
+            );
+
+
+        if (monthlyRevenueElement) {
+
+            monthlyRevenueElement.textContent =
+                "$" +
+                monthlyRevenue.toFixed(2);
+
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "❌ Dashboard error:",
+            error
+        );
+
+    }
+
+}
