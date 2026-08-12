@@ -1796,3 +1796,105 @@ function printInvoice(index) {
     invoiceWindow.document.close();
 
 }
+// =====================================
+// 🚀 START ORDERS SYSTEM
+// PART 10 / 10
+// =====================================
+
+
+// =====================================
+// 🎛 FILTER EVENTS
+// =====================================
+
+if (statusFilter) {
+
+    statusFilter.addEventListener(
+        "change",
+        displayFilteredOrders
+    );
+
+}
+
+
+// =====================================
+// 🔃 SORT EVENTS
+// =====================================
+
+if (sortOrders) {
+
+    sortOrders.addEventListener(
+        "change",
+        displayFilteredOrders
+    );
+
+}
+
+
+// =====================================
+// 🔎 SEARCH EVENT
+// =====================================
+
+if (searchOrder) {
+
+    searchOrder.addEventListener(
+        "input",
+        searchOrders
+    );
+
+}
+
+
+// =====================================
+// ❌ CLOSE MODAL
+// =====================================
+
+if (closeModal) {
+
+    closeModal.addEventListener(
+        "click",
+        () => {
+
+            if (orderModal) {
+
+                orderModal.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+}
+
+
+// =====================================
+// 🖱 CLOSE MODAL OUTSIDE
+// =====================================
+
+if (orderModal) {
+
+    orderModal.addEventListener(
+        "click",
+        (event) => {
+
+            if (
+                event.target ===
+                orderModal
+            ) {
+
+                orderModal.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+}
+
+
+// =====================================
+// 📦 LOAD ORDERS
+// =====================================
+
+loadOrders();
