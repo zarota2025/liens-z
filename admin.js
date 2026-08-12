@@ -1232,3 +1232,257 @@ async function updateDashboard() {
     }
 
 }
+// =====================================
+// 📈 SALES CHART
+// PART 8 / 10
+// =====================================
+
+async function drawSalesChart() {
+
+    const canvas =
+        document.getElementById(
+            "salesChart"
+        );
+
+    if (!canvas) return;
+
+
+    try {
+
+        // =================================
+        // 📦 LOAD ORDERS
+        // =================================
+
+        const snapshot =
+            await getDocs(
+                collection(db, "orders")
+            );
+
+
+        const orders = [];
+
+
+        snapshot.forEach((document) => {
+
+            orders.push({
+
+                id: document.id,
+
+                ...document.data()
+
+            });
+
+        });
+
+
+        // =================================
+        // 📅 MONTHS
+        // =================================
+
+        const months = [
+
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+
+        ];
+
+
+        // =================================
+        // 💰 MONTHLY SALES
+        // =================================
+
+        const totals =
+            new Array(12).fill(0);
+
+
+        orders.forEach((order) => {
+
+            if (
+                !order.date ||
+                !order.products ||
+                !Array.isArray(
+                    order.products
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            const date =
+                new Date(
+                    order.date
+                );
+
+
+            if (
+                isNaN(
+                    date.getTime()
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            const month =
+                date.getMonth();
+
+
+            order.products.forEach(
+                (product) => {
+
+                    totals[month] +=
+
+                        Number(
+                            product.price || 0
+                        ) *
+
+                        Number(
+                            product.quantity || 0
+                        );
+
+                }
+            );
+
+        });
+
+
+        // =================================
+        // 📊 CHECK CHART.JS
+        // =================================
+
+        if (
+            typeof Chart ===
+            "undefined"
+        ) {
+
+            console.error(
+                "❌ Chart.js is not loaded."
+            );
+
+            return;
+
+        }
+
+
+        // =================================
+        // 🧹 DESTROY OLD CHART
+        // =================================
+
+        if (salesChart) {
+
+            salesChart.destroy();
+
+        }
+
+
+        // =================================
+        // 📈 CREATE CHART
+        // =================================
+
+        salesChart =
+            new Chart(
+                canvas,
+                {
+
+                    type: "line",
+
+
+                    data: {
+
+                        labels:
+                            months,
+
+
+                        datasets: [
+
+                            {
+
+                                label:
+                                    "Sales ($)",
+
+
+                                data:
+                                    totals,
+
+
+                                borderWidth:
+                                    3,
+
+
+                                tension:
+                                    0.4,
+
+
+                                fill:
+                                    true
+
+                            }
+
+                        ]
+
+                    },
+
+
+                    options: {
+
+                        responsive:
+                            true,
+
+
+                        maintainAspectRatio:
+                            false,
+
+
+                        plugins: {
+
+                            legend: {
+
+                                display:
+                                    true
+
+                            }
+
+                        },
+
+
+                        scales: {
+
+                            y: {
+
+                                beginAtZero:
+                                    true
+
+                            }
+
+                        }
+
+                    }
+
+                }
+            );
+
+
+    } catch (error) {
+
+        console.error(
+            "❌ Sales chart error:",
+            error
+        );
+
+    }
+
+}
