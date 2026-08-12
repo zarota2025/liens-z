@@ -687,3 +687,126 @@ if (saveButton) {
     );
 
 }
+// =====================================
+// ✏️ EDIT PRODUCT
+// PART 5 / 10
+// =====================================
+
+function editProduct(index) {
+
+    const product =
+        adminProducts[index];
+
+    if (!product) return;
+
+
+    if (productName)
+        productName.value =
+            product.name || "";
+
+
+    if (productPrice)
+        productPrice.value =
+            product.price || "";
+
+
+    if (productOldPrice)
+        productOldPrice.value =
+            product.oldPrice || "";
+
+
+    if (productDiscount)
+        productDiscount.value =
+            product.discount || "";
+
+
+    if (productBadge)
+        productBadge.value =
+            product.badge || "";
+
+
+    if (productCategory)
+        productCategory.value =
+            product.category || "";
+
+
+    // استخدام الصورة القديمة
+    selectedImage =
+        product.image || "";
+
+
+    editingIndex =
+        index;
+
+
+    if (saveButton) {
+
+        saveButton.textContent =
+            "💾 Update Product";
+
+    }
+
+
+    // الانتقال إلى نموذج المنتج
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+// =====================================
+// 🗑️ DELETE PRODUCT
+// =====================================
+
+async function deleteProduct(index) {
+
+    const product =
+        adminProducts[index];
+
+    if (!product) return;
+
+
+    const confirmed =
+        confirm(
+            `Are you sure you want to delete "${product.name}"?`
+        );
+
+
+    if (!confirmed) return;
+
+
+    try {
+
+        await deleteFirebaseProduct(
+            product.id
+        );
+
+
+        alert(
+            "🗑️ Product deleted successfully!"
+        );
+
+
+        await loadProducts();
+
+
+    } catch (error) {
+
+        console.error(
+            "Delete product error:",
+            error
+        );
+
+
+        alert(
+            "❌ Failed to delete product."
+        );
+
+    }
+
+}
