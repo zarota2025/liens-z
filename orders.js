@@ -698,3 +698,107 @@ async function deleteOrder(index) {
     }
 
 }
+// =====================================
+// 🔎 SEARCH ORDERS
+// PART 6 / 10
+// =====================================
+
+function searchOrders() {
+
+    const searchText =
+        searchOrder
+            ? searchOrder.value
+                .trim()
+                .toLowerCase()
+            : "";
+
+
+    // إذا كان مربع البحث فارغًا
+    // نعرض جميع الطلبات
+    if (!searchText) {
+
+        displayFilteredOrders();
+
+        return;
+
+    }
+
+
+    // البحث داخل الطلبات
+    const filteredOrders =
+        orders.filter(order => {
+
+            const name =
+                order.customer?.fullname
+                || "";
+
+            const email =
+                order.customer?.email
+                || "";
+
+            const phone =
+                order.customer?.phone
+                || "";
+
+            const country =
+                order.customer?.country
+                || "";
+
+            const city =
+                order.customer?.city
+                || "";
+
+
+            return (
+
+                name
+                    .toLowerCase()
+                    .includes(searchText)
+
+                ||
+
+                email
+                    .toLowerCase()
+                    .includes(searchText)
+
+                ||
+
+                phone
+                    .toLowerCase()
+                    .includes(searchText)
+
+                ||
+
+                country
+                    .toLowerCase()
+                    .includes(searchText)
+
+                ||
+
+                city
+                    .toLowerCase()
+                    .includes(searchText)
+
+            );
+
+        });
+
+
+    // عرض النتائج
+    renderOrders(filteredOrders);
+
+}
+
+
+// =====================================
+// 🎛 SEARCH EVENT
+// =====================================
+
+if (searchOrder) {
+
+    searchOrder.addEventListener(
+        "input",
+        searchOrders
+    );
+
+}
