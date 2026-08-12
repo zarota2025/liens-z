@@ -505,3 +505,93 @@ function renderOrders(list = orders) {
     });
 
 }
+// =====================================
+// 🔄 CHANGE ORDER STATUS
+// PART 4 / 10
+// =====================================
+
+async function changeStatus(index, newStatus) {
+
+    // التأكد من وجود الطلب
+    if (
+        index < 0 ||
+        index >= orders.length
+    ) {
+
+        console.error(
+            "❌ Invalid order index"
+        );
+
+        return;
+
+    }
+
+
+    const order =
+        orders[index];
+
+
+    // التأكد من وجود Firebase ID
+    if (!order.firebaseId) {
+
+        console.error(
+            "❌ Firebase ID not found"
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        // تحديث الحالة في Firebase
+        await updateDoc(
+
+            doc(
+                db,
+                "orders",
+                order.firebaseId
+            ),
+
+            {
+                status: newStatus
+            }
+
+        );
+
+
+        // تحديث البيانات محليًا
+        orders[index].status =
+            newStatus;
+
+
+        console.log(
+            "✅ Order status updated:",
+            newStatus
+        );
+
+
+        // إعادة عرض الطلبات
+        displayFilteredOrders();
+
+
+        // تحديث الإحصائيات
+        updateStats();
+
+
+    } catch (error) {
+
+        console.error(
+            "❌ Error updating order:",
+            error
+        );
+
+
+        alert(
+            "❌ Unable to update order status."
+        );
+
+    }
+
+}
