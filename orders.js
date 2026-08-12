@@ -1843,56 +1843,6 @@ if (searchOrder) {
 
 }
 
-
-// =====================================
-// ❌ CLOSE MODAL
-// =====================================
-
-if (closeModal) {
-
-    closeModal.addEventListener(
-        "click",
-        () => {
-
-            if (orderModal) {
-
-                orderModal.style.display =
-                    "none";
-
-            }
-
-        }
-    );
-
-}
-
-
-// =====================================
-// 🖱 CLOSE MODAL OUTSIDE
-// =====================================
-
-if (orderModal) {
-
-    orderModal.addEventListener(
-        "click",
-        (event) => {
-
-            if (
-                event.target ===
-                orderModal
-            ) {
-
-                orderModal.style.display =
-                    "none";
-
-            }
-
-        }
-    );
-
-}
-
-
 // =====================================
 // 📦 LOAD ORDERS
 // =====================================
