@@ -458,42 +458,30 @@ function renderOrders(list = orders) {
 
 
                     <button
-                        onclick="
-                            viewOrder(
-                                ${originalIndex}
-                            )
-                        "
-                        class="view-btn">
+    class="view-btn"
+    data-index="${originalIndex}">
 
-                        👁 View
+    👁 View
 
-                    </button>
+</button>
 
 
                     <button
-                        onclick="
-                            printInvoice(
-                                ${originalIndex}
-                            )
-                        "
-                        class="print-btn">
+    class="print-btn"
+    data-index="${originalIndex}">
 
-                        🖨 Print
+    🖨 Print
 
-                    </button>
+</button>
 
 
                     <button
-                        onclick="
-                            deleteOrder(
-                                ${originalIndex}
-                            )
-                        "
-                        class="delete-btn">
+    class="delete-btn"
+    data-index="${originalIndex}">
 
-                        🗑 Delete
+    🗑 Delete
 
-                    </button>
+</button>
 
 
                 </div>
