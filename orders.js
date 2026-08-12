@@ -414,6 +414,397 @@ function renderOrders(list = orders) {
 
 }
 // =====================================
+// 📦 FILTER & SORT ORDERS
+// =====================================
+
+function displayFilteredOrders() {
+
+    let filteredOrders = [...orders];
+
+    const statusFilter =
+        document.getElementById("status-filter");
+
+    const sortOrders =
+        document.getElementById("sort-orders");
+
+    // =============================
+    // FILTER BY STATUS
+    // =============================
+
+    const selectedStatus =
+        statusFilter
+            ? statusFilter.value
+            : "all";
+
+    if (selectedStatus !== "all") {
+
+        filteredOrders =
+            filteredOrders.filter(order =>
+
+                (order.status || "Pending") ===
+                selectedStatus
+
+            );
+
+    }
+
+    // =============================
+    // SORT
+    // =============================
+
+    const selectedSort =
+        sortOrders
+            ? sortOrders.value
+            : "newest";
+
+
+    if (selectedSort === "newest") {
+
+        filteredOrders.sort(
+            (a, b) =>
+                new Date(b.date || 0) -
+                new Date(a.date || 0)
+        );
+
+    }
+
+
+    if (selectedSort === "oldest") {
+
+        filteredOrders.sort(
+            (a, b) =>
+                new Date(a.date || 0) -
+                new Date(b.date || 0)
+        );
+
+    }
+
+
+    if (selectedSort === "high") {
+
+        filteredOrders.sort(
+            (a, b) =>
+                getOrderTotal(b) -
+                getOrderTotal(a)
+        );
+
+    }
+
+
+    if (selectedSort === "low") {
+
+        filteredOrders.sort(
+            (a, b) =>
+                getOrderTotal(a) -
+                getOrderTotal(b)
+        );
+
+    }
+
+
+    renderFilteredOrders(
+        filteredOrders
+    );
+
+}
+
+
+// =====================================
+// 💰 GET ORDER TOTAL
+// =====================================
+
+function getOrderTotal(order) {
+
+    if (
+        typeof order.total === "number"
+    ) {
+
+        return order.total;
+
+    }
+
+
+    if (
+        order.products &&
+        Array.isArray(order.products)
+    ) {
+
+        return order.products.reduce(
+            (total, product) => {
+
+                return total +
+                    Number(
+                        product.price || 0
+                    ) *
+                    Number(
+                        product.quantity || 0
+                    );
+
+            },
+            0
+        );
+
+    }
+
+
+    return 0;
+
+}
+
+
+// =====================================
+// 🖥 RENDER FILTERED ORDERS
+// =====================================
+
+function renderFilteredOrders(
+    filteredOrders
+) {
+
+    ordersList.innerHTML = "";
+
+
+    if (
+        filteredOrders.length === 0
+    ) {
+
+        ordersList.innerHTML = `
+
+            <div class="empty-orders">
+
+                No matching orders 📦
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    filteredOrders.forEach(
+        order => {
+
+            const originalIndex =
+                orders.indexOf(order);
+
+
+            let productsHTML = "";
+
+
+            if (
+                order.products &&
+                Array.isArray(order.products)
+            ) {
+
+                order.products.forEach(
+                    product => {
+
+                        productsHTML += `
+
+                            <li>
+
+                                ${product.name}
+
+                                ×
+
+                                ${product.quantity}
+
+                                -
+
+                                $${(
+
+                                    Number(
+                                        product.price || 0
+                                    ) *
+
+                                    Number(
+                                        product.quantity || 0
+                                    )
+
+                                ).toFixed(2)}
+
+                            </li>
+
+                        `;
+
+                    }
+                );
+
+            }
+
+
+            ordersList.innerHTML += `
+
+                <div class="order-card ${
+                    (
+                        order.status ||
+                        "Pending"
+                    ).toLowerCase()
+                }">
+
+                    <h2>
+                        📦 Order
+                    </h2>
+
+
+                    <p>
+
+                        <strong>
+                            Name:
+                        </strong>
+
+                        ${
+                            order.customer?.fullname
+                            || ""
+                        }
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>
+                            Email:
+                        </strong>
+
+                        ${
+                            order.customer?.email
+                            || ""
+                        }
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>
+                            Phone:
+                        </strong>
+
+                        ${
+                            order.customer?.phone
+                            || ""
+                        }
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>
+                            Date:
+                        </strong>
+
+                        ${
+                            order.date
+                            || ""
+                        }
+
+                    </p>
+
+
+                    <h3>
+                        Products
+                    </h3>
+
+
+                    <ul>
+
+                        ${productsHTML}
+
+                    </ul>
+
+
+                    <h3>
+
+                        💰 Total:
+
+                        $${getOrderTotal(order).toFixed(2)}
+
+                    </h3>
+
+
+                    <p>
+
+                        <strong>
+                            Status:
+                        </strong>
+
+
+                        ${
+                            order.status
+                            || "Pending"
+                        }
+
+                    </p>
+
+
+                    <div class="order-actions">
+
+                        <button
+                            onclick="viewOrder(${originalIndex})"
+                            class="view-btn">
+
+                            👁 View
+
+                        </button>
+
+
+                        <button
+                            onclick="deleteOrder(${originalIndex})"
+                            class="delete-btn">
+
+                            🗑 Delete
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+}
+
+
+// =====================================
+// 🎛 FILTER EVENTS
+// =====================================
+
+const statusFilter =
+    document.getElementById(
+        "status-filter"
+    );
+
+const sortOrders =
+    document.getElementById(
+        "sort-orders"
+    );
+
+
+if (statusFilter) {
+
+    statusFilter.addEventListener(
+        "change",
+        displayFilteredOrders
+    );
+
+}
+
+
+if (sortOrders) {
+
+    sortOrders.addEventListener(
+        "change",
+        displayFilteredOrders
+    );
+
+}
+// =====================================
 // 🗑 DELETE ORDER
 // PART 4 / 8
 // =====================================
