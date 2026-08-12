@@ -238,3 +238,160 @@ if (productImage) {
     );
 
 }
+// =====================================
+// 📦 RENDER ADMIN PRODUCTS
+// PART 3 / 10
+// =====================================
+
+function renderProducts() {
+
+    if (!productsContainer) return;
+
+
+    productsContainer.innerHTML = "";
+
+
+    // =================================
+    // EMPTY PRODUCTS
+    // =================================
+
+    if (adminProducts.length === 0) {
+
+        productsContainer.innerHTML = `
+
+            <div class="empty-products">
+
+                <p>
+                    📦 No products yet.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    // =================================
+    // DISPLAY PRODUCTS
+    // =================================
+
+    adminProducts.forEach(
+        (product, index) => {
+
+            productsContainer.innerHTML += `
+
+                <div class="admin-card">
+
+                    <img
+                        src="${product.image || ""}"
+                        alt="${product.name || "Product"}"
+                    >
+
+
+                    <div class="admin-card-content">
+
+                        <h3>
+                            ${product.name || "Unnamed Product"}
+                        </h3>
+
+
+                        <p>
+                            💰 $${Number(
+                                product.price || 0
+                            ).toFixed(2)}
+                        </p>
+
+
+                        ${
+                            product.oldPrice
+                            ? `
+                                <small>
+
+                                    Old price:
+                                    $${Number(
+                                        product.oldPrice
+                                    ).toFixed(2)}
+
+                                </small>
+                            `
+                            : ""
+                        }
+
+
+                        <p>
+                            📂 ${product.category || "-"}
+                        </p>
+
+
+                        ${
+                            product.discount
+                            ? `
+                                <span>
+                                    ${product.discount}
+                                </span>
+                            `
+                            : ""
+                        }
+
+
+                        ${
+                            product.badge
+                            ? `
+                                <span>
+                                    ${product.badge}
+                                </span>
+                            `
+                            : ""
+                        }
+
+
+                        <br>
+                        <br>
+
+
+                        <div
+                            class="admin-card-actions"
+                            style="
+                                display:flex;
+                                gap:10px;
+                                flex-wrap:wrap;
+                            "
+                        >
+
+
+                            <button
+                                class="edit-btn"
+                                data-product-index="${index}"
+                            >
+
+                                ✏️ Edit
+
+                            </button>
+
+
+                            <button
+                                class="delete-btn"
+                                data-product-index="${index}"
+                            >
+
+                                🗑 Delete
+
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+}
