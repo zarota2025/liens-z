@@ -395,3 +395,295 @@ function renderProducts() {
     );
 
 }
+// =====================================
+// ➕ ADD / ✏️ UPDATE PRODUCT
+// PART 4 / 10
+// =====================================
+
+if (saveButton) {
+
+    saveButton.addEventListener(
+        "click",
+        async function () {
+
+            // =================================
+            // VALIDATION
+            // =================================
+
+            if (
+                !productName ||
+                !productPrice ||
+                !productCategory
+            ) {
+
+                console.error(
+                    "❌ Product form elements not found."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !productName.value.trim() ||
+                !productPrice.value.trim() ||
+                !productCategory.value.trim() ||
+                (
+                    editingIndex === -1 &&
+                    (
+                        !productImage ||
+                        productImage.files.length === 0
+                    )
+                )
+            ) {
+
+                alert(
+                    "⚠️ Please fill all required fields."
+                );
+
+                return;
+
+            }
+
+
+            // =================================
+            // 🖼️ IMAGE
+            // =================================
+
+            let imageUrl =
+                selectedImage;
+
+
+            if (
+                productImage &&
+                productImage.files.length > 0
+            ) {
+
+                saveButton.disabled = true;
+
+                saveButton.textContent =
+                    "⏳ Uploading...";
+
+
+                try {
+
+                    imageUrl =
+                        await uploadImage(
+                            productImage.files[0]
+                        );
+
+                } catch (error) {
+
+                    saveButton.disabled = false;
+
+                    saveButton.textContent =
+                        "➕ Add Product";
+
+                    return;
+
+                }
+
+            }
+
+
+            // =================================
+            // 📦 PRODUCT DATA
+            // =================================
+
+            const productData = {
+
+                id:
+                    editingIndex === -1
+                    ? Date.now()
+                    : adminProducts[editingIndex].id,
+
+
+                name:
+                    productName.value.trim(),
+
+
+                price:
+                    Number(
+                        productPrice.value
+                    ),
+
+
+                oldPrice:
+                    productOldPrice &&
+                    productOldPrice.value
+                    ? Number(
+                        productOldPrice.value
+                    )
+                    : 0,
+
+
+                discount:
+                    productDiscount
+                    ? productDiscount.value.trim()
+                    : "",
+
+
+                badge:
+                    productBadge
+                    ? productBadge.value.trim()
+                    : "",
+
+
+                category:
+                    productCategory.value.trim(),
+
+
+                image:
+                    imageUrl
+
+            };
+
+
+            // =================================
+            // ➕ ADD PRODUCT
+            // =================================
+
+            if (
+                editingIndex === -1
+            ) {
+
+                try {
+
+                    await addProduct(
+                        productData
+                    );
+
+
+                    alert(
+                        "✅ Product added successfully!"
+                    );
+
+                } catch (error) {
+
+                    console.error(
+                        "Add product error:",
+                        error
+                    );
+
+
+                    alert(
+                        "❌ Failed to add product."
+                    );
+
+
+                    saveButton.disabled =
+                        false;
+
+
+                    saveButton.textContent =
+                        "➕ Add Product";
+
+
+                    return;
+
+                }
+
+            }
+
+
+            // =================================
+            // ✏️ UPDATE PRODUCT
+            // =================================
+
+            else {
+
+                try {
+
+                    await updateProduct(
+                        adminProducts[
+                            editingIndex
+                        ].id,
+
+                        productData
+                    );
+
+
+                    alert(
+                        "✏️ Product updated successfully!"
+                    );
+
+                } catch (error) {
+
+                    console.error(
+                        "Update product error:",
+                        error
+                    );
+
+
+                    alert(
+                        "❌ Failed to update product."
+                    );
+
+
+                    saveButton.disabled =
+                        false;
+
+
+                    return;
+
+                }
+
+            }
+
+
+            // =================================
+            // 🔄 RELOAD PRODUCTS
+            // =================================
+
+            await loadProducts();
+
+
+            // =================================
+            // 🧹 RESET FORM
+            // =================================
+
+            if (productName)
+                productName.value = "";
+
+
+            if (productPrice)
+                productPrice.value = "";
+
+
+            if (productOldPrice)
+                productOldPrice.value = "";
+
+
+            if (productDiscount)
+                productDiscount.value = "";
+
+
+            if (productBadge)
+                productBadge.value = "";
+
+
+            if (productCategory)
+                productCategory.value = "";
+
+
+            if (productImage)
+                productImage.value = "";
+
+
+            selectedImage = "";
+
+            editingIndex = -1;
+
+
+            saveButton.textContent =
+                "➕ Add Product";
+
+
+            saveButton.disabled =
+                false;
+
+        }
+    );
+
+}
