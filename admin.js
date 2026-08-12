@@ -121,3 +121,120 @@ const CLOUD_NAME =
 
 const UPLOAD_PRESET =
     "liens-z";
+// =====================================
+// ☁️ IMAGE UPLOAD
+// PART 2 / 10
+// =====================================
+
+async function uploadImage(file) {
+
+    const formData =
+        new FormData();
+
+
+    formData.append(
+        "file",
+        file
+    );
+
+
+    formData.append(
+        "upload_preset",
+        UPLOAD_PRESET
+    );
+
+
+    try {
+
+        const response =
+            await fetch(
+                `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "Cloudinary:",
+            data
+        );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.error?.message ||
+                "Upload failed"
+            );
+
+        }
+
+
+        return data.secure_url;
+
+
+    } catch (error) {
+
+        console.error(
+            "Image upload error:",
+            error
+        );
+
+
+        alert(
+            "❌ Image upload failed: " +
+            error.message
+        );
+
+
+        throw error;
+
+    }
+
+}
+
+
+// =====================================
+// 🖼️ IMAGE PREVIEW
+// =====================================
+
+if (productImage) {
+
+    productImage.addEventListener(
+        "change",
+        function () {
+
+            const file =
+                this.files[0];
+
+
+            if (!file) return;
+
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function (event) {
+
+                    selectedImage =
+                        event.target.result;
+
+                };
+
+
+            reader.readAsDataURL(
+                file
+            );
+
+        }
+    );
+
+}
