@@ -14,18 +14,32 @@ export async function addProduct(product) {
 }
 
 export async function getProducts() {
-    const snapshot = await getDocs(collection(db, "products"));
+
+    const snapshot =
+        await getDocs(
+            collection(db, "products")
+        );
+
 
     let products = [];
 
+
     snapshot.forEach((item) => {
+
         products.push({
-            id: item.id,
-            ...item.data()
+
+            ...item.data(),
+
+            // Firebase Document ID
+            id: item.id
+
         });
+
     });
 
+
     return products;
+
 }
 
 export async function deleteProduct(id) {
