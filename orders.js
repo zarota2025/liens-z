@@ -1835,4 +1835,69 @@ if (searchOrder) {
 // 📦 LOAD ORDERS
 // =====================================
 
+// =====================================
+// 🔘 ORDER BUTTONS
+// =====================================
+
+document.addEventListener(
+    "click",
+    (event) => {
+
+        const button =
+            event.target.closest(
+                "button[data-index]"
+            );
+
+        if (!button) return;
+
+
+        const index =
+            Number(
+                button.dataset.index
+            );
+
+
+        // 👁 VIEW
+        if (
+            button.classList.contains(
+                "view-btn"
+            )
+        ) {
+
+            viewOrder(index);
+
+        }
+
+
+        // 🖨 PRINT
+        if (
+            button.classList.contains(
+                "print-btn"
+            )
+        ) {
+
+            printInvoice(index);
+
+        }
+
+
+        // 🗑 DELETE
+        if (
+            button.classList.contains(
+                "delete-btn"
+            )
+        ) {
+
+            deleteOrder(index);
+
+        }
+
+    }
+);
+
+
+// =====================================
+// 📦 LOAD ORDERS
+// =====================================
+
 loadOrders();
