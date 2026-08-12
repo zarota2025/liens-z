@@ -1348,3 +1348,451 @@ if (orderModal) {
     );
 
 }
+// =====================================
+// 📊 ORDER STATISTICS
+// PART 9 / 10
+// =====================================
+
+function updateStats() {
+
+    const ordersCount =
+        document.getElementById(
+            "orders-count"
+        );
+
+    const revenueTotal =
+        document.getElementById(
+            "revenue-total"
+        );
+
+
+    // =============================
+    // 📦 ORDERS COUNT
+    // =============================
+
+    if (ordersCount) {
+
+        ordersCount.textContent =
+            orders.length;
+
+    }
+
+
+    // =============================
+    // 💰 TOTAL REVENUE
+    // =============================
+
+    let totalRevenue = 0;
+
+
+    orders.forEach(order => {
+
+        totalRevenue +=
+            getOrderTotal(order);
+
+    });
+
+
+    if (revenueTotal) {
+
+        revenueTotal.textContent =
+            "$" +
+            totalRevenue.toFixed(2);
+
+    }
+
+}
+
+
+// =====================================
+// 🖨 PRINT INVOICE
+// =====================================
+
+function printInvoice(index) {
+
+    if (
+        index < 0 ||
+        index >= orders.length
+    ) {
+
+        console.error(
+            "❌ Invalid order index"
+        );
+
+        return;
+
+    }
+
+
+    const order =
+        orders[index];
+
+
+    let productsHTML = "";
+
+
+    if (
+        order.products &&
+        Array.isArray(order.products)
+    ) {
+
+        order.products.forEach(product => {
+
+            const quantity =
+                Number(
+                    product.quantity || 0
+                );
+
+            const price =
+                Number(
+                    product.price || 0
+                );
+
+
+            productsHTML += `
+
+                <tr>
+
+                    <td>
+                        ${product.name || "Product"}
+                    </td>
+
+                    <td>
+                        ${quantity}
+                    </td>
+
+                    <td>
+                        $${price.toFixed(2)}
+                    </td>
+
+                    <td>
+                        $${(
+                            price * quantity
+                        ).toFixed(2)}
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+    }
+
+
+    const total =
+        getOrderTotal(order);
+
+
+    const invoiceWindow =
+        window.open(
+            "",
+            "_blank",
+            "width=800,height=900"
+        );
+
+
+    if (!invoiceWindow) {
+
+        alert(
+            "⚠️ Please allow pop-ups to print the invoice."
+        );
+
+        return;
+
+    }
+
+
+    invoiceWindow.document.write(`
+
+        <!DOCTYPE html>
+
+        <html>
+
+        <head>
+
+            <title>
+                LIENS Z - Invoice
+            </title>
+
+            <style>
+
+                body {
+
+                    font-family:
+                        Arial,
+                        sans-serif;
+
+                    padding:
+                        40px;
+
+                    color:
+                        #222;
+
+                }
+
+
+                h1 {
+
+                    margin-bottom:
+                        5px;
+
+                }
+
+
+                .invoice-header {
+
+                    display:
+                        flex;
+
+                    justify-content:
+                        space-between;
+
+                    margin-bottom:
+                        30px;
+
+                }
+
+
+                .customer {
+
+                    margin-bottom:
+                        25px;
+
+                }
+
+
+                table {
+
+                    width:
+                        100%;
+
+                    border-collapse:
+                        collapse;
+
+                    margin-top:
+                        20px;
+
+                }
+
+
+                th,
+                td {
+
+                    border:
+                        1px solid #ddd;
+
+                    padding:
+                        10px;
+
+                    text-align:
+                        left;
+
+                }
+
+
+                th {
+
+                    background:
+                        #f2f2f2;
+
+                }
+
+
+                .total {
+
+                    text-align:
+                        right;
+
+                    font-size:
+                        20px;
+
+                    font-weight:
+                        bold;
+
+                    margin-top:
+                        25px;
+
+                }
+
+            </style>
+
+        </head>
+
+
+        <body>
+
+
+            <div class="invoice-header">
+
+                <div>
+
+                    <h1>
+                        LIENS Z
+                    </h1>
+
+                    <p>
+                        Customer Invoice
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <p>
+                        <strong>
+                            Date:
+                        </strong>
+
+                        ${
+                            order.date || "-"
+                        }
+
+                    </p>
+
+                    <p>
+                        <strong>
+                            Status:
+                        </strong>
+
+                        ${
+                            order.status ||
+                            "Pending"
+                        }
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="customer">
+
+                <h3>
+                    Customer
+                </h3>
+
+                <p>
+                    <strong>
+                        Name:
+                    </strong>
+
+                    ${
+                        order.customer?.fullname ||
+                        "-"
+                    }
+
+                </p>
+
+                <p>
+                    <strong>
+                        Email:
+                    </strong>
+
+                    ${
+                        order.customer?.email ||
+                        "-"
+                    }
+
+                </p>
+
+                <p>
+                    <strong>
+                        Phone:
+                    </strong>
+
+                    ${
+                        order.customer?.phone ||
+                        "-"
+                    }
+
+                </p>
+
+                <p>
+                    <strong>
+                        Address:
+                    </strong>
+
+                    ${
+                        order.customer?.address ||
+                        "-"
+                    }
+
+                </p>
+
+            </div>
+
+
+            <h3>
+                Products
+            </h3>
+
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Product
+                        </th>
+
+                        <th>
+                            Quantity
+                        </th>
+
+                        <th>
+                            Price
+                        </th>
+
+                        <th>
+                            Total
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    ${productsHTML}
+
+                </tbody>
+
+            </table>
+
+
+            <div class="total">
+
+                Total:
+
+                $${total.toFixed(2)}
+
+            </div>
+
+
+            <script>
+
+                window.onload = function() {
+
+                    window.print();
+
+                };
+
+            <\/script>
+
+
+        </body>
+
+        </html>
+
+    `);
+
+
+    invoiceWindow.document.close();
+
+}
