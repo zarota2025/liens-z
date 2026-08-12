@@ -810,3 +810,60 @@ async function deleteProduct(index) {
     }
 
 }
+// =====================================
+// 📦 LOAD PRODUCTS
+// PART 6 / 10
+// =====================================
+
+async function loadProducts() {
+
+    try {
+
+        // تحميل المنتجات من Firebase
+        adminProducts =
+            await getProducts();
+
+
+        // عرض المنتجات
+        renderProducts();
+
+
+        // تحديث لوحة التحكم
+        await updateDashboard();
+
+
+        // تحديث أفضل المنتجات
+        await updateBestProducts();
+
+
+        // تحديث الرسم البياني
+        drawSalesChart();
+
+
+    } catch (error) {
+
+        console.error(
+            "❌ Error loading products:",
+            error
+        );
+
+
+        if (productsContainer) {
+
+            productsContainer.innerHTML = `
+
+                <div class="empty-products">
+
+                    <p>
+                        ❌ Failed to load products.
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
+    }
+
+}
