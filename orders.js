@@ -1097,3 +1097,254 @@ if (sortOrders) {
     );
 
 }
+// =====================================
+// 👁 VIEW ORDER DETAILS
+// PART 8 / 10
+// =====================================
+
+function viewOrder(index) {
+
+    if (
+        index < 0 ||
+        index >= orders.length
+    ) {
+
+        console.error(
+            "❌ Invalid order index"
+        );
+
+        return;
+
+    }
+
+
+    const order = orders[index];
+
+
+    if (!orderDetails) return;
+
+
+    let productsHTML = "";
+
+
+    if (
+        order.products &&
+        Array.isArray(order.products)
+    ) {
+
+        order.products.forEach(product => {
+
+            const quantity =
+                Number(
+                    product.quantity || 0
+                );
+
+            const price =
+                Number(
+                    product.price || 0
+                );
+
+
+            productsHTML += `
+
+                <li>
+
+                    ${product.name || "Product"}
+
+                    × ${quantity}
+
+                    -
+
+                    $${(
+                        price * quantity
+                    ).toFixed(2)}
+
+                </li>
+
+            `;
+
+        });
+
+    }
+
+
+    const total =
+        getOrderTotal(order);
+
+
+    orderDetails.innerHTML = `
+
+        <h2>
+            📦 Order Details
+        </h2>
+
+
+        <hr>
+
+
+        <h3>
+            👤 Customer
+        </h3>
+
+
+        <p>
+            <strong>Name:</strong>
+            ${order.customer?.fullname || "-"}
+        </p>
+
+
+        <p>
+            <strong>Email:</strong>
+            ${order.customer?.email || "-"}
+        </p>
+
+
+        <p>
+            <strong>Phone:</strong>
+            ${order.customer?.phone || "-"}
+        </p>
+
+
+        <p>
+            <strong>Country:</strong>
+            ${order.customer?.country || "-"}
+        </p>
+
+
+        <p>
+            <strong>City:</strong>
+            ${order.customer?.city || "-"}
+        </p>
+
+
+        <p>
+            <strong>Address:</strong>
+            ${order.customer?.address || "-"}
+        </p>
+
+
+        <p>
+            <strong>Postal:</strong>
+            ${order.customer?.postal || "-"}
+        </p>
+
+
+        <hr>
+
+
+        <h3>
+            💳 Payment
+        </h3>
+
+
+        <p>
+            <strong>
+                Payment:
+            </strong>
+
+            ${order.payment || "-"}
+        </p>
+
+
+        <p>
+            <strong>
+                Date:
+            </strong>
+
+            ${order.date || "-"}
+        </p>
+
+
+        <p>
+            <strong>
+                Status:
+            </strong>
+
+            ${order.status || "Pending"}
+        </p>
+
+
+        <hr>
+
+
+        <h3>
+            🛍 Products
+        </h3>
+
+
+        <ul>
+
+            ${productsHTML}
+
+        </ul>
+
+
+        <h3>
+
+            💰 Total:
+
+            $${total.toFixed(2)}
+
+        </h3>
+
+    `;
+
+
+    // فتح النافذة
+    if (orderModal) {
+
+        orderModal.style.display =
+            "flex";
+
+    }
+
+}
+
+
+// =====================================
+// ❌ CLOSE ORDER MODAL
+// =====================================
+
+if (closeModal) {
+
+    closeModal.addEventListener(
+        "click",
+        () => {
+
+            if (orderModal) {
+
+                orderModal.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+}
+
+
+// =====================================
+// 🖱 CLOSE BY CLICKING OUTSIDE
+// =====================================
+
+if (orderModal) {
+
+    orderModal.addEventListener(
+        "click",
+        (event) => {
+
+            if (
+                event.target ===
+                orderModal
+            ) {
+
+                orderModal.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+}
