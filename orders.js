@@ -802,3 +802,298 @@ if (searchOrder) {
     );
 
 }
+// =====================================
+// 📦 FILTER & SORT ORDERS
+// PART 7 / 10
+// =====================================
+
+function displayFilteredOrders() {
+
+    let filteredOrders = [...orders];
+
+
+    // =================================
+    // 🔎 SEARCH
+    // =================================
+
+    const searchText =
+        searchOrder
+            ? searchOrder.value
+                .trim()
+                .toLowerCase()
+            : "";
+
+
+    if (searchText) {
+
+        filteredOrders =
+            filteredOrders.filter(order => {
+
+                const name =
+                    order.customer?.fullname || "";
+
+                const email =
+                    order.customer?.email || "";
+
+                const phone =
+                    order.customer?.phone || "";
+
+                const country =
+                    order.customer?.country || "";
+
+                const city =
+                    order.customer?.city || "";
+
+
+                return (
+
+                    name
+                        .toLowerCase()
+                        .includes(searchText)
+
+                    ||
+
+                    email
+                        .toLowerCase()
+                        .includes(searchText)
+
+                    ||
+
+                    phone
+                        .toLowerCase()
+                        .includes(searchText)
+
+                    ||
+
+                    country
+                        .toLowerCase()
+                        .includes(searchText)
+
+                    ||
+
+                    city
+                        .toLowerCase()
+                        .includes(searchText)
+
+                );
+
+            });
+
+    }
+
+
+    // =================================
+    // 📦 STATUS FILTER
+    // =================================
+
+    const selectedStatus =
+        statusFilter
+            ? statusFilter.value
+            : "all";
+
+
+    if (
+        selectedStatus !== "all"
+    ) {
+
+        filteredOrders =
+            filteredOrders.filter(order => {
+
+                const status =
+                    order.status || "Pending";
+
+                return status === selectedStatus;
+
+            });
+
+    }
+
+
+    // =================================
+    // 🔃 SORT
+    // =================================
+
+    const selectedSort =
+        sortOrders
+            ? sortOrders.value
+            : "newest";
+
+
+    // ---------------------------------
+    // 🆕 NEWEST
+    // ---------------------------------
+
+    if (
+        selectedSort === "newest"
+    ) {
+
+        filteredOrders.sort(
+            (a, b) => {
+
+                return (
+                    new Date(b.date || 0) -
+                    new Date(a.date || 0)
+                );
+
+            }
+        );
+
+    }
+
+
+    // ---------------------------------
+    // 📅 OLDEST
+    // ---------------------------------
+
+    if (
+        selectedSort === "oldest"
+    ) {
+
+        filteredOrders.sort(
+            (a, b) => {
+
+                return (
+                    new Date(a.date || 0) -
+                    new Date(b.date || 0)
+                );
+
+            }
+        );
+
+    }
+
+
+    // ---------------------------------
+    // 💰 HIGHEST PRICE
+    // ---------------------------------
+
+    if (
+        selectedSort === "high"
+    ) {
+
+        filteredOrders.sort(
+            (a, b) => {
+
+                return (
+                    getOrderTotal(b) -
+                    getOrderTotal(a)
+                );
+
+            }
+        );
+
+    }
+
+
+    // ---------------------------------
+    // 💵 LOWEST PRICE
+    // ---------------------------------
+
+    if (
+        selectedSort === "low"
+    ) {
+
+        filteredOrders.sort(
+            (a, b) => {
+
+                return (
+                    getOrderTotal(a) -
+                    getOrderTotal(b)
+                );
+
+            }
+        );
+
+    }
+
+
+    // =================================
+    // 🖥 DISPLAY RESULTS
+    // =================================
+
+    renderOrders(filteredOrders);
+
+}
+
+
+// =====================================
+// 💰 GET ORDER TOTAL
+// =====================================
+
+function getOrderTotal(order) {
+
+    // إذا كان total موجودًا في Firebase
+    if (
+        order.total !== undefined &&
+        order.total !== null
+    ) {
+
+        return Number(
+            order.total
+        ) || 0;
+
+    }
+
+
+    // إذا لم يكن total موجودًا
+    // نحسبه من المنتجات
+    if (
+        order.products &&
+        Array.isArray(order.products)
+    ) {
+
+        return order.products.reduce(
+            (total, product) => {
+
+                const price =
+                    Number(
+                        product.price || 0
+                    );
+
+                const quantity =
+                    Number(
+                        product.quantity || 0
+                    );
+
+
+                return total +
+                    (price * quantity);
+
+            },
+            0
+        );
+
+    }
+
+
+    return 0;
+
+}
+
+
+// =====================================
+// 🎛 FILTER EVENT
+// =====================================
+
+if (statusFilter) {
+
+    statusFilter.addEventListener(
+        "change",
+        displayFilteredOrders
+    );
+
+}
+
+
+// =====================================
+// 🔃 SORT EVENT
+// =====================================
+
+if (sortOrders) {
+
+    sortOrders.addEventListener(
+        "change",
+        displayFilteredOrders
+    );
+
+}
