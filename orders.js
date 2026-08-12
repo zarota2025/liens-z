@@ -595,3 +595,106 @@ async function changeStatus(index, newStatus) {
     }
 
 }
+// =====================================
+// 🗑 DELETE ORDER
+// PART 5 / 10
+// =====================================
+
+async function deleteOrder(index) {
+
+    // التأكد من وجود الطلب
+    if (
+        index < 0 ||
+        index >= orders.length
+    ) {
+
+        console.error(
+            "❌ Invalid order index"
+        );
+
+        return;
+
+    }
+
+
+    const order =
+        orders[index];
+
+
+    // تأكيد الحذف
+    const confirmed =
+        confirm(
+            "🗑 Are you sure you want to delete this order?"
+        );
+
+
+    if (!confirmed) return;
+
+
+    // التأكد من Firebase ID
+    if (!order.firebaseId) {
+
+        console.error(
+            "❌ Firebase ID not found"
+        );
+
+        alert(
+            "❌ Unable to delete this order."
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        // حذف الطلب من Firebase
+        await deleteDoc(
+
+            doc(
+                db,
+                "orders",
+                order.firebaseId
+            )
+
+        );
+
+
+        // حذف الطلب من القائمة المحلية
+        orders.splice(index, 1);
+
+
+        console.log(
+            "🗑 Order deleted successfully"
+        );
+
+
+        // إعادة عرض الطلبات
+        displayFilteredOrders();
+
+
+        // تحديث الإحصائيات
+        updateStats();
+
+
+        alert(
+            "✅ Order deleted successfully"
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "❌ Error deleting order:",
+            error
+        );
+
+
+        alert(
+            "❌ Unable to delete order."
+        );
+
+    }
+
+}
