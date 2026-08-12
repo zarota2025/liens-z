@@ -1835,3 +1835,236 @@ function showAdminNotification() {
     );
 
 }
+// =====================================
+// 🚀 ADMIN DASHBOARD START
+// PART 10 / 10
+// =====================================
+
+
+// =====================================
+// ✏️🗑️ PRODUCT BUTTON EVENTS
+// =====================================
+
+if (productsContainer) {
+
+    productsContainer.addEventListener(
+        "click",
+        function (event) {
+
+            const button =
+                event.target.closest("button");
+
+            if (!button) return;
+
+
+            const index =
+                Number(
+                    button.dataset.productIndex
+                );
+
+
+            if (
+                Number.isNaN(index)
+            ) return;
+
+
+            // ✏️ EDIT
+            if (
+                button.classList.contains(
+                    "edit-btn"
+                )
+            ) {
+
+                editProduct(index);
+
+            }
+
+
+            // 🗑️ DELETE
+            if (
+                button.classList.contains(
+                    "delete-btn"
+                )
+            ) {
+
+                deleteProduct(index);
+
+            }
+
+        }
+    );
+
+}
+
+
+// =====================================
+// 🚪 LOGOUT
+// =====================================
+
+const logoutBtn =
+    document.getElementById(
+        "logout-btn"
+    );
+
+
+if (logoutBtn) {
+
+    logoutBtn.addEventListener(
+        "click",
+        function () {
+
+            localStorage.removeItem(
+                "adminLogged"
+            );
+
+
+            window.location.href =
+                "admin-login.html";
+
+        }
+    );
+
+}
+
+
+// =====================================
+// 🌙 ADMIN DARK MODE
+// =====================================
+
+const themeBtn =
+    document.getElementById(
+        "theme-toggle"
+    );
+
+
+function loadAdminTheme() {
+
+    const savedTheme =
+        localStorage.getItem(
+            "adminTheme"
+        );
+
+
+    if (
+        savedTheme === "dark"
+    ) {
+
+        document.body.classList.add(
+            "dark"
+        );
+
+
+        if (themeBtn) {
+
+            themeBtn.textContent =
+                "☀️";
+
+        }
+
+    } else {
+
+        document.body.classList.remove(
+            "dark"
+        );
+
+
+        if (themeBtn) {
+
+            themeBtn.textContent =
+                "🌙";
+
+        }
+
+    }
+
+}
+
+
+if (themeBtn) {
+
+    themeBtn.addEventListener(
+        "click",
+        function () {
+
+            document.body.classList.toggle(
+                "dark"
+            );
+
+
+            if (
+                document.body.classList.contains(
+                    "dark"
+                )
+            ) {
+
+                localStorage.setItem(
+                    "adminTheme",
+                    "dark"
+                );
+
+
+                themeBtn.textContent =
+                    "☀️";
+
+            } else {
+
+                localStorage.setItem(
+                    "adminTheme",
+                    "light"
+                );
+
+
+                themeBtn.textContent =
+                    "🌙";
+
+            }
+
+        }
+    );
+
+}
+
+
+loadAdminTheme();
+
+
+// =====================================
+// 🚀 INITIAL LOAD
+// =====================================
+
+async function startAdminDashboard() {
+
+    await loadProducts();
+
+    await updateDashboard();
+
+    await updateBestProducts();
+
+    await checkNewOrders();
+
+    drawSalesChart();
+
+}
+
+
+startAdminDashboard();
+
+
+// =====================================
+// 🔄 AUTO REFRESH
+// =====================================
+
+setInterval(
+    async function () {
+
+        await updateDashboard();
+
+        await updateBestProducts();
+
+        await checkNewOrders();
+
+        drawSalesChart();
+
+    },
+    30000
+);
