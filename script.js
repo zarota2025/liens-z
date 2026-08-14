@@ -329,3 +329,94 @@ if (themeBtn) {
 
 }
 
+// =====================================
+// 🌐 LANGUAGE SWITCHER
+// PART 2 / 10
+// =====================================
+
+const languageToggle =
+    document.getElementById(
+        "language-toggle"
+    );
+
+
+// =====================================
+// 🌐 CURRENT LANGUAGE
+// =====================================
+
+let currentLanguage =
+    localStorage.getItem(
+        "siteLanguage"
+    ) || "en";
+
+
+// =====================================
+// 🔄 UPDATE LANGUAGE BUTTON
+// =====================================
+
+function updateLanguageButton() {
+
+    if (!languageToggle) return;
+
+
+    if (
+        currentLanguage === "ar"
+    ) {
+
+        languageToggle.textContent =
+            "EN";
+
+    } else {
+
+        languageToggle.textContent =
+            "AR";
+
+    }
+
+}
+
+
+// =====================================
+// 🔄 CHANGE LANGUAGE
+// =====================================
+
+if (languageToggle) {
+
+    languageToggle.addEventListener(
+        "click",
+        function () {
+
+            if (
+                currentLanguage === "en"
+            ) {
+
+                currentLanguage =
+                    "ar";
+
+            } else {
+
+                currentLanguage =
+                    "en";
+
+            }
+
+
+            localStorage.setItem(
+                "siteLanguage",
+                currentLanguage
+            );
+
+
+            updateLanguageButton();
+
+        }
+    );
+
+}
+
+
+// =====================================
+// 🚀 INITIAL LANGUAGE
+// =====================================
+
+updateLanguageButton();
