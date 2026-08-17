@@ -572,3 +572,4 @@ function applyTranslations() {
     }
 
 }
+applyTranslations();
