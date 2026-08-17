@@ -420,3 +420,155 @@ if (languageToggle) {
 // =====================================
 
 updateLanguageButton();
+// =====================================
+// 🌐 APPLY TRANSLATIONS
+// PART 4 / 10
+// =====================================
+
+function applyTranslations() {
+
+    const language =
+        localStorage.getItem(
+            "siteLanguage"
+        ) || "en";
+
+
+    const texts =
+        translations[language];
+
+
+    if (!texts) return;
+
+
+    // =================================
+    // 🔍 SEARCH
+    // =================================
+
+    const search =
+        document.getElementById(
+            "search"
+        );
+
+
+    if (search) {
+
+        search.placeholder =
+            texts.search;
+
+    }
+
+
+    // =================================
+    // 🏠 SIDE MENU
+    // =================================
+
+    const sideMenu =
+        document.getElementById(
+            "side-menu"
+        );
+
+
+    if (sideMenu) {
+
+        const links =
+            sideMenu.querySelectorAll(
+                "a"
+            );
+
+
+        if (links[0])
+            links[0].textContent =
+                "🏠 " + texts.home;
+
+
+        if (links[1])
+            links[1].textContent =
+                "📦 " + texts.products;
+
+
+        if (links[2])
+            links[2].textContent =
+                "📂 " + texts.categories;
+
+
+        if (links[3])
+            links[3].textContent =
+                "🔥 " + texts.deals;
+
+
+        if (links[4])
+            links[4].textContent =
+                "❤️ " + texts.favorites;
+
+
+        if (links[5])
+            links[5].textContent =
+                "🛒 " + texts.cart;
+
+
+        if (links[6])
+            links[6].textContent =
+                "ℹ " + texts.about;
+
+
+        if (links[7])
+            links[7].textContent =
+                "📞 " + texts.contact;
+
+    }
+
+
+    // =================================
+    // 📦 SECTION TITLES
+    // =================================
+
+    const productsTitle =
+        document.querySelector(
+            "#products .section-title"
+        );
+
+
+    if (productsTitle) {
+
+        productsTitle.textContent =
+            texts.products;
+
+    }
+
+
+    // =================================
+    // ❤️ FAVORITES
+    // =================================
+
+    const favoritesLink =
+        document.querySelector(
+            'a[href="favorites.html"]'
+        );
+
+
+    if (favoritesLink) {
+
+        favoritesLink.textContent =
+            "❤️ " + texts.favorites;
+
+    }
+
+
+    // =================================
+    // 🛒 CART
+    // =================================
+
+    const cartLink =
+        document.querySelector(
+            'a[href="cart.html"]'
+        );
+
+
+    if (cartLink) {
+
+        cartLink.textContent =
+            "🛒 " + texts.cart;
+
+    }
+
+}
